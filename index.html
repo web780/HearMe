@@ -110,5 +110,13 @@
   const SUPABASE_URL = "https://gtclqrxylsyvqtjipatl.supabase.co/rest/v1/";
 const SUPABASE_ANON_KEY = " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0Y2xxcnh5bHN5dnF0amlwYXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNjI5OTIsImV4cCI6MjEwNTczODk5Mn0.njwDMMpnj7e1TF4RCDn6bEZNrOG5NS-qMiPuLvs2YMA";
  < /script>
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+</script>
 </body>
 </html>
