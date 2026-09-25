@@ -97,9 +97,9 @@
         and find support in a safe and respectful community.
       </p>
 
-      <button onclick="alert('Welcome to HearMe!')">
-        Get Started
-      </button>
+      <button onclick="showAuth()">
+  Get Started
+</button>
     </section>
 
     <footer>
@@ -120,6 +120,45 @@ const SUPABASE_ANON_KEY = " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXB
   </script>
   
   <script>
+    <script>
+  function showAuth() {
+    document.getElementById("authBox").style.display = "block";
+  }
+
+  async function signUp() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("authMessage");
+
+    const { error } = await supabase.auth.signUp({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = error.message;
+    } else {
+      message.textContent = "Account created! Check your email 💙";
+    }
+  }
+
+  async function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("authMessage");
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = error.message;
+    } else {
+      message.textContent = "You're logged in! 💙";
+    }
+  }
+</script>
   async function testConnection() {
     const { data, error } = await supabase
       .from("posts")
@@ -135,5 +174,43 @@ const SUPABASE_ANON_KEY = " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXB
 
   testConnection();
 </script>
+<div id="authBox" style="
+  display:none;
+  max-width:500px;
+  margin:30px auto;
+  padding:25px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  text-align:center;
+">
+
+  <h2>Welcome to HearMe 💙</h2>
+
+  <input
+    id="email"
+    type="email"
+    placeholder="Email"
+    style="width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:10px;"
+  >
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Password"
+    style="width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:10px;"
+  >
+
+  <button onclick="signUp()" style="margin:5px;">
+    Sign Up
+  </button>
+
+  <button onclick="login()" style="margin:5px;">
+    Log In
+  </button>
+
+  <p id="authMessage" style="margin-top:15px; color:#666;"></p>
+
+</div>
 </body>
 </html>
