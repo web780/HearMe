@@ -15,10 +15,9 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Arial, sans-serif;
       background: #f5f8fc;
       color: #172033;
-      min-height: 100vh;
     }
 
     button,
@@ -34,10 +33,6 @@
 
     .hidden {
       display: none !important;
-    }
-
-    .page {
-      min-height: 100vh;
     }
 
     /* HOME */
@@ -81,13 +76,13 @@
       color: white;
       padding: 14px 28px;
       border-radius: 14px;
-      font-weight: 700;
+      font-weight: bold;
       font-size: 16px;
-      box-shadow: 0 8px 20px rgba(40, 120, 232, 0.2);
     }
 
-    .primary-btn:hover {
-      background: #1768d8;
+    .primary-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     /* AUTH */
@@ -111,8 +106,8 @@
 
     .auth-card h2 {
       text-align: center;
-      margin-bottom: 8px;
       color: #2878e8;
+      margin-bottom: 8px;
     }
 
     .auth-subtitle {
@@ -128,7 +123,7 @@
     label {
       display: block;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: bold;
       margin-bottom: 7px;
     }
 
@@ -158,7 +153,6 @@
     .auth-actions {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
     }
 
     .auth-actions button {
@@ -171,7 +165,7 @@
       color: #2878e8;
       padding: 13px;
       border-radius: 12px;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .message {
@@ -205,13 +199,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
     }
 
     .brand {
       color: #2878e8;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: bold;
     }
 
     .logout-btn {
@@ -220,7 +213,7 @@
       color: #526176;
       padding: 9px 14px;
       border-radius: 10px;
-      font-weight: 600;
+      font-weight: bold;
     }
 
     .container {
@@ -257,7 +250,7 @@
       padding: 11px 17px;
       border-radius: 11px;
       color: #647188;
-      font-weight: 600;
+      font-weight: bold;
     }
 
     .tab-btn.active {
@@ -295,7 +288,7 @@
     }
 
     .post-user {
-      font-weight: 700;
+      font-weight: bold;
       color: #42607f;
     }
 
@@ -306,7 +299,7 @@
 
     .post-title {
       font-size: 19px;
-      font-weight: 800;
+      font-weight: bold;
       margin-bottom: 7px;
     }
 
@@ -341,11 +334,6 @@
       color: #526176;
       padding: 9px 12px;
       border-radius: 10px;
-      font-size: 13px;
-    }
-
-    .action-btn:hover {
-      background: #eaf2fc;
     }
 
     .comments-box {
@@ -363,7 +351,7 @@
 
     .comment-author {
       font-size: 12px;
-      font-weight: 700;
+      font-weight: bold;
       color: #55708e;
       margin-bottom: 4px;
     }
@@ -390,7 +378,7 @@
       color: white;
       border-radius: 10px;
       padding: 0 15px;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .report-box {
@@ -408,10 +396,8 @@
       color: white;
       padding: 9px 13px;
       border-radius: 9px;
-      font-weight: 600;
+      font-weight: bold;
     }
-
-    /* PROFILE */
 
     .profile-info {
       color: #748096;
@@ -426,19 +412,14 @@
       color: white;
       padding: 12px 20px;
       border-radius: 11px;
-      font-weight: 700;
+      font-weight: bold;
     }
 
-    .empty {
+    .empty,
+    .loading {
       text-align: center;
       color: #7c8798;
       padding: 30px 10px;
-    }
-
-    .loading {
-      text-align: center;
-      color: #738096;
-      padding: 20px;
     }
 
     @media (max-width: 600px) {
@@ -454,29 +435,12 @@
         padding: 22px;
       }
 
-      .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
       .section {
         padding: 16px;
       }
 
       .post-card {
         padding: 15px;
-      }
-
-      .topbar {
-        padding: 12px;
-      }
-
-      .brand {
-        font-size: 20px;
-      }
-
-      .welcome h2 {
-        font-size: 23px;
       }
     }
   </style>
@@ -485,15 +449,18 @@
 <body>
 
   <!-- HOME -->
-  <section id="home" class="page">
+  <section id="home">
     <div class="hero">
       <div class="logo">💙</div>
+
       <h1>HearMe</h1>
+
       <p>
         A safe community where people can share what they're going through,
         ask for support, and remind each other that they are not alone.
       </p>
-      <button class="primary-btn" id="getStartedBtn">
+
+      <button id="getStartedBtn" class="primary-btn">
         Get Started
       </button>
     </div>
@@ -501,16 +468,18 @@
 
 
   <!-- AUTH -->
-  <section id="auth" class="page hidden">
+  <section id="auth" class="hidden">
     <div class="auth-card">
 
-      <h2 id="authTitle">Welcome to HearMe 💙</h2>
-      <p class="auth-subtitle" id="authSubtitle">
+      <h2>Welcome to HearMe 💙</h2>
+
+      <p class="auth-subtitle">
         Create an account or log in to continue.
       </p>
 
-      <div class="form-group" id="usernameGroup">
+      <div class="form-group">
         <label for="username">Username</label>
+
         <input
           id="username"
           type="text"
@@ -521,6 +490,7 @@
 
       <div class="form-group">
         <label for="email">Email</label>
+
         <input
           id="email"
           type="email"
@@ -530,6 +500,7 @@
 
       <div class="form-group">
         <label for="password">Password</label>
+
         <input
           id="password"
           type="password"
@@ -538,13 +509,15 @@
       </div>
 
       <div class="auth-actions">
-        <button class="primary-btn" id="signupBtn">
+
+        <button id="signupBtn" class="primary-btn">
           Sign Up
         </button>
 
-        <button class="secondary-btn" id="loginBtn">
+        <button id="loginBtn" class="secondary-btn">
           Log In
         </button>
+
       </div>
 
       <button
@@ -562,75 +535,120 @@
 
 
   <!-- DASHBOARD -->
-  <section id="dashboard" class="page hidden">
+  <section id="dashboard" class="hidden">
 
     <header class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">💙 HearMe</div>
 
-        <button class="logout-btn" id="logoutBtn">
+      <div class="topbar-inner">
+
+        <div class="brand">
+          💙 HearMe
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
           Log Out
         </button>
+
       </div>
+
     </header>
+
 
     <main class="container">
 
       <div class="welcome">
-        <h2 id="welcomeTitle">Welcome 💙</h2>
-        <p>You're not alone. Someone is listening.</p>
+
+        <h2 id="welcomeTitle">
+          Welcome 💙
+        </h2>
+
+        <p>
+          You're not alone. Someone is listening.
+        </p>
+
       </div>
 
+
       <div class="tabs">
-        <button class="tab-btn active" data-tab="community">
+
+        <button
+          class="tab-btn active"
+          data-tab="community"
+        >
           🌍 Community
         </button>
 
-        <button class="tab-btn" data-tab="create">
+        <button
+          class="tab-btn"
+          data-tab="create"
+        >
           ✍️ Share
         </button>
 
-        <button class="tab-btn" data-tab="profile">
+        <button
+          class="tab-btn"
+          data-tab="profile"
+        >
           👤 Profile
         </button>
+
       </div>
 
 
       <!-- COMMUNITY -->
+
       <div id="communityTab" class="tab-content">
 
         <div class="section">
-          <h3>Community 💙</h3>
+
+          <h3>
+            Community 💙
+          </h3>
 
           <div id="postsContainer">
             <div class="loading">
               Loading posts...
             </div>
           </div>
+
         </div>
 
       </div>
 
 
       <!-- CREATE -->
+
       <div id="createTab" class="tab-content hidden">
 
         <div class="section">
-          <h3>Share what's on your mind 💙</h3>
+
+          <h3>
+            Share what's on your mind 💙
+          </h3>
 
           <div class="form-group">
-            <label for="postTitle">Title</label>
+
+            <label for="postTitle">
+              Title
+            </label>
+
             <input
               id="postTitle"
               maxlength="120"
               placeholder="Give your post a title"
             >
+
           </div>
 
+
           <div class="form-group">
-            <label for="postCategory">Category</label>
+
+            <label for="postCategory">
+              Category
+            </label>
 
             <select id="postCategory">
+
               <option value="Emotional Support">
                 Emotional Support
               </option>
@@ -658,36 +676,57 @@
               <option value="Other">
                 Other
               </option>
+
             </select>
+
           </div>
 
+
           <div class="form-group">
-            <label for="postContent">What's happening?</label>
+
+            <label for="postContent">
+              What's happening?
+            </label>
 
             <textarea
               id="postContent"
               maxlength="5000"
               placeholder="Share what's on your mind..."
             ></textarea>
+
           </div>
 
+
           <div class="form-group">
+
             <label>
+
               <input
                 id="anonymousPost"
                 type="checkbox"
                 checked
                 style="width:auto; margin-right:7px;"
               >
+
               Post anonymously
+
             </label>
+
           </div>
 
-          <button class="primary-btn" id="publishBtn">
+
+          <button
+            id="publishBtn"
+            class="primary-btn"
+          >
             Publish Post 💙
           </button>
 
-          <div id="postMessage" class="message hidden"></div>
+
+          <div
+            id="postMessage"
+            class="message hidden"
+          ></div>
 
         </div>
 
@@ -695,16 +734,21 @@
 
 
       <!-- PROFILE -->
+
       <div id="profileTab" class="tab-content hidden">
 
         <div class="section">
-          <h3>Your Profile 👤</h3>
+
+          <h3>
+            Your Profile 👤
+          </h3>
 
           <p class="profile-info">
-            Your username is used when you choose not to post anonymously.
+            Choose the username that appears when you don't post anonymously.
           </p>
 
           <div class="form-group">
+
             <label for="profileUsername">
               Username
             </label>
@@ -714,13 +758,20 @@
               maxlength="30"
               placeholder="Your username"
             >
+
           </div>
 
-          <button class="save-btn" id="saveProfileBtn">
+          <button
+            id="saveProfileBtn"
+            class="save-btn"
+          >
             Save Username
           </button>
 
-          <div id="profileMessage" class="message hidden"></div>
+          <div
+            id="profileMessage"
+            class="message hidden"
+          ></div>
 
         </div>
 
@@ -732,8 +783,9 @@
 
 
   <script>
+
     /* =====================================================
-       SUPABASE CONFIG
+       SUPABASE
     ===================================================== */
 
     const SUPABASE_URL =
@@ -753,9 +805,14 @@
        ELEMENTS
     ===================================================== */
 
-    const home = document.getElementById("home");
-    const auth = document.getElementById("auth");
-    const dashboard = document.getElementById("dashboard");
+    const home =
+      document.getElementById("home");
+
+    const auth =
+      document.getElementById("auth");
+
+    const dashboard =
+      document.getElementById("dashboard");
 
     const getStartedBtn =
       document.getElementById("getStartedBtn");
@@ -778,37 +835,78 @@
     const postsContainer =
       document.getElementById("postsContainer");
 
-    const welcomeTitle =
-      document.getElementById("welcomeTitle");
-
 
     /* =====================================================
-       HELPER FUNCTIONS
+       NAVIGATION
     ===================================================== */
 
-    function showOnly(section) {
-      home.classList.add("hidden");
+    function showHome() {
+
+      home.classList.remove("hidden");
       auth.classList.add("hidden");
       dashboard.classList.add("hidden");
 
-      section.classList.remove("hidden");
     }
 
 
+    function showAuth() {
+
+      home.classList.add("hidden");
+      auth.classList.remove("hidden");
+      dashboard.classList.add("hidden");
+
+    }
+
+
+    function showDashboardPage() {
+
+      home.classList.add("hidden");
+      auth.classList.add("hidden");
+      dashboard.classList.remove("hidden");
+
+    }
+
+
+    getStartedBtn.addEventListener("click", function () {
+
+      showAuth();
+
+    });
+
+
+    backHomeBtn.addEventListener("click", function () {
+
+      showHome();
+
+    });
+
+
+    /* =====================================================
+       MESSAGES
+    ===================================================== */
+
     function showMessage(element, text) {
+
       element.textContent = text;
       element.classList.remove("hidden");
+
     }
 
 
     function hideMessage(element) {
-      element.classList.add("hidden");
+
       element.textContent = "";
+      element.classList.add("hidden");
+
     }
 
 
     function escapeHTML(value) {
-      if (value === null || value === undefined) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
         return "";
       }
 
@@ -818,283 +916,110 @@
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
     }
 
 
     function formatDate(date) {
+
       if (!date) {
         return "";
       }
 
       return new Date(date).toLocaleString();
+
     }
-/* =====================================================
-   AUTH NAVIGATION
-===================================================== */
-
-getStartedBtn.onclick = function () {
-  home.classList.add("hidden");
-  auth.classList.remove("hidden");
-};
-
-backHomeBtn.addEventListener("click", () => {
-  showOnly(home);
-});
-
 
 
     /* =====================================================
-       CREATE / ENSURE PROFILE
+       PROFILE
     ===================================================== */
 
-    async function ensureProfile(user, preferredUsername = "") {
+    async function ensureProfile(
+      user,
+      preferredUsername = ""
+    ) {
 
       if (!user) {
         return null;
       }
 
-      try {
+      const {
+        data: existing,
+        error: selectError
+      } = await supabaseClient
+        .from("profiles")
+        .select("id, username")
+        .eq("id", user.id)
+        .maybeSingle();
 
-        const { data: existing, error: selectError } =
-          await supabaseClient
-            .from("profiles")
-            .select("id, username")
-            .eq("id", user.id)
-            .maybeSingle();
+      if (selectError) {
 
-        if (selectError) {
-          console.error(selectError);
-          return null;
-        }
+        console.error(
+          "Profile check error:",
+          selectError
+        );
 
-        if (existing) {
-          return existing;
-        }
-
-        let username = preferredUsername.trim();
-
-        if (!username) {
-
-          const emailPart =
-            (user.email || "user")
-              .split("@")[0]
-              .replace(/[^a-zA-Z0-9_]/g, "")
-              .slice(0, 20);
-
-          username =
-            emailPart || "User";
-        }
-
-        const { data, error } =
-          await supabaseClient
-            .from("profiles")
-            .insert([
-              {
-                id: user.id,
-                username: username
-              }
-            ])
-            .select()
-            .single();
-
-        if (error) {
-          console.error(error);
-          return null;
-        }
-
-        return data;
-
-      } catch (error) {
-        console.error(error);
         return null;
       }
+
+      if (existing) {
+        return existing;
+      }
+
+
+      let username =
+        preferredUsername.trim();
+
+
+      if (!username) {
+
+        username =
+          (user.email || "user")
+            .split("@")[0]
+            .replace(/[^a-zA-Z0-9_]/g, "")
+            .slice(0, 20);
+
+      }
+
+
+      if (!username) {
+        username = "User";
+      }
+
+
+      const {
+        data,
+        error
+      } = await supabaseClient
+        .from("profiles")
+        .insert([
+          {
+            id: user.id,
+            username: username
+          }
+        ])
+        .select()
+        .single();
+
+
+      if (error) {
+
+        console.error(
+          "Profile creation error:",
+          error
+        );
+
+        return null;
+      }
+
+
+      return data;
+
     }
 
 
-    /* =====================================================
-       SIGN UP
-    ===================================================== */
-
-    signupBtn.addEventListener("click", async () => {
-
-      hideMessage(authMessage);
-
-      const username =
-        document.getElementById("username")
-          .value
-          .trim();
-
-      const email =
-        document.getElementById("email")
-          .value
-          .trim();
-
-      const password =
-        document.getElementById("password")
-          .value;
-
-      if (!username) {
-        showMessage(
-          authMessage,
-          "Please choose a username."
-        );
-        return;
-      }
-
-      if (!email) {
-        showMessage(
-          authMessage,
-          "Please enter your email."
-        );
-        return;
-      }
-
-      if (password.length < 6) {
-        showMessage(
-          authMessage,
-          "Password must be at least 6 characters."
-        );
-        return;
-      }
-
-      signupBtn.disabled = true;
-      signupBtn.textContent = "Creating...";
-
-      try {
-
-        const { data, error } =
-          await supabaseClient.auth.signUp({
-            email: email,
-            password: password
-          });
-
-        if (error) {
-          showMessage(
-            authMessage,
-            error.message
-          );
-          return;
-        }
-
-        if (data.user) {
-
-          if (data.session) {
-
-            await ensureProfile(
-              data.user,
-              username
-            );
-
-            showDashboard();
-
-          } else {
-
-            showMessage(
-              authMessage,
-              "Account created! Check your email to confirm your account 💙"
-            );
-
-          }
-        }
-
-      } catch (error) {
-
-        showMessage(
-          authMessage,
-          error.message || "Something went wrong."
-        );
-
-      } finally {
-
-        signupBtn.disabled = false;
-        signupBtn.textContent = "Sign Up";
-
-      }
-    });
-
-
-    /* =====================================================
-       LOGIN
-    ===================================================== */
-
-    loginBtn.addEventListener("click", async () => {
-
-      hideMessage(authMessage);
-
-      const email =
-        document.getElementById("email")
-          .value
-          .trim();
-
-      const password =
-        document.getElementById("password")
-          .value;
-
-      if (!email || !password) {
-        showMessage(
-          authMessage,
-          "Please enter your email and password."
-        );
-        return;
-      }
-
-      loginBtn.disabled = true;
-      loginBtn.textContent = "Logging in...";
-
-      try {
-
-        const { data, error } =
-          await supabaseClient.auth.signInWithPassword({
-            email: email,
-            password: password
-          });
-
-        if (error) {
-          showMessage(
-            authMessage,
-            error.message
-          );
-          return;
-        }
-
-        if (data.user) {
-
-          const username =
-            document.getElementById("username")
-              .value
-              .trim();
-
-          await ensureProfile(
-            data.user,
-            username
-          );
-
-          showDashboard();
-        }
-
-      } catch (error) {
-
-        showMessage(
-          authMessage,
-          error.message || "Login failed."
-        );
-
-      } finally {
-
-        loginBtn.disabled = false;
-        loginBtn.textContent = "Log In";
-
-      }
-    });
-
-
-    /* =====================================================
-       SHOW DASHBOARD
-    ===================================================== */
-
-    async function showDashboard() {
-
-      showOnly(dashboard);
+    async function loadProfile() {
 
       const {
         data: {
@@ -1102,22 +1027,296 @@ backHomeBtn.addEventListener("click", () => {
         }
       } = await supabaseClient.auth.getUser();
 
+
       if (!user) {
-        showOnly(auth);
         return;
       }
+
 
       const profile =
         await ensureProfile(user);
 
-      const username =
-        profile?.username || "there";
 
-      welcomeTitle.textContent =
-        "Welcome, " + username + " 💙";
+      document.getElementById(
+        "profileUsername"
+      ).value =
+        profile?.username || "";
+
+    }
+
+
+    /* =====================================================
+       SIGN UP
+    ===================================================== */
+
+    signupBtn.addEventListener(
+      "click",
+      async function () {
+
+        hideMessage(authMessage);
+
+        const username =
+          document.getElementById("username")
+            .value
+            .trim();
+
+        const email =
+          document.getElementById("email")
+            .value
+            .trim();
+
+        const password =
+          document.getElementById("password")
+            .value;
+
+
+        if (!username) {
+
+          showMessage(
+            authMessage,
+            "Please choose a username."
+          );
+
+          return;
+        }
+
+
+        if (!email) {
+
+          showMessage(
+            authMessage,
+            "Please enter your email."
+          );
+
+          return;
+        }
+
+
+        if (password.length < 6) {
+
+          showMessage(
+            authMessage,
+            "Password must be at least 6 characters."
+          );
+
+          return;
+        }
+
+
+        signupBtn.disabled = true;
+        signupBtn.textContent = "Creating...";
+
+
+        try {
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth.signUp({
+              email: email,
+              password: password
+            });
+
+
+          if (error) {
+
+            showMessage(
+              authMessage,
+              error.message
+            );
+
+            return;
+          }
+
+
+          if (data.user) {
+
+            if (data.session) {
+
+              await ensureProfile(
+                data.user,
+                username
+              );
+
+              await showDashboard();
+
+            } else {
+
+              showMessage(
+                authMessage,
+                "Account created! Check your email to confirm your account 💙"
+              );
+
+            }
+
+          }
+
+        } catch (error) {
+
+          console.error(error);
+
+          showMessage(
+            authMessage,
+            error.message ||
+            "Something went wrong."
+          );
+
+        } finally {
+
+          signupBtn.disabled = false;
+          signupBtn.textContent = "Sign Up";
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    loginBtn.addEventListener(
+      "click",
+      async function () {
+
+        hideMessage(authMessage);
+
+
+        const email =
+          document.getElementById("email")
+            .value
+            .trim();
+
+        const password =
+          document.getElementById("password")
+            .value;
+
+
+        if (!email || !password) {
+
+          showMessage(
+            authMessage,
+            "Please enter your email and password."
+          );
+
+          return;
+        }
+
+
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Logging in...";
+
+
+        try {
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth.signInWithPassword({
+              email: email,
+              password: password
+            });
+
+
+          if (error) {
+
+            showMessage(
+              authMessage,
+              error.message
+            );
+
+            return;
+          }
+
+
+          if (data.user) {
+
+            const username =
+              document.getElementById("username")
+                .value
+                .trim();
+
+
+            await ensureProfile(
+              data.user,
+              username
+            );
+
+
+            await showDashboard();
+
+          }
+
+        } catch (error) {
+
+          console.error(error);
+
+          showMessage(
+            authMessage,
+            error.message ||
+            "Login failed."
+          );
+
+        } finally {
+
+          loginBtn.disabled = false;
+          loginBtn.textContent = "Log In";
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       DASHBOARD
+    ===================================================== */
+
+    async function showDashboard() {
+
+      showDashboardPage();
+
+
+      const {
+        data: {
+          user
+        }
+      } =
+        await supabaseClient.auth.getUser();
+
+
+      if (!user) {
+
+        showAuth();
+
+        return;
+
+      }
+
+
+      const profile =
+        await ensureProfile(user);
+
+
+      const username =
+        profile?.username ||
+        "there";
+
+
+      document.getElementById(
+        "welcomeTitle"
+      ).textContent =
+        "Welcome, " +
+        username +
+        " 💙";
+
 
       await loadPosts();
       await loadProfile();
+
     }
 
 
@@ -1125,71 +1324,87 @@ backHomeBtn.addEventListener("click", () => {
        LOGOUT
     ===================================================== */
 
-    logoutBtn.addEventListener("click", async () => {
+    logoutBtn.addEventListener(
+      "click",
+      async function () {
 
-      await supabaseClient.auth.signOut();
+        await supabaseClient.auth.signOut();
 
-      showOnly(home);
+        showHome();
 
-      document.getElementById("email").value = "";
-      document.getElementById("password").value = "";
-
-    });
+      }
+    );
 
 
     /* =====================================================
        TABS
     ===================================================== */
 
-    document.querySelectorAll(".tab-btn")
-      .forEach(button => {
+    document
+      .querySelectorAll(".tab-btn")
+      .forEach(function (button) {
 
-        button.addEventListener("click", async () => {
-
-          document.querySelectorAll(".tab-btn")
-            .forEach(btn =>
-              btn.classList.remove("active")
-            );
-
-          button.classList.add("active");
-
-          const tab =
-            button.dataset.tab;
-
-          document.querySelectorAll(".tab-content")
-            .forEach(content =>
-              content.classList.add("hidden")
-            );
-
-          if (tab === "community") {
+        button.addEventListener(
+          "click",
+          async function () {
 
             document
-              .getElementById("communityTab")
-              .classList.remove("hidden");
+              .querySelectorAll(".tab-btn")
+              .forEach(function (btn) {
 
-            await loadPosts();
+                btn.classList.remove("active");
 
-          }
+              });
 
-          if (tab === "create") {
 
-            document
-              .getElementById("createTab")
-              .classList.remove("hidden");
+            button.classList.add("active");
 
-          }
-
-          if (tab === "profile") {
 
             document
-              .getElementById("profileTab")
-              .classList.remove("hidden");
+              .querySelectorAll(".tab-content")
+              .forEach(function (content) {
 
-            await loadProfile();
+                content.classList.add("hidden");
+
+              });
+
+
+            const tab =
+              button.dataset.tab;
+
+
+            if (tab === "community") {
+
+              document
+                .getElementById("communityTab")
+                .classList.remove("hidden");
+
+              await loadPosts();
+
+            }
+
+
+            if (tab === "create") {
+
+              document
+                .getElementById("createTab")
+                .classList.remove("hidden");
+
+            }
+
+
+            if (tab === "profile") {
+
+              document
+                .getElementById("profileTab")
+                .classList.remove("hidden");
+
+              await loadProfile();
+
+            }
 
           }
-
-        });
+        );
 
       });
 
@@ -1200,124 +1415,159 @@ backHomeBtn.addEventListener("click", () => {
 
     document
       .getElementById("publishBtn")
-      .addEventListener("click", async () => {
+      .addEventListener(
+        "click",
+        async function () {
 
-        const title =
-          document.getElementById("postTitle")
-            .value
-            .trim();
+          const title =
+            document.getElementById("postTitle")
+              .value
+              .trim();
 
-        const category =
-          document.getElementById("postCategory")
-            .value;
+          const category =
+            document.getElementById("postCategory")
+              .value;
 
-        const content =
-          document.getElementById("postContent")
-            .value
-            .trim();
+          const content =
+            document.getElementById("postContent")
+              .value
+              .trim();
 
-        const isAnonymous =
-          document.getElementById("anonymousPost")
-            .checked;
+          const isAnonymous =
+            document.getElementById("anonymousPost")
+              .checked;
 
-        const message =
-          document.getElementById("postMessage");
+          const message =
+            document.getElementById("postMessage");
 
-        hideMessage(message);
 
-        if (!title) {
-          showMessage(
-            message,
-            "Please add a title."
-          );
-          return;
-        }
+          hideMessage(message);
 
-        if (!content) {
-          showMessage(
-            message,
-            "Please write something first."
-          );
-          return;
-        }
 
-        const {
-          data: {
-            user
-          }
-        } = await supabaseClient.auth.getUser();
-
-        if (!user) {
-          showMessage(
-            message,
-            "Please log in first."
-          );
-          return;
-        }
-
-        await ensureProfile(user);
-
-        const publishBtn =
-          document.getElementById("publishBtn");
-
-        publishBtn.disabled = true;
-        publishBtn.textContent = "Publishing...";
-
-        try {
-
-          const {
-            error
-          } = await supabaseClient
-            .from("posts")
-            .insert([
-              {
-                user_id: user.id,
-                category: category,
-                title: title,
-                content: content,
-                is_anonymous: isAnonymous
-              }
-            ]);
-
-          if (error) {
-            console.error(error);
+          if (!title) {
 
             showMessage(
               message,
-              error.message
+              "Please add a title."
             );
 
             return;
           }
 
-          document.getElementById("postTitle").value = "";
-          document.getElementById("postContent").value = "";
-          document.getElementById("postCategory").value =
-            "Emotional Support";
-          document.getElementById("anonymousPost").checked =
-            true;
 
-          showMessage(
-            message,
-            "Your post was published 💙"
-          );
+          if (!content) {
 
-          await loadPosts();
+            showMessage(
+              message,
+              "Please write something first."
+            );
 
-        } catch (error) {
+            return;
+          }
 
-          showMessage(
-            message,
-            error.message || "Could not publish post."
-          );
 
-        } finally {
+          const {
+            data: {
+              user
+            }
+          } =
+            await supabaseClient.auth.getUser();
 
-          publishBtn.disabled = false;
-          publishBtn.textContent = "Publish Post 💙";
+
+          if (!user) {
+
+            showMessage(
+              message,
+              "Please log in first."
+            );
+
+            return;
+          }
+
+
+          await ensureProfile(user);
+
+
+          const publishBtn =
+            document.getElementById("publishBtn");
+
+
+          publishBtn.disabled = true;
+          publishBtn.textContent = "Publishing...";
+
+
+          try {
+
+            const {
+              error
+            } =
+              await supabaseClient
+                .from("posts")
+                .insert([
+                  {
+                    user_id: user.id,
+                    category: category,
+                    title: title,
+                    content: content,
+                    is_anonymous: isAnonymous
+                  }
+                ]);
+
+
+            if (error) {
+
+              console.error(error);
+
+              showMessage(
+                message,
+                error.message
+              );
+
+              return;
+            }
+
+
+            document.getElementById(
+              "postTitle"
+            ).value = "";
+
+            document.getElementById(
+              "postContent"
+            ).value = "";
+
+            document.getElementById(
+              "anonymousPost"
+            ).checked = true;
+
+
+            showMessage(
+              message,
+              "Your post was published 💙"
+            );
+
+
+            await loadPosts();
+
+          } catch (error) {
+
+            console.error(error);
+
+            showMessage(
+              message,
+              error.message ||
+              "Could not publish post."
+            );
+
+          } finally {
+
+            publishBtn.disabled = false;
+            publishBtn.textContent =
+              "Publish Post 💙";
+
+          }
 
         }
-      });
+      );
 
 
     /* =====================================================
@@ -1329,19 +1579,23 @@ backHomeBtn.addEventListener("click", () => {
       postsContainer.innerHTML =
         '<div class="loading">Loading posts...</div>';
 
+
       try {
 
         const {
           data: posts,
           error
-        } = await supabaseClient
-          .from("posts")
-          .select("*")
-          .order("created_at", {
-            ascending: false
-          });
+        } =
+          await supabaseClient
+            .from("posts")
+            .select("*")
+            .order("created_at", {
+              ascending: false
+            });
+
 
         if (error) {
+
           console.error(error);
 
           postsContainer.innerHTML =
@@ -1350,7 +1604,11 @@ backHomeBtn.addEventListener("click", () => {
           return;
         }
 
-        if (!posts || posts.length === 0) {
+
+        if (
+          !posts ||
+          posts.length === 0
+        ) {
 
           postsContainer.innerHTML =
             '<div class="empty">No posts yet. Be the first to share 💙</div>';
@@ -1358,89 +1616,124 @@ backHomeBtn.addEventListener("click", () => {
           return;
         }
 
+
         const {
           data: {
             user
           }
-        } = await supabaseClient.auth.getUser();
+        } =
+          await supabaseClient.auth.getUser();
 
 
-        /* Load profiles */
+        /* PROFILES */
 
         const userIds =
-          [...new Set(
-            posts
-              .map(post => post.user_id)
-              .filter(Boolean)
-          )];
+          [
+            ...new Set(
+              posts
+                .map(function (post) {
+                  return post.user_id;
+                })
+                .filter(Boolean)
+            )
+          ];
+
 
         let profiles = [];
+
 
         if (userIds.length > 0) {
 
           const {
             data
-          } = await supabaseClient
-            .from("profiles")
-            .select("id, username")
-            .in("id", userIds);
+          } =
+            await supabaseClient
+              .from("profiles")
+              .select("id, username")
+              .in("id", userIds);
+
 
           profiles = data || [];
+
         }
 
 
-        /* Load reactions */
+        /* REACTIONS */
 
         const {
           data: reactions
-        } = await supabaseClient
-          .from("reactions")
-          .select("post_id, user_id, type")
-          .eq("type", "support");
+        } =
+          await supabaseClient
+            .from("reactions")
+            .select(
+              "post_id, user_id, type"
+            )
+            .eq("type", "support");
 
 
         const reactionCount = {};
-
         const reactedPosts = new Set();
 
-        (reactions || []).forEach(reaction => {
 
-          reactionCount[reaction.post_id] =
-            (reactionCount[reaction.post_id] || 0) + 1;
+        (reactions || [])
+          .forEach(function (reaction) {
 
-          if (
-            user &&
-            reaction.user_id === user.id
-          ) {
-            reactedPosts.add(reaction.post_id);
-          }
+            reactionCount[reaction.post_id] =
+              (
+                reactionCount[reaction.post_id] ||
+                0
+              ) + 1;
 
-        });
+
+            if (
+              user &&
+              reaction.user_id === user.id
+            ) {
+
+              reactedPosts.add(
+                reaction.post_id
+              );
+
+            }
+
+          });
 
 
         postsContainer.innerHTML = "";
 
-        posts.forEach(post => {
+
+        posts.forEach(function (post) {
 
           const profile =
-            profiles.find(
-              p => p.id === post.user_id
-            );
+            profiles.find(function (p) {
+
+              return p.id === post.user_id;
+
+            });
+
 
           let author = "Anonymous";
 
+
           if (!post.is_anonymous) {
+
             author =
               profile?.username ||
               "Community member";
+
           }
+
 
           const card =
             document.createElement("div");
 
-          card.className = "post-card";
+
+          card.className =
+            "post-card";
+
 
           card.innerHTML = `
+
             <div class="post-header">
 
               <div class="post-user">
@@ -1448,10 +1741,13 @@ backHomeBtn.addEventListener("click", () => {
               </div>
 
               <div class="post-date">
-                ${escapeHTML(formatDate(post.created_at))}
+                ${escapeHTML(
+                  formatDate(post.created_at)
+                )}
               </div>
 
             </div>
+
 
             ${
               post.category
@@ -1463,6 +1759,7 @@ backHomeBtn.addEventListener("click", () => {
                 : ""
             }
 
+
             ${
               post.title
                 ? `
@@ -1473,12 +1770,844 @@ backHomeBtn.addEventListener("click", () => {
                 : ""
             }
 
+
             <div class="post-content">
               ${escapeHTML(post.content)}
             </div>
+
 
             <div class="post-actions">
 
               <button
                 class="action-btn support-btn"
-                data-post-id="${post.id
+                data-post-id="${post.id}"
+              >
+                ${
+                  reactedPosts.has(post.id)
+                    ? "💙 Supported"
+                    : "💙 Support"
+                }
+                (${reactionCount[post.id] || 0})
+              </button>
+
+
+              <button
+                class="action-btn comments-btn"
+                data-post-id="${post.id}"
+              >
+                💬 Comments
+              </button>
+
+
+              <button
+                class="action-btn report-btn"
+                data-post-id="${post.id}"
+              >
+                🚩 Report
+              </button>
+
+            </div>
+
+
+            <div
+              class="comments-box hidden"
+              id="comments-${post.id}"
+            ></div>
+
+
+            <div
+              class="report-box hidden"
+              id="report-${post.id}"
+            >
+
+              <select class="report-reason">
+
+                <option value="Spam">
+                  Spam
+                </option>
+
+                <option value="Harassment">
+                  Harassment
+                </option>
+
+                <option value="Hate speech">
+                  Hate speech
+                </option>
+
+                <option value="Inappropriate content">
+                  Inappropriate content
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+
+              <button
+                class="submit-report-btn"
+                data-post-id="${post.id}"
+              >
+                Send Report
+              </button>
+
+            </div>
+
+          `;
+
+
+          postsContainer.appendChild(card);
+
+        });
+
+
+        /* SUPPORT */
+
+        document
+          .querySelectorAll(".support-btn")
+          .forEach(function (button) {
+
+            button.addEventListener(
+              "click",
+              async function () {
+
+                await toggleReaction(
+                  button.dataset.postId
+                );
+
+              }
+            );
+
+          });
+
+
+        /* COMMENTS */
+
+        document
+          .querySelectorAll(".comments-btn")
+          .forEach(function (button) {
+
+            button.addEventListener(
+              "click",
+              async function () {
+
+                const postId =
+                  button.dataset.postId;
+
+
+                const box =
+                  document.getElementById(
+                    "comments-" + postId
+                  );
+
+
+                box.classList.toggle(
+                  "hidden"
+                );
+
+
+                if (
+                  !box.classList.contains(
+                    "hidden"
+                  )
+                ) {
+
+                  await loadComments(
+                    postId,
+                    box
+                  );
+
+                }
+
+              }
+            );
+
+          });
+
+
+        /* REPORT */
+
+        document
+          .querySelectorAll(".report-btn")
+          .forEach(function (button) {
+
+            button.addEventListener(
+              "click",
+              function () {
+
+                const box =
+                  document.getElementById(
+                    "report-" +
+                    button.dataset.postId
+                  );
+
+
+                box.classList.toggle(
+                  "hidden"
+                );
+
+              }
+            );
+
+          });
+
+
+        document
+          .querySelectorAll(
+            ".submit-report-btn"
+          )
+          .forEach(function (button) {
+
+            button.addEventListener(
+              "click",
+              async function () {
+
+                const postId =
+                  button.dataset.postId;
+
+
+                const box =
+                  document.getElementById(
+                    "report-" + postId
+                  );
+
+
+                const reason =
+                  box.querySelector(
+                    ".report-reason"
+                  ).value;
+
+
+                await submitReport(
+                  postId,
+                  reason
+                );
+
+              }
+            );
+
+          });
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        postsContainer.innerHTML =
+          '<div class="empty">Something went wrong while loading posts.</div>';
+
+      }
+
+    }
+
+
+    /* =====================================================
+       REACTIONS
+    ===================================================== */
+
+    async function toggleReaction(postId) {
+
+      const {
+        data: {
+          user
+        }
+      } =
+        await supabaseClient.auth.getUser();
+
+
+      if (!user) {
+
+        alert("Please log in first.");
+
+        return;
+
+      }
+
+
+      await ensureProfile(user);
+
+
+      try {
+
+        const {
+          data: existing,
+          error: findError
+        } =
+          await supabaseClient
+            .from("reactions")
+            .select("id")
+            .eq("post_id", postId)
+            .eq("user_id", user.id)
+            .eq("type", "support")
+            .maybeSingle();
+
+
+        if (findError) {
+
+          console.error(findError);
+
+          alert(findError.message);
+
+          return;
+
+        }
+
+
+        if (existing) {
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("reactions")
+              .delete()
+              .eq("id", existing.id);
+
+
+          if (error) {
+
+            alert(error.message);
+
+            return;
+
+          }
+
+        } else {
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("reactions")
+              .insert([
+                {
+                  post_id: postId,
+                  user_id: user.id,
+                  type: "support"
+                }
+              ]);
+
+
+          if (error) {
+
+            alert(error.message);
+
+            return;
+
+          }
+
+        }
+
+
+        await loadPosts();
+
+      } catch (error) {
+
+        console.error(error);
+
+        alert(
+          "Could not update reaction."
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       COMMENTS
+    ===================================================== */
+
+    async function loadComments(
+      postId,
+      box
+    ) {
+
+      box.innerHTML =
+        '<div class="loading">Loading comments...</div>';
+
+
+      try {
+
+        const {
+          data: comments,
+          error
+        } =
+          await supabaseClient
+            .from("comments")
+            .select("*")
+            .eq("post_id", postId)
+            .order("created_at", {
+              ascending: true
+            });
+
+
+        if (error) {
+
+          console.error(error);
+
+          box.innerHTML =
+            '<div class="empty">Could not load comments.</div>';
+
+          return;
+
+        }
+
+
+        const userIds =
+          [
+            ...new Set(
+              (comments || [])
+                .map(function (comment) {
+                  return comment.user_id;
+                })
+                .filter(Boolean)
+            )
+          ];
+
+
+        let profiles = [];
+
+
+        if (userIds.length > 0) {
+
+          const {
+            data
+          } =
+            await supabaseClient
+              .from("profiles")
+              .select("id, username")
+              .in("id", userIds);
+
+
+          profiles = data || [];
+
+        }
+
+
+        let html = "";
+
+
+        if (
+          !comments ||
+          comments.length === 0
+        ) {
+
+          html =
+            '<div class="empty">No comments yet.</div>';
+
+        } else {
+
+          comments.forEach(function (comment) {
+
+            const profile =
+              profiles.find(function (p) {
+
+                return p.id === comment.user_id;
+
+              });
+
+
+            const username =
+              profile?.username ||
+              "Community member";
+
+
+            html += `
+
+              <div class="comment">
+
+                <div class="comment-author">
+                  ${escapeHTML(username)}
+                </div>
+
+                <div class="comment-text">
+                  ${escapeHTML(comment.content)}
+                </div>
+
+              </div>
+
+            `;
+
+          });
+
+        }
+
+
+        html += `
+
+          <div class="comment-form">
+
+            <input
+              type="text"
+              class="new-comment"
+              maxlength="1000"
+              placeholder="Write a supportive comment..."
+            >
+
+            <button
+              type="button"
+              class="send-comment-btn"
+            >
+              Send
+            </button>
+
+          </div>
+
+        `;
+
+
+        box.innerHTML = html;
+
+
+        box
+          .querySelector(
+            ".send-comment-btn"
+          )
+          .addEventListener(
+            "click",
+            async function () {
+
+              const input =
+                box.querySelector(
+                  ".new-comment"
+                );
+
+
+              const content =
+                input.value.trim();
+
+
+              if (!content) {
+                return;
+              }
+
+
+              await addComment(
+                postId,
+                content
+              );
+
+            }
+          );
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        box.innerHTML =
+          '<div class="empty">Something went wrong.</div>';
+
+      }
+
+    }
+
+
+    async function addComment(
+      postId,
+      content
+    ) {
+
+      const {
+        data: {
+          user
+        }
+      } =
+        await supabaseClient.auth.getUser();
+
+
+      if (!user) {
+
+        alert("Please log in first.");
+
+        return;
+
+      }
+
+
+      await ensureProfile(user);
+
+
+      const {
+        error
+      } =
+        await supabaseClient
+          .from("comments")
+          .insert([
+            {
+              post_id: postId,
+              user_id: user.id,
+              content: content
+            }
+          ]);
+
+
+      if (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+        return;
+
+      }
+
+
+      const box =
+        document.getElementById(
+          "comments-" + postId
+        );
+
+
+      await loadComments(
+        postId,
+        box
+      );
+
+    }
+
+
+    /* =====================================================
+       REPORTS
+    ===================================================== */
+
+    async function submitReport(
+      postId,
+      reason
+    ) {
+
+      const {
+        data: {
+          user
+        }
+      } =
+        await supabaseClient.auth.getUser();
+
+
+      if (!user) {
+
+        alert("Please log in first.");
+
+        return;
+
+      }
+
+
+      const {
+        error
+      } =
+        await supabaseClient
+          .from("reports")
+          .insert([
+            {
+              post_id: postId,
+              reporter_id: user.id,
+              reason: reason
+            }
+          ]);
+
+
+      if (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+        return;
+
+      }
+
+
+      const box =
+        document.getElementById(
+          "report-" + postId
+        );
+
+
+      box.innerHTML =
+        '<div style="color:#39704a;font-weight:bold;">Report submitted. Thank you 💙</div>';
+
+    }
+
+
+    /* =====================================================
+       SAVE PROFILE
+    ===================================================== */
+
+    document
+      .getElementById("saveProfileBtn")
+      .addEventListener(
+        "click",
+        async function () {
+
+          const {
+            data: {
+              user
+            }
+          } =
+            await supabaseClient.auth.getUser();
+
+
+          if (!user) {
+            return;
+          }
+
+
+          const username =
+            document.getElementById(
+              "profileUsername"
+            )
+            .value
+            .trim();
+
+
+          const message =
+            document.getElementById(
+              "profileMessage"
+            );
+
+
+          hideMessage(message);
+
+
+          if (!username) {
+
+            showMessage(
+              message,
+              "Username cannot be empty."
+            );
+
+            return;
+
+          }
+
+
+          const saveBtn =
+            document.getElementById(
+              "saveProfileBtn"
+            );
+
+
+          saveBtn.disabled = true;
+          saveBtn.textContent = "Saving...";
+
+
+          try {
+
+            const {
+              error
+            } =
+              await supabaseClient
+                .from("profiles")
+                .upsert(
+                  {
+                    id: user.id,
+                    username: username
+                  },
+                  {
+                    onConflict: "id"
+                  }
+                );
+
+
+            if (error) {
+
+              console.error(error);
+
+              showMessage(
+                message,
+                error.message
+              );
+
+              return;
+
+            }
+
+
+            document.getElementById(
+              "welcomeTitle"
+            ).textContent =
+              "Welcome, " +
+              username +
+              " 💙";
+
+
+            showMessage(
+              message,
+              "Username saved 💙"
+            );
+
+
+          } catch (error) {
+
+            console.error(error);
+
+            showMessage(
+              message,
+              "Could not save username."
+            );
+
+          } finally {
+
+            saveBtn.disabled = false;
+            saveBtn.textContent =
+              "Save Username";
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       SESSION
+    ===================================================== */
+
+    async function checkSession() {
+
+      try {
+
+        const {
+          data: {
+            session
+          }
+        } =
+          await supabaseClient.auth.getSession();
+
+
+        if (session?.user) {
+
+          await showDashboard();
+
+        } else {
+
+          showHome();
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Session error:",
+          error
+        );
+
+        showHome();
+
+      }
+
+    }
+
+
+    /* =====================================================
+       START
+    ===================================================== */
+
+    checkSession();
+
+  </script>
+
+</body>
+</html>
