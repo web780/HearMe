@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>HearMe 💙</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -11,60 +10,144 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f8ff;
-      color: #1f2937;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f8fc;
+      color: #172033;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 25px 18px;
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    /* HOME */
+
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #eaf3ff, #ffffff);
     }
 
     .hero {
+      width: 100%;
+      max-width: 650px;
       text-align: center;
-      padding: 55px 20px 30px;
     }
 
-    h1 {
-      color: #2563eb;
-      font-size: 42px;
+    .logo {
+      font-size: 55px;
       margin-bottom: 10px;
     }
 
-    h2 {
-      color: #2563eb;
+    .hero h1 {
+      font-size: 48px;
+      color: #2878e8;
+      margin-bottom: 15px;
     }
 
-    .subtitle {
+    .hero p {
       font-size: 18px;
-      color: #64748b;
       line-height: 1.6;
+      color: #657087;
+      margin-bottom: 30px;
     }
 
-    .card {
+    .primary-btn {
+      border: none;
+      background: #2878e8;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(40, 120, 232, 0.2);
+    }
+
+    .primary-btn:hover {
+      background: #1768d8;
+    }
+
+    /* AUTH */
+
+    #auth {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 430px;
       background: white;
-      padding: 25px;
-      border-radius: 20px;
-      margin-top: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 35px rgba(20, 50, 90, 0.1);
+    }
+
+    .auth-card h2 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #2878e8;
+    }
+
+    .auth-subtitle {
+      text-align: center;
+      color: #758097;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 7px;
     }
 
     input,
-    textarea {
+    textarea,
+    select {
       width: 100%;
-      padding: 14px;
-      margin-top: 10px;
-      margin-bottom: 12px;
-      border: 1px solid #dbe4f0;
+      border: 1px solid #dce3ed;
+      background: #fbfcfe;
       border-radius: 12px;
-      font-size: 16px;
+      padding: 13px;
       outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #2878e8;
+      background: white;
     }
 
     textarea {
@@ -72,219 +155,592 @@
       resize: vertical;
     }
 
-    input:focus,
-    textarea:focus {
-      border-color: #60a5fa;
+    .auth-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
     }
 
-    button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 8px;
-      border: none;
+    .auth-actions button {
+      flex: 1;
+    }
+
+    .secondary-btn {
+      border: 1px solid #dce3ed;
+      background: white;
+      color: #2878e8;
+      padding: 13px;
       border-radius: 12px;
-      background: #2563eb;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    .secondary {
-      background: #e8f0ff;
-      color: #2563eb;
-    }
-
-    .secondary:hover {
-      background: #dbeafe;
-    }
-
-    .danger {
-      background: #ef4444;
-    }
-
-    .danger:hover {
-      background: #dc2626;
-    }
-
-    .hidden {
-      display: none;
+      font-weight: 700;
     }
 
     .message {
+      margin-top: 15px;
+      padding: 11px;
+      border-radius: 10px;
+      font-size: 14px;
       text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
+      background: #eef5ff;
+      color: #2865b7;
     }
 
-    .post {
+    /* DASHBOARD */
+
+    #dashboard {
+      min-height: 100vh;
+    }
+
+    .topbar {
       background: white;
-      padding: 20px;
-      border-radius: 18px;
-      margin-top: 15px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+      border-bottom: 1px solid #e6ebf2;
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .post-text {
-      white-space: pre-wrap;
-      line-height: 1.6;
-      color: #334155;
+    .topbar-inner {
+      max-width: 950px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      color: #2878e8;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logout-btn {
+      border: none;
+      background: #f0f4f9;
+      color: #526176;
+      padding: 9px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: auto;
+      padding: 22px 15px 50px;
+    }
+
+    .welcome {
+      margin-bottom: 20px;
+    }
+
+    .welcome h2 {
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .welcome p {
+      color: #748096;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      white-space: nowrap;
+      border: none;
+      background: white;
+      padding: 11px 17px;
+      border-radius: 11px;
+      color: #647188;
+      font-weight: 600;
+    }
+
+    .tab-btn.active {
+      background: #2878e8;
+      color: white;
+    }
+
+    .section {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(30, 60, 100, 0.06);
+    }
+
+    .section h3 {
+      margin-bottom: 15px;
+    }
+
+    /* POSTS */
+
+    .post-card {
+      background: white;
+      border: 1px solid #e7ecf3;
+      border-radius: 17px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .post-user {
+      font-weight: 700;
+      color: #42607f;
     }
 
     .post-date {
       font-size: 12px;
-      color: #94a3b8;
-      margin-top: 12px;
+      color: #98a2b3;
     }
 
-    .welcome {
+    .post-title {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .category {
+      display: inline-block;
+      background: #edf5ff;
+      color: #2878e8;
+      padding: 5px 9px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .post-content {
+      color: #4d596d;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-bottom: 15px;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid #edf0f5;
+      padding-top: 12px;
+    }
+
+    .action-btn {
+      border: none;
+      background: #f4f7fb;
+      color: #526176;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .action-btn:hover {
+      background: #eaf2fc;
+    }
+
+    .comments-box {
+      margin-top: 13px;
+      padding-top: 13px;
+      border-top: 1px solid #edf0f5;
+    }
+
+    .comment {
+      background: #f7f9fc;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+
+    .comment-author {
+      font-size: 12px;
+      font-weight: 700;
+      color: #55708e;
+      margin-bottom: 4px;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      color: #4f5b6c;
+      white-space: pre-wrap;
+    }
+
+    .comment-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .comment-form input {
+      flex: 1;
+    }
+
+    .comment-form button {
+      border: none;
+      background: #2878e8;
+      color: white;
+      border-radius: 10px;
+      padding: 0 15px;
+      font-weight: 700;
+    }
+
+    .report-box {
+      margin-top: 12px;
+      padding: 13px;
+      background: #fff8f8;
+      border: 1px solid #f2dada;
+      border-radius: 12px;
+    }
+
+    .report-box button {
+      margin-top: 8px;
+      border: none;
+      background: #d95353;
+      color: white;
+      padding: 9px 13px;
+      border-radius: 9px;
+      font-weight: 600;
+    }
+
+    /* PROFILE */
+
+    .profile-info {
+      color: #748096;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .save-btn {
+      margin-top: 10px;
+      border: none;
+      background: #2878e8;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 11px;
+      font-weight: 700;
+    }
+
+    .empty {
       text-align: center;
-      background: #eaf2ff;
-      padding: 18px;
-      border-radius: 16px;
-      color: #2563eb;
-      font-weight: bold;
+      color: #7c8798;
+      padding: 30px 10px;
+    }
+
+    .loading {
+      text-align: center;
+      color: #738096;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .auth-card {
+        padding: 22px;
+      }
+
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .section {
+        padding: 16px;
+      }
+
+      .post-card {
+        padding: 15px;
+      }
+
+      .topbar {
+        padding: 12px;
+      }
+
+      .brand {
+        font-size: 20px;
+      }
+
+      .welcome h2 {
+        font-size: 23px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-
-    <!-- HOME -->
-    <section id="homeSection" class="hero">
-
-      <h1>HearMe 💙</h1>
-
-      <p class="subtitle">
-        A safe space to share and support.
+  <!-- HOME -->
+  <section id="home" class="page">
+    <div class="hero">
+      <div class="logo">💙</div>
+      <h1>HearMe</h1>
+      <p>
+        A safe community where people can share what they're going through,
+        ask for support, and remind each other that they are not alone.
       </p>
-
-      <p class="subtitle">
-        You don't have to face everything alone.
-      </p>
-
-      <p class="subtitle">
-        Share what you're going through, listen to others,
-        and find support in a safe and respectful community.
-      </p>
-
-      <button id="getStartedButton">
-        Get Started 💙
+      <button class="primary-btn" id="getStartedBtn">
+        Get Started
       </button>
+    </div>
+  </section>
 
-    </section>
 
+  <!-- AUTH -->
+  <section id="auth" class="page hidden">
+    <div class="auth-card">
 
-    <!-- AUTH -->
-    <section id="authSection" class="card hidden">
-
-      <h2>Welcome to HearMe 💙</h2>
-
-      <p class="subtitle">
+      <h2 id="authTitle">Welcome to HearMe 💙</h2>
+      <p class="auth-subtitle" id="authSubtitle">
         Create an account or log in to continue.
       </p>
 
-      <input
-        id="emailInput"
-        type="email"
-        placeholder="Your email"
-      >
-
-      <input
-        id="passwordInput"
-        type="password"
-        placeholder="Your password"
-      >
-
-      <button id="signUpButton">
-        Sign Up
-      </button>
-
-      <button id="loginButton" class="secondary">
-        Log In
-      </button>
-
-      <p id="authMessage" class="message"></p>
-
-    </section>
-
-
-    <!-- DASHBOARD -->
-    <section id="dashboardSection" class="hidden">
-
-      <div class="welcome">
-        You're logged in! Welcome to HearMe 💙
+      <div class="form-group" id="usernameGroup">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          maxlength="30"
+          placeholder="Choose a username"
+        >
       </div>
 
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+        >
+      </div>
 
-      <!-- CREATE POST -->
-      <div class="card">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Your password"
+        >
+      </div>
 
-        <h2>Share something 📝</h2>
-
-        <p class="subtitle">
-          Share what's on your mind. Your voice matters.
-        </p>
-
-        <textarea
-          id="postInput"
-          placeholder="Write something you'd like to share..."
-        ></textarea>
-
-        <button id="postButton">
-          Share Post 💙
+      <div class="auth-actions">
+        <button class="primary-btn" id="signupBtn">
+          Sign Up
         </button>
 
-        <p id="postMessage" class="message"></p>
+        <button class="secondary-btn" id="loginBtn">
+          Log In
+        </button>
+      </div>
 
+      <button
+        id="backHomeBtn"
+        class="secondary-btn"
+        style="width:100%; margin-top:10px;"
+      >
+        ← Back
+      </button>
+
+      <div id="authMessage" class="message hidden"></div>
+
+    </div>
+  </section>
+
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="page hidden">
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">💙 HearMe</div>
+
+        <button class="logout-btn" id="logoutBtn">
+          Log Out
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <div class="welcome">
+        <h2 id="welcomeTitle">Welcome 💙</h2>
+        <p>You're not alone. Someone is listening.</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="community">
+          🌍 Community
+        </button>
+
+        <button class="tab-btn" data-tab="create">
+          ✍️ Share
+        </button>
+
+        <button class="tab-btn" data-tab="profile">
+          👤 Profile
+        </button>
       </div>
 
 
-      <!-- POSTS -->
-      <div class="card">
+      <!-- COMMUNITY -->
+      <div id="communityTab" class="tab-content">
 
-        <h2>Community 💬</h2>
+        <div class="section">
+          <h3>Community 💙</h3>
 
-        <div id="postsContainer">
-          <p class="subtitle">
-            Loading posts...
-          </p>
+          <div id="postsContainer">
+            <div class="loading">
+              Loading posts...
+            </div>
+          </div>
         </div>
 
       </div>
 
 
-      <!-- LOGOUT -->
-      <div class="card">
+      <!-- CREATE -->
+      <div id="createTab" class="tab-content hidden">
 
-        <button id="logoutButton" class="danger">
-          Log Out
-        </button>
+        <div class="section">
+          <h3>Share what's on your mind 💙</h3>
+
+          <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input
+              id="postTitle"
+              maxlength="120"
+              placeholder="Give your post a title"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="postCategory">Category</label>
+
+            <select id="postCategory">
+              <option value="Emotional Support">
+                Emotional Support
+              </option>
+
+              <option value="Money">
+                Money
+              </option>
+
+              <option value="School">
+                School
+              </option>
+
+              <option value="Family">
+                Family
+              </option>
+
+              <option value="Relationships">
+                Relationships
+              </option>
+
+              <option value="Life">
+                Life
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="postContent">What's happening?</label>
+
+            <textarea
+              id="postContent"
+              maxlength="5000"
+              placeholder="Share what's on your mind..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input
+                id="anonymousPost"
+                type="checkbox"
+                checked
+                style="width:auto; margin-right:7px;"
+              >
+              Post anonymously
+            </label>
+          </div>
+
+          <button class="primary-btn" id="publishBtn">
+            Publish Post 💙
+          </button>
+
+          <div id="postMessage" class="message hidden"></div>
+
+        </div>
 
       </div>
 
-    </section>
 
-  </div>
+      <!-- PROFILE -->
+      <div id="profileTab" class="tab-content hidden">
+
+        <div class="section">
+          <h3>Your Profile 👤</h3>
+
+          <p class="profile-info">
+            Your username is used when you choose not to post anonymously.
+          </p>
+
+          <div class="form-group">
+            <label for="profileUsername">
+              Username
+            </label>
+
+            <input
+              id="profileUsername"
+              maxlength="30"
+              placeholder="Your username"
+            >
+          </div>
+
+          <button class="save-btn" id="saveProfileBtn">
+            Save Username
+          </button>
+
+          <div id="profileMessage" class="message hidden"></div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </section>
 
 
   <script>
-
-    // =========================
-    // SUPABASE
-    // =========================
+    /* =====================================================
+       SUPABASE CONFIG
+    ===================================================== */
 
     const SUPABASE_URL =
       "https://gtclqrxylsyvqtjipatl.supabase.co";
 
     const SUPABASE_ANON_KEY =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0Y2xxcnh5bHN5dnF0amlwYXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNjI5OTIsImV4cCI6MjEwNTczODk5Mn0.njwDMMpnj7e1TF4RCDn6bEZNrOG5NS-qMiPuLvs2YMA";
-
 
     const supabaseClient =
       window.supabase.createClient(
@@ -293,433 +749,738 @@
       );
 
 
-    // =========================
-    // ELEMENTS
-    // =========================
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-    const homeSection =
-      document.getElementById("homeSection");
+    const home = document.getElementById("home");
+    const auth = document.getElementById("auth");
+    const dashboard = document.getElementById("dashboard");
 
-    const authSection =
-      document.getElementById("authSection");
+    const getStartedBtn =
+      document.getElementById("getStartedBtn");
 
-    const dashboardSection =
-      document.getElementById("dashboardSection");
+    const backHomeBtn =
+      document.getElementById("backHomeBtn");
 
-    const getStartedButton =
-      document.getElementById("getStartedButton");
+    const signupBtn =
+      document.getElementById("signupBtn");
 
-    const signUpButton =
-      document.getElementById("signUpButton");
+    const loginBtn =
+      document.getElementById("loginBtn");
 
-    const loginButton =
-      document.getElementById("loginButton");
-
-    const logoutButton =
-      document.getElementById("logoutButton");
-
-    const postButton =
-      document.getElementById("postButton");
-
-    const emailInput =
-      document.getElementById("emailInput");
-
-    const passwordInput =
-      document.getElementById("passwordInput");
-
-    const postInput =
-      document.getElementById("postInput");
+    const logoutBtn =
+      document.getElementById("logoutBtn");
 
     const authMessage =
       document.getElementById("authMessage");
 
-    const postMessage =
-      document.getElementById("postMessage");
-
     const postsContainer =
       document.getElementById("postsContainer");
 
+    const welcomeTitle =
+      document.getElementById("welcomeTitle");
 
-    // =========================
-    // GET STARTED
-    // =========================
 
-    getStartedButton.addEventListener(
-      "click",
-      function () {
+    /* =====================================================
+       HELPER FUNCTIONS
+    ===================================================== */
 
-        homeSection.classList.add("hidden");
+    function showOnly(section) {
+      home.classList.add("hidden");
+      auth.classList.add("hidden");
+      dashboard.classList.add("hidden");
 
-        authSection.classList.remove("hidden");
-
-        authSection.scrollIntoView({
-          behavior: "smooth"
-        });
-
-      }
-    );
-
-
-    // =========================
-    // SIGN UP
-    // =========================
-
-    signUpButton.addEventListener(
-      "click",
-      async function () {
-
-        const email =
-          emailInput.value.trim();
-
-        const password =
-          passwordInput.value.trim();
-
-
-        if (!email || !password) {
-
-          authMessage.textContent =
-            "Please enter your email and password.";
-
-          return;
-        }
-
-
-        if (password.length < 6) {
-
-          authMessage.textContent =
-            "Password must be at least 6 characters.";
-
-          return;
-        }
-
-
-        authMessage.textContent =
-          "Creating your account...";
-
-
-        const { data, error } =
-          await supabaseClient.auth.signUp({
-
-            email: email,
-
-            password: password
-
-          });
-
-
-        if (error) {
-
-          authMessage.textContent =
-            error.message;
-
-          return;
-        }
-
-
-        if (data.user) {
-
-          authMessage.textContent =
-            "Account created! Check your email 💙";
-
-        }
-
-      }
-    );
-
-
-    // =========================
-    // LOGIN
-    // =========================
-
-    loginButton.addEventListener(
-      "click",
-      async function () {
-
-        const email =
-          emailInput.value.trim();
-
-        const password =
-          passwordInput.value.trim();
-
-
-        if (!email || !password) {
-
-          authMessage.textContent =
-            "Please enter your email and password.";
-
-          return;
-        }
-
-
-        authMessage.textContent =
-          "Logging in...";
-
-
-        const { data, error } =
-          await supabaseClient.auth.signInWithPassword({
-
-            email: email,
-
-            password: password
-
-          });
-
-
-        if (error) {
-
-          authMessage.textContent =
-            error.message;
-
-          return;
-        }
-
-
-        if (data.user) {
-
-          showDashboard();
-
-        }
-
-      }
-    );
-
-
-    // =========================
-    // SHOW DASHBOARD
-    // =========================
-
-    function showDashboard() {
-
-      homeSection.classList.add("hidden");
-
-      authSection.classList.add("hidden");
-
-      dashboardSection.classList.remove("hidden");
-
-      loadPosts();
-
+      section.classList.remove("hidden");
     }
 
 
-    // =========================
-    // CREATE POST
-    // =========================
-
-    postButton.addEventListener(
-      "click",
-      async function () {
-
-        const content =
-          postInput.value.trim();
+    function showMessage(element, text) {
+      element.textContent = text;
+      element.classList.remove("hidden");
+    }
 
 
-        if (!content) {
-
-          postMessage.textContent =
-            "Please write something first 💙";
-
-          return;
-        }
+    function hideMessage(element) {
+      element.classList.add("hidden");
+      element.textContent = "";
+    }
 
 
-        postMessage.textContent =
-          "Sharing your post...";
+    function escapeHTML(value) {
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
 
 
-        const {
-          data: { user }
-        } =
-          await supabaseClient.auth.getUser();
+    function formatDate(date) {
+      if (!date) {
+        return "";
+      }
+
+      return new Date(date).toLocaleString();
+    }
 
 
-        if (!user) {
+    /* =====================================================
+       AUTH NAVIGATION
+    ===================================================== */
 
-          postMessage.textContent =
-            "Please log in first.";
+    getStartedBtn.addEventListener("click", () => {
+      showOnly(auth);
+      hideMessage(authMessage);
+    });
 
-          return;
-        }
+
+    backHomeBtn.addEventListener("click", () => {
+      showOnly(home);
+    });
 
 
-        const { error } =
+    /* =====================================================
+       CREATE / ENSURE PROFILE
+    ===================================================== */
+
+    async function ensureProfile(user, preferredUsername = "") {
+
+      if (!user) {
+        return null;
+      }
+
+      try {
+
+        const { data: existing, error: selectError } =
           await supabaseClient
-            .from("posts")
+            .from("profiles")
+            .select("id, username")
+            .eq("id", user.id)
+            .maybeSingle();
+
+        if (selectError) {
+          console.error(selectError);
+          return null;
+        }
+
+        if (existing) {
+          return existing;
+        }
+
+        let username = preferredUsername.trim();
+
+        if (!username) {
+
+          const emailPart =
+            (user.email || "user")
+              .split("@")[0]
+              .replace(/[^a-zA-Z0-9_]/g, "")
+              .slice(0, 20);
+
+          username =
+            emailPart || "User";
+        }
+
+        const { data, error } =
+          await supabaseClient
+            .from("profiles")
             .insert([
-
               {
-                content: content,
-                user_id: user.id
+                id: user.id,
+                username: username
               }
-
-            ]);
-
+            ])
+            .select()
+            .single();
 
         if (error) {
+          console.error(error);
+          return null;
+        }
 
-          postMessage.textContent =
-            error.message;
+        return data;
 
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    }
+
+
+    /* =====================================================
+       SIGN UP
+    ===================================================== */
+
+    signupBtn.addEventListener("click", async () => {
+
+      hideMessage(authMessage);
+
+      const username =
+        document.getElementById("username")
+          .value
+          .trim();
+
+      const email =
+        document.getElementById("email")
+          .value
+          .trim();
+
+      const password =
+        document.getElementById("password")
+          .value;
+
+      if (!username) {
+        showMessage(
+          authMessage,
+          "Please choose a username."
+        );
+        return;
+      }
+
+      if (!email) {
+        showMessage(
+          authMessage,
+          "Please enter your email."
+        );
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage(
+          authMessage,
+          "Password must be at least 6 characters."
+        );
+        return;
+      }
+
+      signupBtn.disabled = true;
+      signupBtn.textContent = "Creating...";
+
+      try {
+
+        const { data, error } =
+          await supabaseClient.auth.signUp({
+            email: email,
+            password: password
+          });
+
+        if (error) {
+          showMessage(
+            authMessage,
+            error.message
+          );
           return;
         }
 
+        if (data.user) {
 
-        postInput.value = "";
+          if (data.session) {
 
-        postMessage.textContent =
-          "Your post was shared 💙";
+            await ensureProfile(
+              data.user,
+              username
+            );
 
+            showDashboard();
 
-        loadPosts();
+          } else {
+
+            showMessage(
+              authMessage,
+              "Account created! Check your email to confirm your account 💙"
+            );
+
+          }
+        }
+
+      } catch (error) {
+
+        showMessage(
+          authMessage,
+          error.message || "Something went wrong."
+        );
+
+      } finally {
+
+        signupBtn.disabled = false;
+        signupBtn.textContent = "Sign Up";
 
       }
-    );
+    });
 
 
-    // =========================
-    // LOAD POSTS
-    // =========================
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    loginBtn.addEventListener("click", async () => {
+
+      hideMessage(authMessage);
+
+      const email =
+        document.getElementById("email")
+          .value
+          .trim();
+
+      const password =
+        document.getElementById("password")
+          .value;
+
+      if (!email || !password) {
+        showMessage(
+          authMessage,
+          "Please enter your email and password."
+        );
+        return;
+      }
+
+      loginBtn.disabled = true;
+      loginBtn.textContent = "Logging in...";
+
+      try {
+
+        const { data, error } =
+          await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
+
+        if (error) {
+          showMessage(
+            authMessage,
+            error.message
+          );
+          return;
+        }
+
+        if (data.user) {
+
+          const username =
+            document.getElementById("username")
+              .value
+              .trim();
+
+          await ensureProfile(
+            data.user,
+            username
+          );
+
+          showDashboard();
+        }
+
+      } catch (error) {
+
+        showMessage(
+          authMessage,
+          error.message || "Login failed."
+        );
+
+      } finally {
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = "Log In";
+
+      }
+    });
+
+
+    /* =====================================================
+       SHOW DASHBOARD
+    ===================================================== */
+
+    async function showDashboard() {
+
+      showOnly(dashboard);
+
+      const {
+        data: {
+          user
+        }
+      } = await supabaseClient.auth.getUser();
+
+      if (!user) {
+        showOnly(auth);
+        return;
+      }
+
+      const profile =
+        await ensureProfile(user);
+
+      const username =
+        profile?.username || "there";
+
+      welcomeTitle.textContent =
+        "Welcome, " + username + " 💙";
+
+      await loadPosts();
+      await loadProfile();
+    }
+
+
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
+
+    logoutBtn.addEventListener("click", async () => {
+
+      await supabaseClient.auth.signOut();
+
+      showOnly(home);
+
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+
+    });
+
+
+    /* =====================================================
+       TABS
+    ===================================================== */
+
+    document.querySelectorAll(".tab-btn")
+      .forEach(button => {
+
+        button.addEventListener("click", async () => {
+
+          document.querySelectorAll(".tab-btn")
+            .forEach(btn =>
+              btn.classList.remove("active")
+            );
+
+          button.classList.add("active");
+
+          const tab =
+            button.dataset.tab;
+
+          document.querySelectorAll(".tab-content")
+            .forEach(content =>
+              content.classList.add("hidden")
+            );
+
+          if (tab === "community") {
+
+            document
+              .getElementById("communityTab")
+              .classList.remove("hidden");
+
+            await loadPosts();
+
+          }
+
+          if (tab === "create") {
+
+            document
+              .getElementById("createTab")
+              .classList.remove("hidden");
+
+          }
+
+          if (tab === "profile") {
+
+            document
+              .getElementById("profileTab")
+              .classList.remove("hidden");
+
+            await loadProfile();
+
+          }
+
+        });
+
+      });
+
+
+    /* =====================================================
+       PUBLISH POST
+    ===================================================== */
+
+    document
+      .getElementById("publishBtn")
+      .addEventListener("click", async () => {
+
+        const title =
+          document.getElementById("postTitle")
+            .value
+            .trim();
+
+        const category =
+          document.getElementById("postCategory")
+            .value;
+
+        const content =
+          document.getElementById("postContent")
+            .value
+            .trim();
+
+        const isAnonymous =
+          document.getElementById("anonymousPost")
+            .checked;
+
+        const message =
+          document.getElementById("postMessage");
+
+        hideMessage(message);
+
+        if (!title) {
+          showMessage(
+            message,
+            "Please add a title."
+          );
+          return;
+        }
+
+        if (!content) {
+          showMessage(
+            message,
+            "Please write something first."
+          );
+          return;
+        }
+
+        const {
+          data: {
+            user
+          }
+        } = await supabaseClient.auth.getUser();
+
+        if (!user) {
+          showMessage(
+            message,
+            "Please log in first."
+          );
+          return;
+        }
+
+        await ensureProfile(user);
+
+        const publishBtn =
+          document.getElementById("publishBtn");
+
+        publishBtn.disabled = true;
+        publishBtn.textContent = "Publishing...";
+
+        try {
+
+          const {
+            error
+          } = await supabaseClient
+            .from("posts")
+            .insert([
+              {
+                user_id: user.id,
+                category: category,
+                title: title,
+                content: content,
+                is_anonymous: isAnonymous
+              }
+            ]);
+
+          if (error) {
+            console.error(error);
+
+            showMessage(
+              message,
+              error.message
+            );
+
+            return;
+          }
+
+          document.getElementById("postTitle").value = "";
+          document.getElementById("postContent").value = "";
+          document.getElementById("postCategory").value =
+            "Emotional Support";
+          document.getElementById("anonymousPost").checked =
+            true;
+
+          showMessage(
+            message,
+            "Your post was published 💙"
+          );
+
+          await loadPosts();
+
+        } catch (error) {
+
+          showMessage(
+            message,
+            error.message || "Could not publish post."
+          );
+
+        } finally {
+
+          publishBtn.disabled = false;
+          publishBtn.textContent = "Publish Post 💙";
+
+        }
+      });
+
+
+    /* =====================================================
+       LOAD POSTS
+    ===================================================== */
 
     async function loadPosts() {
 
       postsContainer.innerHTML =
-        "<p class='subtitle'>Loading posts...</p>";
+        '<div class="loading">Loading posts...</div>';
 
+      try {
 
-      const { data, error } =
-        await supabaseClient
+        const {
+          data: posts,
+          error
+        } = await supabaseClient
           .from("posts")
           .select("*")
           .order("created_at", {
             ascending: false
           });
 
+        if (error) {
+          console.error(error);
 
-      if (error) {
+          postsContainer.innerHTML =
+            '<div class="empty">Could not load posts.</div>';
 
-        postsContainer.innerHTML =
-          "<p class='subtitle'>" +
-          error.message +
-          "</p>";
+          return;
+        }
 
-        return;
-      }
+        if (!posts || posts.length === 0) {
 
+          postsContainer.innerHTML =
+            '<div class="empty">No posts yet. Be the first to share 💙</div>';
 
-      if (!data || data.length === 0) {
+          return;
+        }
 
-        postsContainer.innerHTML =
-          "<p class='subtitle'>No posts yet. Be the first to share 💙</p>";
-
-        return;
-      }
-
-
-      postsContainer.innerHTML = "";
-
-
-      data.forEach(function (post) {
-
-        const postElement =
-          document.createElement("div");
-
-        postElement.className =
-          "post";
+        const {
+          data: {
+            user
+          }
+        } = await supabaseClient.auth.getUser();
 
 
-        const textElement =
-          document.createElement("div");
+        /* Load profiles */
 
-        textElement.className =
-          "post-text";
+        const userIds =
+          [...new Set(
+            posts
+              .map(post => post.user_id)
+              .filter(Boolean)
+          )];
 
-        textElement.textContent =
-          post.content || "";
+        let profiles = [];
 
+        if (userIds.length > 0) {
 
-        const dateElement =
-          document.createElement("div");
+          const {
+            data
+          } = await supabaseClient
+            .from("profiles")
+            .select("id, username")
+            .in("id", userIds);
 
-        dateElement.className =
-          "post-date";
-
-
-        if (post.created_at) {
-
-          dateElement.textContent =
-            new Date(
-              post.created_at
-            ).toLocaleString();
-
+          profiles = data || [];
         }
 
 
-        postElement.appendChild(
-          textElement
-        );
+        /* Load reactions */
 
-        postElement.appendChild(
-          dateElement
-        );
-
-
-        postsContainer.appendChild(
-          postElement
-        );
-
-      });
-
-    }
+        const {
+          data: reactions
+        } = await supabaseClient
+          .from("reactions")
+          .select("post_id, user_id, type")
+          .eq("type", "support");
 
 
-    // =========================
-    // LOGOUT
-    // =========================
+        const reactionCount = {};
 
-    logoutButton.addEventListener(
-      "click",
-      async function () {
+        const reactedPosts = new Set();
 
-        await supabaseClient.auth.signOut();
+        (reactions || []).forEach(reaction => {
 
-        dashboardSection.classList.add(
-          "hidden"
-        );
+          reactionCount[reaction.post_id] =
+            (reactionCount[reaction.post_id] || 0) + 1;
 
-        authSection.classList.remove(
-          "hidden"
-        );
+          if (
+            user &&
+            reaction.user_id === user.id
+          ) {
+            reactedPosts.add(reaction.post_id);
+          }
 
-        authMessage.textContent =
-          "You have been logged out 💙";
-
-      }
-    );
+        });
 
 
-    // =========================
-    // CHECK CURRENT SESSION
-    // =========================
+        postsContainer.innerHTML = "";
 
-    async function checkUser() {
+        posts.forEach(post => {
 
-      const {
-        data: { session }
-      } =
-        await supabaseClient.auth.getSession();
+          const profile =
+            profiles.find(
+              p => p.id === post.user_id
+            );
 
+          let author = "Anonymous";
 
-      if (session) {
+          if (!post.is_anonymous) {
+            author =
+              profile?.username ||
+              "Community member";
+          }
 
-        showDashboard();
+          const card =
+            document.createElement("div");
 
-      }
+          card.className = "post-card";
 
-    }
+          card.innerHTML = `
+            <div class="post-header">
 
+              <div class="post-user">
+                ${escapeHTML(author)}
+              </div>
 
-    checkUser();
+              <div class="post-date">
+                ${escapeHTML(formatDate(post.created_at))}
+              </div>
 
-  </script>
+            </div>
 
-</body>
-</html>
+            ${
+              post.category
+                ? `
+                  <span class="category">
+                    ${escapeHTML(post.category)}
+                  </span>
+                `
+                : ""
+            }
+
+            ${
+              post.title
+                ? `
+                  <div class="post-title">
+                    ${escapeHTML(post.title)}
+                  </div>
+                `
+                : ""
+            }
+
+            <div class="post-content">
+              ${escapeHTML(post.content)}
+            </div>
+
+            <div class="post-actions">
+
+              <button
+                class="action-btn support-btn"
+                data-post-id="${post.id
