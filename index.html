@@ -6,181 +6,278 @@
 
   <title>HearMe 💙</title>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f8fc;
-      color: #222;
-      min-height: 100vh;
+      background: #f4f8ff;
+      color: #1f2937;
     }
 
-    header {
-      background: white;
-      padding: 22px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      color: #666;
-    }
-
-    main {
+    .container {
       max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 0 auto;
+      padding: 25px 18px;
     }
 
-    .welcome,
-    .auth-box {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
+    .hero {
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      padding: 55px 20px 30px;
     }
 
-    .welcome h2 {
-      margin-bottom: 12px;
+    h1 {
+      color: #2563eb;
+      font-size: 42px;
+      margin-bottom: 10px;
     }
 
-    .welcome p {
-      color: #666;
+    h2 {
+      color: #2563eb;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #64748b;
       line-height: 1.6;
-      margin-bottom: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #dbe4f0;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #60a5fa;
     }
 
     button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
       border: none;
-      padding: 13px 22px;
-      border-radius: 10px;
-      background: #6c63ff;
+      border-radius: 12px;
+      background: #2563eb;
       color: white;
       font-size: 16px;
       cursor: pointer;
-      margin: 5px;
     }
 
     button:hover {
-      opacity: 0.9;
+      background: #1d4ed8;
     }
 
-    input {
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
+    .secondary {
+      background: #e8f0ff;
+      color: #2563eb;
     }
 
-    .auth-box {
+    .secondary:hover {
+      background: #dbeafe;
+    }
+
+    .danger {
+      background: #ef4444;
+    }
+
+    .danger:hover {
+      background: #dc2626;
+    }
+
+    .hidden {
       display: none;
-      margin-top: 25px;
     }
 
-    .auth-box h2 {
-      margin-bottom: 15px;
-    }
-
-    #authMessage {
-      margin-top: 15px;
-      color: #666;
-      line-height: 1.5;
-    }
-
-    footer {
+    .message {
       text-align: center;
-      margin-top: 40px;
-      padding-bottom: 30px;
-      color: #888;
-      font-size: 14px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .post {
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
+      margin-top: 15px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    }
+
+    .post-text {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    .post-date {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 12px;
+    }
+
+    .welcome {
+      text-align: center;
+      background: #eaf2ff;
+      padding: 18px;
+      border-radius: 16px;
+      color: #2563eb;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>HearMe 💙</h1>
-    <p>A safe space to share and support.</p>
-  </header>
+  <div class="container">
 
-  <main>
+    <!-- HOME -->
+    <section id="homeSection" class="hero">
 
-    <section class="welcome">
-      <h2>You don't have to face everything alone.</h2>
+      <h1>HearMe 💙</h1>
 
-      <p>
+      <p class="subtitle">
+        A safe space to share and support.
+      </p>
+
+      <p class="subtitle">
+        You don't have to face everything alone.
+      </p>
+
+      <p class="subtitle">
         Share what you're going through, listen to others,
         and find support in a safe and respectful community.
       </p>
 
       <button id="getStartedButton">
-        Get Started
+        Get Started 💙
       </button>
+
     </section>
 
 
-    <section id="authBox" class="auth-box">
+    <!-- AUTH -->
+    <section id="authSection" class="card hidden">
 
       <h2>Welcome to HearMe 💙</h2>
 
+      <p class="subtitle">
+        Create an account or log in to continue.
+      </p>
+
       <input
-        id="email"
+        id="emailInput"
         type="email"
-        placeholder="Email"
-        autocomplete="email"
+        placeholder="Your email"
       >
 
       <input
-        id="password"
+        id="passwordInput"
         type="password"
-        placeholder="Password"
-        autocomplete="current-password"
+        placeholder="Your password"
       >
 
-      <div>
-        <button id="signUpButton">
-          Sign Up
-        </button>
+      <button id="signUpButton">
+        Sign Up
+      </button>
 
-        <button id="loginButton">
-          Log In
-        </button>
-      </div>
+      <button id="loginButton" class="secondary">
+        Log In
+      </button>
 
-      <p id="authMessage"></p>
+      <p id="authMessage" class="message"></p>
 
     </section>
 
-    <footer>
-      © 2026 HearMe
-    </footer>
 
-  </main>
+    <!-- DASHBOARD -->
+    <section id="dashboardSection" class="hidden">
+
+      <div class="welcome">
+        You're logged in! Welcome to HearMe 💙
+      </div>
 
 
-  <!-- Supabase library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+      <!-- CREATE POST -->
+      <div class="card">
+
+        <h2>Share something 📝</h2>
+
+        <p class="subtitle">
+          Share what's on your mind. Your voice matters.
+        </p>
+
+        <textarea
+          id="postInput"
+          placeholder="Write something you'd like to share..."
+        ></textarea>
+
+        <button id="postButton">
+          Share Post 💙
+        </button>
+
+        <p id="postMessage" class="message"></p>
+
+      </div>
+
+
+      <!-- POSTS -->
+      <div class="card">
+
+        <h2>Community 💬</h2>
+
+        <div id="postsContainer">
+          <p class="subtitle">
+            Loading posts...
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- LOGOUT -->
+      <div class="card">
+
+        <button id="logoutButton" class="danger">
+          Log Out
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
 
 
   <script>
 
-    // ==============================
-    // SUPABASE CONFIGURATION
-    // ==============================
+    // =========================
+    // SUPABASE
+    // =========================
 
     const SUPABASE_URL =
       "https://gtclqrxylsyvqtjipatl.supabase.co";
@@ -189,7 +286,6 @@
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0Y2xxcnh5bHN5dnF0amlwYXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNjI5OTIsImV4cCI6MjEwNTczODk5Mn0.njwDMMpnj7e1TF4RCDn6bEZNrOG5NS-qMiPuLvs2YMA";
 
 
-    // Create Supabase client
     const supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
@@ -197,15 +293,21 @@
       );
 
 
-    // ==============================
+    // =========================
     // ELEMENTS
-    // ==============================
+    // =========================
+
+    const homeSection =
+      document.getElementById("homeSection");
+
+    const authSection =
+      document.getElementById("authSection");
+
+    const dashboardSection =
+      document.getElementById("dashboardSection");
 
     const getStartedButton =
       document.getElementById("getStartedButton");
-
-    const authBox =
-      document.getElementById("authBox");
 
     const signUpButton =
       document.getElementById("signUpButton");
@@ -213,109 +315,409 @@
     const loginButton =
       document.getElementById("loginButton");
 
+    const logoutButton =
+      document.getElementById("logoutButton");
+
+    const postButton =
+      document.getElementById("postButton");
+
     const emailInput =
-      document.getElementById("email");
+      document.getElementById("emailInput");
 
     const passwordInput =
-      document.getElementById("password");
+      document.getElementById("passwordInput");
+
+    const postInput =
+      document.getElementById("postInput");
 
     const authMessage =
       document.getElementById("authMessage");
 
+    const postMessage =
+      document.getElementById("postMessage");
 
-    // ==============================
+    const postsContainer =
+      document.getElementById("postsContainer");
+
+
+    // =========================
     // GET STARTED
-    // ==============================
+    // =========================
 
-    getStartedButton.addEventListener("click", function () {
+    getStartedButton.addEventListener(
+      "click",
+      function () {
 
-      authBox.style.display = "block";
+        homeSection.classList.add("hidden");
 
-      authBox.scrollIntoView({
-        behavior: "smooth"
+        authSection.classList.remove("hidden");
+
+        authSection.scrollIntoView({
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+
+    // =========================
+    // SIGN UP
+    // =========================
+
+    signUpButton.addEventListener(
+      "click",
+      async function () {
+
+        const email =
+          emailInput.value.trim();
+
+        const password =
+          passwordInput.value.trim();
+
+
+        if (!email || !password) {
+
+          authMessage.textContent =
+            "Please enter your email and password.";
+
+          return;
+        }
+
+
+        if (password.length < 6) {
+
+          authMessage.textContent =
+            "Password must be at least 6 characters.";
+
+          return;
+        }
+
+
+        authMessage.textContent =
+          "Creating your account...";
+
+
+        const { data, error } =
+          await supabaseClient.auth.signUp({
+
+            email: email,
+
+            password: password
+
+          });
+
+
+        if (error) {
+
+          authMessage.textContent =
+            error.message;
+
+          return;
+        }
+
+
+        if (data.user) {
+
+          authMessage.textContent =
+            "Account created! Check your email 💙";
+
+        }
+
+      }
+    );
+
+
+    // =========================
+    // LOGIN
+    // =========================
+
+    loginButton.addEventListener(
+      "click",
+      async function () {
+
+        const email =
+          emailInput.value.trim();
+
+        const password =
+          passwordInput.value.trim();
+
+
+        if (!email || !password) {
+
+          authMessage.textContent =
+            "Please enter your email and password.";
+
+          return;
+        }
+
+
+        authMessage.textContent =
+          "Logging in...";
+
+
+        const { data, error } =
+          await supabaseClient.auth.signInWithPassword({
+
+            email: email,
+
+            password: password
+
+          });
+
+
+        if (error) {
+
+          authMessage.textContent =
+            error.message;
+
+          return;
+        }
+
+
+        if (data.user) {
+
+          showDashboard();
+
+        }
+
+      }
+    );
+
+
+    // =========================
+    // SHOW DASHBOARD
+    // =========================
+
+    function showDashboard() {
+
+      homeSection.classList.add("hidden");
+
+      authSection.classList.add("hidden");
+
+      dashboardSection.classList.remove("hidden");
+
+      loadPosts();
+
+    }
+
+
+    // =========================
+    // CREATE POST
+    // =========================
+
+    postButton.addEventListener(
+      "click",
+      async function () {
+
+        const content =
+          postInput.value.trim();
+
+
+        if (!content) {
+
+          postMessage.textContent =
+            "Please write something first 💙";
+
+          return;
+        }
+
+
+        postMessage.textContent =
+          "Sharing your post...";
+
+
+        const {
+          data: { user }
+        } =
+          await supabaseClient.auth.getUser();
+
+
+        if (!user) {
+
+          postMessage.textContent =
+            "Please log in first.";
+
+          return;
+        }
+
+
+        const { error } =
+          await supabaseClient
+            .from("posts")
+            .insert([
+
+              {
+                content: content,
+                user_id: user.id
+              }
+
+            ]);
+
+
+        if (error) {
+
+          postMessage.textContent =
+            error.message;
+
+          return;
+        }
+
+
+        postInput.value = "";
+
+        postMessage.textContent =
+          "Your post was shared 💙";
+
+
+        loadPosts();
+
+      }
+    );
+
+
+    // =========================
+    // LOAD POSTS
+    // =========================
+
+    async function loadPosts() {
+
+      postsContainer.innerHTML =
+        "<p class='subtitle'>Loading posts...</p>";
+
+
+      const { data, error } =
+        await supabaseClient
+          .from("posts")
+          .select("*")
+          .order("created_at", {
+            ascending: false
+          });
+
+
+      if (error) {
+
+        postsContainer.innerHTML =
+          "<p class='subtitle'>" +
+          error.message +
+          "</p>";
+
+        return;
+      }
+
+
+      if (!data || data.length === 0) {
+
+        postsContainer.innerHTML =
+          "<p class='subtitle'>No posts yet. Be the first to share 💙</p>";
+
+        return;
+      }
+
+
+      postsContainer.innerHTML = "";
+
+
+      data.forEach(function (post) {
+
+        const postElement =
+          document.createElement("div");
+
+        postElement.className =
+          "post";
+
+
+        const textElement =
+          document.createElement("div");
+
+        textElement.className =
+          "post-text";
+
+        textElement.textContent =
+          post.content || "";
+
+
+        const dateElement =
+          document.createElement("div");
+
+        dateElement.className =
+          "post-date";
+
+
+        if (post.created_at) {
+
+          dateElement.textContent =
+            new Date(
+              post.created_at
+            ).toLocaleString();
+
+        }
+
+
+        postElement.appendChild(
+          textElement
+        );
+
+        postElement.appendChild(
+          dateElement
+        );
+
+
+        postsContainer.appendChild(
+          postElement
+        );
+
       });
 
-    });
+    }
 
 
-    // ==============================
-    // SIGN UP
-    // ==============================
+    // =========================
+    // LOGOUT
+    // =========================
 
-    signUpButton.addEventListener("click", async function () {
+    logoutButton.addEventListener(
+      "click",
+      async function () {
 
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
+        await supabaseClient.auth.signOut();
 
-      if (!email || !password) {
+        dashboardSection.classList.add(
+          "hidden"
+        );
 
-        authMessage.textContent =
-          "Please enter your email and password.";
-
-        return;
-      }
-
-      authMessage.textContent =
-        "Creating your account...";
-
-      const { error } =
-        await supabaseClient.auth.signUp({
-          email: email,
-          password: password
-        });
-
-      if (error) {
+        authSection.classList.remove(
+          "hidden"
+        );
 
         authMessage.textContent =
-          error.message;
+          "You have been logged out 💙";
 
-        return;
+      }
+    );
+
+
+    // =========================
+    // CHECK CURRENT SESSION
+    // =========================
+
+    async function checkUser() {
+
+      const {
+        data: { session }
+      } =
+        await supabaseClient.auth.getSession();
+
+
+      if (session) {
+
+        showDashboard();
+
       }
 
-      authMessage.textContent =
-        "Account created! Check your email to confirm your account. 💙";
-
-    });
+    }
 
 
-    // ==============================
-    // LOG IN
-    // ==============================
-
-    loginButton.addEventListener("click", async function () {
-
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-
-      if (!email || !password) {
-
-        authMessage.textContent =
-          "Please enter your email and password.";
-
-        return;
-      }
-
-      authMessage.textContent =
-        "Logging in...";
-
-      const { error } =
-        await supabaseClient.auth.signInWithPassword({
-          email: email,
-          password: password
-        });
-
-      if (error) {
-
-        authMessage.textContent =
-          error.message;
-
-        return;
-      }
-
-      authMessage.textContent =
-        "You're logged in! Welcome to HearMe 💙";
-
-    });
+    checkUser();
 
   </script>
 
