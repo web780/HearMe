@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HearMe</title>
+
+  <title>HearMe 💙</title>
 
   <style>
     * {
@@ -16,11 +17,12 @@
       font-family: Arial, sans-serif;
       background: #f7f8fc;
       color: #222;
+      min-height: 100vh;
     }
 
     header {
       background: white;
-      padding: 20px;
+      padding: 22px;
       text-align: center;
       border-bottom: 1px solid #eee;
     }
@@ -40,7 +42,8 @@
       padding: 20px;
     }
 
-    .welcome {
+    .welcome,
+    .auth-box {
       background: white;
       padding: 30px;
       border-radius: 18px;
@@ -66,15 +69,41 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
+      margin: 5px;
     }
 
     button:hover {
       opacity: 0.9;
     }
 
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .auth-box {
+      display: none;
+      margin-top: 25px;
+    }
+
+    .auth-box h2 {
+      margin-bottom: 15px;
+    }
+
+    #authMessage {
+      margin-top: 15px;
+      color: #666;
+      line-height: 1.5;
+    }
+
     footer {
       text-align: center;
       margin-top: 40px;
+      padding-bottom: 30px;
       color: #888;
       font-size: 14px;
     }
@@ -89,6 +118,7 @@
   </header>
 
   <main>
+
     <section class="welcome">
       <h2>You don't have to face everything alone.</h2>
 
@@ -97,100 +127,197 @@
         and find support in a safe and respectful community.
       </p>
 
-      <button onclick="showAuth()">
-  Get Started
-</button>
+      <button id="getStartedButton">
+        Get Started
+      </button>
+    </section>
+
+
+    <section id="authBox" class="auth-box">
+
+      <h2>Welcome to HearMe 💙</h2>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Email"
+        autocomplete="email"
+      >
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      >
+
+      <div>
+        <button id="signUpButton">
+          Sign Up
+        </button>
+
+        <button id="loginButton">
+          Log In
+        </button>
+      </div>
+
+      <p id="authMessage"></p>
+
     </section>
 
     <footer>
       © 2026 HearMe
     </footer>
+
   </main>
-<script>
-  const SUPABASE_URL = "https://gtclqrxylsyvqtjipatl.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0Y2xxcnh5bHN5dnF0amlwYXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNjI5OTIsImV4cCI6MjEwNTczODk5Mn0.njwDMMpnj7e1TF4RCDn6bEZNrOG5NS-qMiPuLvs2YMA";
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-  const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-  );
-  function showAuth() {
-    document.getElementById("authBox").style.display = "block";
-  }
 
-  async function signUp() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const message = document.getElementById("authMessage");
+  <!-- Supabase library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    const { error } = await supabase.auth.signUp({
-      email: email,
-      password: password
+
+  <script>
+
+    // ==============================
+    // SUPABASE CONFIGURATION
+    // ==============================
+
+    const SUPABASE_URL =
+      "https://gtclqrxylsyvqtjipatl.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0Y2xxcnh5bHN5dnF0amlwYXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNjI5OTIsImV4cCI6MjEwNTczODk5Mn0.njwDMMpnj7e1TF4RCDn6bEZNrOG5NS-qMiPuLvs2YMA";
+
+
+    // Create Supabase client
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
+
+
+    // ==============================
+    // ELEMENTS
+    // ==============================
+
+    const getStartedButton =
+      document.getElementById("getStartedButton");
+
+    const authBox =
+      document.getElementById("authBox");
+
+    const signUpButton =
+      document.getElementById("signUpButton");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const passwordInput =
+      document.getElementById("password");
+
+    const authMessage =
+      document.getElementById("authMessage");
+
+
+    // ==============================
+    // GET STARTED
+    // ==============================
+
+    getStartedButton.addEventListener("click", function () {
+
+      authBox.style.display = "block";
+
+      authBox.scrollIntoView({
+        behavior: "smooth"
+      });
+
     });
 
-    if (error) {
-      message.textContent = error.message;
-    } else {
-      message.textContent = "Account created! Check your email 💙";
-    }
-  }
 
-  async function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const message = document.getElementById("authMessage");
+    // ==============================
+    // SIGN UP
+    // ==============================
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password
+    signUpButton.addEventListener("click", async function () {
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+
+        authMessage.textContent =
+          "Please enter your email and password.";
+
+        return;
+      }
+
+      authMessage.textContent =
+        "Creating your account...";
+
+      const { error } =
+        await supabaseClient.auth.signUp({
+          email: email,
+          password: password
+        });
+
+      if (error) {
+
+        authMessage.textContent =
+          error.message;
+
+        return;
+      }
+
+      authMessage.textContent =
+        "Account created! Check your email to confirm your account. 💙";
+
     });
 
-    if (error) {
-      message.textContent = error.message;
-    } else {
-      message.textContent = "You're logged in! 💙";
-    }
+
+    // ==============================
+    // LOG IN
+    // ==============================
+
+    loginButton.addEventListener("click", async function () {
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+
+        authMessage.textContent =
+          "Please enter your email and password.";
+
+        return;
+      }
+
+      authMessage.textContent =
+        "Logging in...";
+
+      const { error } =
+        await supabaseClient.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+
+      if (error) {
+
+        authMessage.textContent =
+          error.message;
+
+        return;
+      }
+
+      authMessage.textContent =
+        "You're logged in! Welcome to HearMe 💙";
+
+    });
+
   </script>
-  <div id="authBox" style="
-  display:none;
-  max-width:500px;
-  margin:30px auto;
-  padding:25px;
-  background:white;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
-  text-align:center;
-">
 
-  <h2>Welcome to HearMe 💙</h2>
-
-  <input
-    id="email"
-    type="email"
-    placeholder="Email"
-    style="width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:10px;"
-  >
-
-  <input
-    id="password"
-    type="password"
-    placeholder="Password"
-    style="width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:10px;"
-  >
-
-  <button onclick="signUp()" style="margin:5px;">
-    Sign Up
-  </button>
-
-  <button onclick="login()" style="margin:5px;">
-    Log In
-  </button>
-
-  <p id="authMessage" style="margin-top:15px; color:#666;"></p>
-
-</div>
 </body>
 </html>
