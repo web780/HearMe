@@ -828,21 +828,19 @@
 
       return new Date(date).toLocaleString();
     }
+/* =====================================================
+   AUTH NAVIGATION
+===================================================== */
 
+getStartedBtn.onclick = function () {
+  home.classList.add("hidden");
+  auth.classList.remove("hidden");
+};
 
-    /* =====================================================
-       AUTH NAVIGATION
-    ===================================================== */
+backHomeBtn.addEventListener("click", () => {
+  showOnly(home);
+});
 
-    getStartedBtn.addEventListener("click", () => {
-      showOnly(auth);
-      hideMessage(authMessage);
-    });
-
-
-    backHomeBtn.addEventListener("click", () => {
-      showOnly(home);
-    });
 
 
     /* =====================================================
