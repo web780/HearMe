@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,17 +17,17 @@
     }
 
     :root {
-      --blue: #2563eb;
-      --blue-dark: #1d4ed8;
-      --blue-light: #eff6ff;
-      --text: #172033;
-      --muted: #6b7280;
-      --border: #e5e7eb;
+      --blue: #4f7cff;
+      --blue-dark: #315bdc;
+      --blue-light: #eef3ff;
       --bg: #f6f8fc;
-      --white: #ffffff;
-      --danger: #dc2626;
-      --green: #16a34a;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #788195;
+      --border: #e5e9f2;
+      --danger: #e55353;
+      --success: #28a76b;
+      --shadow: 0 10px 35px rgba(40, 55, 90, .08);
       --radius: 18px;
     }
 
@@ -53,43 +54,39 @@
     }
 
     /* HOME */
-    #homeScreen {
+
+    #homePage {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 25px;
       background:
-        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
-        radial-gradient(circle at bottom right, #e0e7ff 0, transparent 35%),
-        #f8fafc;
+        radial-gradient(circle at top left, #dfe8ff 0, transparent 35%),
+        radial-gradient(circle at bottom right, #e7efff 0, transparent 35%),
+        #f8faff;
     }
 
     .hero {
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
       text-align: center;
-      padding: 55px 25px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 25px 70px rgba(45,65,110,.12);
+      border-radius: 30px;
+      padding: 70px 30px;
     }
 
     .logo {
-      width: 76px;
-      height: 76px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #2563eb, #60a5fa);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 22px;
-      color: white;
-      font-size: 35px;
-      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.25);
+      font-size: 55px;
+      margin-bottom: 15px;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 8vw, 72px);
-      letter-spacing: -2px;
+      font-size: clamp(42px, 8vw, 70px);
       margin-bottom: 15px;
+      letter-spacing: -2px;
     }
 
     .hero h1 span {
@@ -97,342 +94,328 @@
     }
 
     .hero p {
-      max-width: 620px;
-      margin: 0 auto 30px;
+      max-width: 600px;
+      margin: auto;
       color: var(--muted);
       font-size: 18px;
       line-height: 1.7;
     }
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* BUTTONS */
-    .btn {
+    .hero-btn {
+      margin-top: 30px;
       border: none;
-      border-radius: 12px;
-      padding: 13px 20px;
-      font-weight: 700;
-      transition: 0.2s;
-      min-height: 46px;
-    }
-
-    .btn-primary {
       background: var(--blue);
       color: white;
+      padding: 15px 30px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 10px 25px rgba(79,124,255,.25);
     }
 
-    .btn-primary:hover {
+    .hero-btn:hover {
       background: var(--blue-dark);
       transform: translateY(-1px);
     }
 
-    .btn-secondary {
-      background: white;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      background: #f8fafc;
-    }
-
-    .btn-danger {
-      background: #fee2e2;
-      color: var(--danger);
-    }
-
-    .btn-small {
-      padding: 8px 12px;
-      min-height: 36px;
-      font-size: 13px;
-      border-radius: 9px;
-    }
-
-    .btn-full {
-      width: 100%;
-    }
-
     /* AUTH */
-    #authScreen {
+
+    #authPage {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 25px;
+      background: var(--bg);
     }
 
     .auth-card {
-      background: white;
       width: 100%;
       max-width: 430px;
-      border-radius: 24px;
+      background: white;
+      border-radius: 25px;
       padding: 30px;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
     }
 
-    .auth-logo {
+    .auth-header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 25px;
     }
 
-    .auth-logo .mini-logo {
-      width: 58px;
-      height: 58px;
-      background: var(--blue);
-      border-radius: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto 13px;
-      color: white;
-      font-size: 27px;
+    .auth-header .mini-logo {
+      font-size: 40px;
     }
 
-    .auth-logo h2 {
-      margin-bottom: 5px;
+    .auth-header h2 {
+      margin-top: 8px;
+      font-size: 28px;
     }
 
-    .auth-logo p {
+    .auth-header p {
       color: var(--muted);
-      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .tabs-auth {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #f0f3f9;
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 22px;
+    }
+
+    .tabs-auth button {
+      border: none;
+      background: transparent;
+      padding: 11px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .tabs-auth button.active {
+      background: white;
+      color: var(--blue);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 7px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
+      margin-bottom: 7px;
     }
 
-    .input,
-    .textarea,
-    .select {
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       border: 1px solid var(--border);
+      background: #fbfcff;
       border-radius: 12px;
       padding: 13px 14px;
       outline: none;
-      background: white;
       color: var(--text);
-      transition: 0.2s;
+      transition: .2s;
     }
 
-    .input:focus,
-    .textarea:focus,
-    .select:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .textarea {
+    .form-group textarea {
       resize: vertical;
       min-height: 130px;
     }
 
-    .auth-switch {
-      text-align: center;
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(79,124,255,.10);
+      background: white;
+    }
+
+    .primary-btn {
+      width: 100%;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .primary-btn:hover {
+      background: var(--blue-dark);
+    }
+
+    .secondary-btn {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      padding: 11px 15px;
+      border-radius: 11px;
+      font-weight: 600;
+    }
+
+    .back-btn {
       margin-top: 18px;
-      font-size: 14px;
+      width: 100%;
+      background: transparent;
+      border: none;
       color: var(--muted);
     }
 
-    .auth-switch button {
-      border: none;
-      background: none;
-      color: var(--blue);
-      font-weight: 700;
-    }
-
     /* APP */
-    #appScreen {
+
+    #appPage {
       min-height: 100vh;
     }
 
     .topbar {
-      background: white;
+      height: 70px;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 20;
+      display: flex;
+      align-items: center;
     }
 
     .topbar-inner {
+      width: 100%;
       max-width: 1100px;
       margin: auto;
-      padding: 13px 18px;
+      padding: 0 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
     }
 
     .brand {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    .user-area {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 800;
-      font-size: 20px;
     }
 
-    .brand-icon {
-      width: 39px;
-      height: 39px;
-      border-radius: 12px;
-      background: var(--blue);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .user-menu {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--blue-light);
-      color: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-
-    .logout-btn {
-      border: none;
-      background: #f3f4f6;
-      color: var(--text);
-      padding: 9px 13px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 25px 18px 80px;
-    }
-
-    /* TABS */
-    .tabs {
-      display: flex;
-      gap: 6px;
-      background: white;
-      border: 1px solid var(--border);
-      padding: 5px;
-      border-radius: 14px;
-      margin-bottom: 22px;
-      overflow-x: auto;
-    }
-
-    .tab {
-      flex: 1;
-      min-width: 100px;
-      border: none;
-      background: transparent;
-      padding: 11px 15px;
-      border-radius: 10px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .tab.active {
-      background: var(--blue-light);
-      color: var(--blue);
-    }
-
-    /* COMMUNITY */
-    .section-title {
-      margin-bottom: 18px;
-    }
-
-    .section-title h2 {
-      font-size: 26px;
-      margin-bottom: 5px;
-    }
-
-    .section-title p {
+    .user-name {
       color: var(--muted);
       font-size: 14px;
     }
 
-    .filters {
-      display: flex;
+    .logout-btn {
+      border: 1px solid var(--border);
+      background: white;
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #5c6576;
+    }
+
+    .main-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 16px 100px;
+    }
+
+    /* NAV */
+
+    .app-nav {
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 5px;
+      margin-bottom: 22px;
+    }
+
+    .app-nav button {
+      border: none;
+      background: transparent;
+      padding: 12px;
+      border-radius: 11px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .app-nav button.active {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    /* SECTIONS */
+
+    .section-title {
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      font-size: 25px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* SEARCH */
+
+    .search-box {
+      display: grid;
+      grid-template-columns: 1fr 190px;
       gap: 10px;
       margin-bottom: 18px;
-      flex-wrap: wrap;
     }
 
-    .filters .select {
-      width: auto;
-      min-width: 170px;
+    .search-box input,
+    .search-box select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 12px;
+      padding: 13px;
+      outline: none;
     }
 
-    .post-list {
-      display: grid;
-      gap: 16px;
-    }
+    /* POST */
 
     .post-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px;
-      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
+      margin-bottom: 15px;
+      box-shadow: 0 6px 25px rgba(30,45,80,.045);
     }
 
-    .post-header {
+    .post-top {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
+      align-items: flex-start;
+      gap: 15px;
     }
 
-    .author {
+    .post-author {
       display: flex;
-      gap: 10px;
       align-items: center;
+      gap: 10px;
       min-width: 0;
     }
 
-    .author-avatar {
+    .avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: #eff6ff;
+      background: var(--blue-light);
       color: var(--blue);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       font-weight: 800;
       flex-shrink: 0;
     }
 
-    .author-info {
-      min-width: 0;
-    }
-
     .author-name {
+      font-weight: 700;
       font-size: 14px;
-      font-weight: 800;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .post-date {
@@ -441,25 +424,25 @@
       margin-top: 2px;
     }
 
-    .category {
-      display: inline-flex;
-      background: var(--blue-light);
-      color: var(--blue);
-      padding: 5px 9px;
-      border-radius: 999px;
+    .category-badge {
+      background: #f1f4fa;
+      color: #657087;
+      padding: 6px 9px;
+      border-radius: 8px;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       white-space: nowrap;
     }
 
     .post-title {
-      font-size: 19px;
-      margin-bottom: 8px;
+      font-size: 20px;
+      margin-top: 18px;
       line-height: 1.35;
     }
 
     .post-content {
-      color: #4b5563;
+      margin-top: 9px;
+      color: #596274;
       line-height: 1.65;
       white-space: pre-wrap;
       word-break: break-word;
@@ -467,250 +450,238 @@
 
     .post-actions {
       display: flex;
-      align-items: center;
-      gap: 8px;
       flex-wrap: wrap;
-      border-top: 1px solid #f1f5f9;
-      margin-top: 17px;
+      gap: 8px;
+      margin-top: 18px;
       padding-top: 14px;
+      border-top: 1px solid #f0f2f6;
     }
 
     .action-btn {
-      border: none;
-      background: #f8fafc;
-      color: #64748b;
+      border: 1px solid var(--border);
+      background: white;
+      color: #626c80;
       padding: 9px 12px;
       border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .action-btn:hover {
+      background: #f7f9fd;
+    }
+
+    .action-btn.supported {
+      background: var(--blue-light);
+      color: var(--blue);
+      border-color: #d7e1ff;
+    }
+
+    .action-btn.danger {
+      color: var(--danger);
+    }
+
+    /* COMMENTS */
+
+    .comments-area {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #edf0f5;
+    }
+
+    .comment {
+      background: #f7f9fc;
+      border-radius: 12px;
+      padding: 11px;
+      margin-bottom: 8px;
+    }
+
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .comment-user {
       font-size: 13px;
       font-weight: 700;
     }
 
-    .action-btn:hover {
-      background: #eef2ff;
-    }
-
-    .action-btn.supported {
-      color: var(--blue);
-      background: var(--blue-light);
-    }
-
-    .action-btn.report {
-      margin-left: auto;
-      color: #9ca3af;
-      background: transparent;
-    }
-
-    .owner-actions {
-      display: flex;
-      gap: 6px;
-      margin-left: auto;
-    }
-
-    .comments-box {
-      margin-top: 15px;
-      border-top: 1px solid var(--border);
-      padding-top: 15px;
-    }
-
-    .comments-list {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .comment {
-      background: #f8fafc;
-      padding: 11px 12px;
-      border-radius: 12px;
-    }
-
-    .comment-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 5px;
-    }
-
-    .comment-author {
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .comment-time {
+    .comment-date {
+      font-size: 11px;
       color: var(--muted);
-      font-size: 10px;
     }
 
-    .comment-content {
-      font-size: 13px;
-      color: #4b5563;
+    .comment-text {
+      margin-top: 5px;
+      color: #596274;
+      font-size: 14px;
       line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
-    .comment-delete {
+    .delete-comment {
       border: none;
-      background: none;
-      color: #ef4444;
+      background: transparent;
+      color: var(--danger);
       font-size: 11px;
-      margin-top: 6px;
+      margin-top: 7px;
+      padding: 0;
     }
 
     .comment-form {
       display: flex;
       gap: 8px;
+      margin-top: 10px;
     }
 
-    .comment-form .input {
+    .comment-form input {
+      flex: 1;
       min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 11px;
+      outline: none;
     }
 
-    .empty {
-      background: white;
-      border: 1px dashed #d1d5db;
-      border-radius: 18px;
-      text-align: center;
-      padding: 50px 20px;
-      color: var(--muted);
+    .comment-form button {
+      border: none;
+      background: var(--blue);
+      color: white;
+      padding: 0 15px;
+      border-radius: 11px;
+      font-weight: 700;
     }
 
-    .empty-icon {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+    /* CREATE */
 
-    /* SHARE */
-    .share-card,
+    .form-card,
     .profile-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
       box-shadow: var(--shadow);
-    }
-
-    .share-card {
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .share-card h2,
-    .profile-card h2 {
-      margin-bottom: 7px;
-    }
-
-    .share-card > p,
-    .profile-card > p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 22px;
-      line-height: 1.5;
+      border-radius: var(--radius);
+      padding: 22px;
     }
 
     .checkbox-row {
       display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: #f8fafc;
-      padding: 13px;
-      border-radius: 12px;
-      margin-bottom: 18px;
+      align-items: center;
+      gap: 9px;
+      margin: 14px 0;
+      color: #596274;
+      font-size: 14px;
     }
 
     .checkbox-row input {
-      margin-top: 4px;
+      width: 17px;
+      height: 17px;
     }
 
-    .checkbox-row label {
-      font-size: 13px;
-      line-height: 1.4;
+    /* EMPTY */
+
+    .empty {
+      text-align: center;
+      background: white;
+      border: 1px dashed #dce2ed;
+      border-radius: 18px;
+      padding: 45px 20px;
+      color: var(--muted);
     }
 
-    /* PROFILE */
-    .profile-card {
-      max-width: 600px;
-      margin: auto;
+    .empty-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
-    .profile-head {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
+    /* MODAL */
 
-    .big-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: var(--blue-light);
-      color: var(--blue);
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,22,38,.48);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 27px;
-      font-weight: 800;
+      padding: 18px;
+      z-index: 100;
+      backdrop-filter: blur(5px);
     }
 
-    .profile-email {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 4px;
-      word-break: break-all;
+    .modal {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.18);
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
-    /* LOADING */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--muted);
+    .modal h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
     }
 
-    .spinner {
-      width: 32px;
-      height: 32px;
-      border: 3px solid #dbeafe;
-      border-top-color: var(--blue);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 12px;
+    .modal-actions {
+      display: flex;
+      gap: 9px;
+      justify-content: flex-end;
+      margin-top: 15px;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+    .modal-actions button {
+      border-radius: 11px;
+      padding: 11px 16px;
+      font-weight: 700;
+      border: none;
+    }
+
+    .cancel-btn {
+      background: #f0f2f6;
+      color: #5f6878;
+    }
+
+    .confirm-btn {
+      background: var(--blue);
+      color: white;
+    }
+
+    .delete-confirm {
+      background: var(--danger);
     }
 
     /* TOAST */
+
     #toastContainer {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      z-index: 200;
-      display: grid;
-      gap: 10px;
-      width: min(360px, calc(100vw - 36px));
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: calc(100vw - 36px);
     }
 
     .toast {
-      background: #111827;
+      background: #202838;
       color: white;
-      padding: 14px 16px;
-      border-radius: 13px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      padding: 13px 16px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.18);
       font-size: 14px;
-      line-height: 1.4;
-      animation: toastIn 0.2s ease;
+      animation: toastIn .2s ease;
     }
 
     .toast.success {
-      background: #166534;
+      background: var(--success);
     }
 
     .toast.error {
-      background: #991b1b;
+      background: var(--danger);
     }
 
     @keyframes toastIn {
@@ -724,125 +695,89 @@
       }
     }
 
-    /* MODAL */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      z-index: 100;
+    /* LOADING */
+
+    .loading {
+      text-align: center;
+      padding: 35px;
+      color: var(--muted);
     }
 
-    .modal {
-      background: white;
-      width: 100%;
-      max-width: 600px;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-      max-height: 90vh;
-      overflow-y: auto;
+    .spinner {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border: 3px solid #dce4f8;
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+      margin-right: 7px;
     }
 
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .close-modal {
-      border: none;
-      background: #f3f4f6;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      font-size: 20px;
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* RESPONSIVE */
+
     @media (max-width: 650px) {
       .hero {
-        padding: 35px 12px;
+        padding: 50px 20px;
       }
 
       .hero p {
         font-size: 16px;
       }
 
-      .auth-card,
-      .share-card,
-      .profile-card {
-        padding: 20px;
+      .user-name {
+        display: none;
       }
 
-      .topbar-inner {
-        padding: 11px 13px;
+      .topbar {
+        height: 62px;
       }
 
-      .brand {
-        font-size: 18px;
+      .main-container {
+        padding: 16px 12px 80px;
       }
 
-      .logout-btn {
-        padding: 8px 10px;
-      }
-
-      .main {
-        padding: 18px 12px 70px;
+      .search-box {
+        grid-template-columns: 1fr;
       }
 
       .post-card {
         padding: 16px;
       }
 
-      .post-header {
-        align-items: flex-start;
+      .post-top {
+        gap: 8px;
       }
 
-      .category {
+      .category-badge {
         font-size: 10px;
       }
 
       .post-title {
-        font-size: 17px;
-      }
-
-      .action-btn {
-        padding: 8px 10px;
-        font-size: 12px;
-      }
-
-      .action-btn.report {
-        margin-left: 0;
-      }
-
-      .owner-actions {
-        margin-left: 0;
-        width: 100%;
-      }
-
-      .owner-actions .action-btn {
-        flex: 1;
+        font-size: 18px;
       }
 
       .comment-form {
         flex-direction: column;
       }
 
-      .comment-form .btn {
-        width: 100%;
+      .comment-form button {
+        height: 42px;
       }
 
-      .filters .select {
-        width: 100%;
+      .modal-actions {
+        flex-direction: column-reverse;
       }
 
-      .user-menu .user-name {
-        display: none;
+      .modal-actions button {
+        width: 100%;
       }
     }
   </style>
@@ -851,546 +786,676 @@
 <body>
 
   <!-- HOME -->
-  <section id="homeScreen">
+
+  <section id="homePage">
     <div class="hero">
       <div class="logo">💙</div>
 
       <h1>Hear<span>Me</span></h1>
 
       <p>
-        A safe community where people can share what they are going through,
-        feel heard, and support each other.
+        A safe community where you can share what you're going through,
+        support others, and know that someone is listening.
       </p>
 
-      <div class="hero-buttons">
-        <button class="btn btn-primary" onclick="openAuth('login')">
-          Log in
-        </button>
-
-        <button class="btn btn-secondary" onclick="openAuth('signup')">
-          Create account
-        </button>
-      </div>
+      <button class="hero-btn" onclick="openAuth()">
+        Get Started
+      </button>
     </div>
   </section>
 
+
   <!-- AUTH -->
-  <section id="authScreen" class="hidden">
+
+  <section id="authPage" class="hidden">
+
     <div class="auth-card">
 
-      <div class="auth-logo">
+      <div class="auth-header">
         <div class="mini-logo">💙</div>
-        <h2 id="authTitle">Welcome back</h2>
-        <p id="authSubtitle">Log in to continue to HearMe.</p>
+        <h2>Welcome to HearMe</h2>
+        <p>Share. Support. Be heard.</p>
       </div>
 
-      <form id="authForm">
+      <div class="tabs-auth">
+        <button id="loginTab" class="active" onclick="switchAuth('login')">
+          Log In
+        </button>
 
-        <div id="usernameGroup" class="form-group hidden">
-          <label for="authUsername">Username</label>
+        <button id="signupTab" onclick="switchAuth('signup')">
+          Sign Up
+        </button>
+      </div>
+
+
+      <!-- LOGIN -->
+
+      <form id="loginForm">
+
+        <div class="form-group">
+          <label>Email</label>
           <input
-            id="authUsername"
-            class="input"
+            id="loginEmail"
+            type="email"
+            placeholder="you@example.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            id="loginPassword"
+            type="password"
+            placeholder="Your password"
+            required
+          >
+        </div>
+
+        <button class="primary-btn" type="submit">
+          Log In
+        </button>
+
+      </form>
+
+
+      <!-- SIGNUP -->
+
+      <form id="signupForm" class="hidden">
+
+        <div class="form-group">
+          <label>Username</label>
+
+          <input
+            id="signupUsername"
             type="text"
             maxlength="30"
             placeholder="Choose a username"
+            required
           >
         </div>
 
         <div class="form-group">
-          <label for="authEmail">Email</label>
+          <label>Email</label>
+
           <input
-            id="authEmail"
-            class="input"
+            id="signupEmail"
             type="email"
-            required
-            autocomplete="email"
             placeholder="you@example.com"
+            required
           >
         </div>
 
         <div class="form-group">
-          <label for="authPassword">Password</label>
+          <label>Password</label>
+
           <input
-            id="authPassword"
-            class="input"
+            id="signupPassword"
             type="password"
-            required
             minlength="6"
-            autocomplete="current-password"
             placeholder="At least 6 characters"
+            required
           >
         </div>
 
-        <button
-          id="authSubmit"
-          class="btn btn-primary btn-full"
-          type="submit"
-        >
-          Log in
+        <button class="primary-btn" type="submit">
+          Create Account
         </button>
+
       </form>
 
-      <div class="auth-switch">
-        <span id="authSwitchText">Don't have an account?</span>
-        <button id="authSwitchBtn" type="button">
-          Sign up
-        </button>
-      </div>
-
-      <div style="text-align:center;margin-top:15px;">
-        <button
-          type="button"
-          class="btn btn-secondary btn-small"
-          onclick="showHome()"
-        >
-          ← Back
-        </button>
-      </div>
+      <button class="back-btn" onclick="backHome()">
+        ← Back to home
+      </button>
 
     </div>
   </section>
 
+
   <!-- APP -->
-  <section id="appScreen" class="hidden">
+
+  <section id="appPage" class="hidden">
 
     <header class="topbar">
+
       <div class="topbar-inner">
 
         <div class="brand">
-          <div class="brand-icon">💙</div>
-          <span>HearMe</span>
+          Hear<span>Me</span> 💙
         </div>
 
-        <div class="user-menu">
-          <div id="topAvatar" class="avatar">?</div>
+        <div class="user-area">
+
           <span id="topUsername" class="user-name"></span>
 
           <button
             class="logout-btn"
-            type="button"
             onclick="logout()"
           >
             Log out
           </button>
+
         </div>
 
       </div>
+
     </header>
 
-    <main class="main">
 
-      <nav class="tabs">
+    <main class="main-container">
+
+      <nav class="app-nav">
+
         <button
-          id="tabCommunity"
-          class="tab active"
-          type="button"
-          onclick="switchTab('community')"
+          id="communityNav"
+          class="active"
+          onclick="showSection('community')"
         >
           🏠 Community
         </button>
 
         <button
-          id="tabShare"
-          class="tab"
-          type="button"
-          onclick="switchTab('share')"
+          id="shareNav"
+          onclick="showSection('share')"
         >
-          ✍️ Share
+          ✏️ Share
         </button>
 
         <button
-          id="tabProfile"
-          class="tab"
-          type="button"
-          onclick="switchTab('profile')"
+          id="profileNav"
+          onclick="showSection('profile')"
         >
           👤 Profile
         </button>
+
       </nav>
 
+
       <!-- COMMUNITY -->
-      <section id="communityTab">
+
+      <section id="communitySection">
 
         <div class="section-title">
+
           <h2>Community</h2>
-          <p>Read stories, share support, and let people know they are not alone.</p>
+
+          <p>
+            Read stories, support people, and leave a kind comment.
+          </p>
+
         </div>
 
-        <div class="filters">
 
-          <select
-            id="categoryFilter"
-            class="select"
-            onchange="loadPosts()"
+        <div class="search-box">
+
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search posts..."
           >
-            <option value="all">All categories</option>
-            <option value="School">School</option>
-            <option value="Family">Family</option>
-            <option value="Friendship">Friendship</option>
-            <option value="Relationships">Relationships</option>
-            <option value="Money">Money</option>
-            <option value="Work">Work</option>
-            <option value="Mental Health">Mental Health</option>
-            <option value="Other">Other</option>
+
+          <select id="categoryFilter">
+
+            <option value="all">
+              All categories
+            </option>
+
+            <option value="Financial">
+              Financial
+            </option>
+
+            <option value="Emotional">
+              Emotional
+            </option>
+
+            <option value="School">
+              School
+            </option>
+
+            <option value="Family">
+              Family
+            </option>
+
+            <option value="Relationships">
+              Relationships
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
           </select>
 
-          <button
-            class="btn btn-secondary"
-            type="button"
-            onclick="loadPosts()"
-          >
-            ↻ Refresh
-          </button>
-
         </div>
 
+
         <div id="postsContainer">
+
           <div class="loading">
-            <div class="spinner"></div>
-            Loading community...
+            <span class="spinner"></span>
+            Loading posts...
           </div>
+
         </div>
 
       </section>
 
-      <!-- SHARE -->
-      <section id="shareTab" class="hidden">
 
-        <div class="share-card">
+      <!-- SHARE -->
+
+      <section id="shareSection" class="hidden">
+
+        <div class="section-title">
 
           <h2>Share something</h2>
 
           <p>
-            You can share a problem, experience, question, or something
-            you simply need to get off your chest.
+            Your story might help someone feel less alone.
           </p>
+
+        </div>
+
+
+        <div class="form-card">
 
           <form id="postForm">
 
             <div class="form-group">
-              <label for="postCategory">Category</label>
 
-              <select id="postCategory" class="select" required>
-                <option value="">Choose a category</option>
-                <option value="School">School</option>
-                <option value="Family">Family</option>
-                <option value="Friendship">Friendship</option>
-                <option value="Relationships">Relationships</option>
-                <option value="Money">Money</option>
-                <option value="Work">Work</option>
-                <option value="Mental Health">Mental Health</option>
-                <option value="Other">Other</option>
+              <label>Category</label>
+
+              <select id="postCategory" required>
+
+                <option value="">
+                  Choose a category
+                </option>
+
+                <option value="Financial">
+                  Financial
+                </option>
+
+                <option value="Emotional">
+                  Emotional
+                </option>
+
+                <option value="School">
+                  School
+                </option>
+
+                <option value="Family">
+                  Family
+                </option>
+
+                <option value="Relationships">
+                  Relationships
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
               </select>
+
             </div>
 
+
             <div class="form-group">
-              <label for="postTitle">Title</label>
+
+              <label>Title</label>
 
               <input
                 id="postTitle"
-                class="input"
                 type="text"
                 maxlength="120"
+                placeholder="Give your post a title..."
                 required
-                placeholder="What is on your mind?"
               >
+
             </div>
 
+
             <div class="form-group">
-              <label for="postContent">Your story</label>
+
+              <label>Your story</label>
 
               <textarea
                 id="postContent"
-                class="textarea"
                 maxlength="5000"
+                placeholder="Tell the community what's on your mind..."
                 required
-                placeholder="Write what you want people to hear..."
               ></textarea>
+
             </div>
 
-            <div class="checkbox-row">
+
+            <label class="checkbox-row">
+
               <input
                 id="anonymousPost"
                 type="checkbox"
+                checked
               >
 
-              <label for="anonymousPost">
-                <strong>Post anonymously</strong><br>
-                Your username will not be shown with this post.
-              </label>
-            </div>
+              <span>
+                Post anonymously
+              </span>
 
-            <button
-              class="btn btn-primary btn-full"
-              type="submit"
-            >
-              💙 Share with the community
+            </label>
+
+
+            <button class="primary-btn" type="submit">
+              Publish Post 💙
             </button>
 
           </form>
+
         </div>
 
       </section>
 
+
       <!-- PROFILE -->
-      <section id="profileTab" class="hidden">
+
+      <section id="profileSection" class="hidden">
+
+        <div class="section-title">
+
+          <h2>Your Profile</h2>
+
+          <p>
+            Manage the name shown on your comments and non-anonymous posts.
+          </p>
+
+        </div>
+
 
         <div class="profile-card">
 
-          <div class="profile-head">
-            <div id="profileAvatar" class="big-avatar">?</div>
+          <div class="form-group">
 
-            <div>
-              <h2 id="profileName">User</h2>
-              <div id="profileEmail" class="profile-email"></div>
-            </div>
+            <label>Username</label>
+
+            <input
+              id="profileUsername"
+              type="text"
+              maxlength="30"
+              placeholder="Your username"
+            >
+
           </div>
 
-          <p>
-            Your profile information is used to identify your own posts
-            and comments.
-          </p>
 
-          <form id="profileForm">
-
-            <div class="form-group">
-              <label for="profileUsername">Username</label>
-
-              <input
-                id="profileUsername"
-                class="input"
-                type="text"
-                maxlength="30"
-                minlength="3"
-                required
-                placeholder="Your username"
-              >
-            </div>
-
-            <button
-              class="btn btn-primary"
-              type="submit"
-            >
-              Save username
-            </button>
-
-          </form>
+          <button
+            class="primary-btn"
+            onclick="saveProfile()"
+          >
+            Save Username
+          </button>
 
         </div>
 
       </section>
 
     </main>
+
   </section>
 
+
   <!-- EDIT MODAL -->
-  <div id="editModal" class="modal-overlay hidden">
+
+  <div
+    id="editModal"
+    class="modal-overlay hidden"
+    onclick="closeModalOutside(event, 'editModal')"
+  >
 
     <div class="modal">
 
-      <div class="modal-header">
-        <h2>Edit post</h2>
+      <h3>Edit your post</h3>
 
-        <button
-          class="close-modal"
-          type="button"
-          onclick="closeEditModal()"
+      <div class="form-group">
+
+        <label>Title</label>
+
+        <input
+          id="editTitle"
+          type="text"
+          maxlength="120"
         >
-          ×
-        </button>
+
       </div>
 
-      <form id="editForm">
 
-        <input id="editPostId" type="hidden">
+      <div class="form-group">
 
-        <div class="form-group">
-          <label for="editCategory">Category</label>
+        <label>Content</label>
 
-          <select id="editCategory" class="select" required>
-            <option value="School">School</option>
-            <option value="Family">Family</option>
-            <option value="Friendship">Friendship</option>
-            <option value="Relationships">Relationships</option>
-            <option value="Money">Money</option>
-            <option value="Work">Work</option>
-            <option value="Mental Health">Mental Health</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+        <textarea
+          id="editContent"
+          maxlength="5000"
+        ></textarea>
 
-        <div class="form-group">
-          <label for="editTitle">Title</label>
+      </div>
 
-          <input
-            id="editTitle"
-            class="input"
-            type="text"
-            maxlength="120"
-            required
-          >
-        </div>
 
-        <div class="form-group">
-          <label for="editContent">Content</label>
+      <div class="modal-actions">
 
-          <textarea
-            id="editContent"
-            class="textarea"
-            maxlength="5000"
-            required
-          ></textarea>
-        </div>
+        <button
+          class="cancel-btn"
+          onclick="closeModal('editModal')"
+        >
+          Cancel
+        </button>
 
-        <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;">
+        <button
+          class="confirm-btn"
+          onclick="saveEditedPost()"
+        >
+          Save Changes
+        </button>
 
-          <button
-            class="btn btn-secondary"
-            type="button"
-            onclick="closeEditModal()"
-          >
-            Cancel
-          </button>
-
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
-            Save changes
-          </button>
-
-        </div>
-
-      </form>
+      </div>
 
     </div>
+
   </div>
+
+
+  <!-- DELETE MODAL -->
+
+  <div
+    id="deleteModal"
+    class="modal-overlay hidden"
+    onclick="closeModalOutside(event, 'deleteModal')"
+  >
+
+    <div class="modal">
+
+      <h3>Delete this post?</h3>
+
+      <p style="color:#697386;line-height:1.6;">
+        This action cannot be undone.
+      </p>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="cancel-btn"
+          onclick="closeModal('deleteModal')"
+        >
+          Cancel
+        </button>
+
+        <button
+          class="confirm-btn delete-confirm"
+          onclick="confirmDeletePost()"
+        >
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 
   <!-- REPORT MODAL -->
-  <div id="reportModal" class="modal-overlay hidden">
+
+  <div
+    id="reportModal"
+    class="modal-overlay hidden"
+    onclick="closeModalOutside(event, 'reportModal')"
+  >
 
     <div class="modal">
 
-      <div class="modal-header">
-        <h2>Report post</h2>
+      <h3>Report post</h3>
 
-        <button
-          class="close-modal"
-          type="button"
-          onclick="closeReportModal()"
-        >
-          ×
-        </button>
+      <div class="form-group">
+
+        <label>Reason</label>
+
+        <select id="reportReason">
+
+          <option value="Spam">
+            Spam
+          </option>
+
+          <option value="Harassment">
+            Harassment
+          </option>
+
+          <option value="Inappropriate content">
+            Inappropriate content
+          </option>
+
+          <option value="Harmful content">
+            Harmful content
+          </option>
+
+          <option value="Other">
+            Other
+          </option>
+
+        </select>
+
       </div>
 
-      <form id="reportForm">
 
-        <input id="reportPostId" type="hidden">
+      <div class="form-group">
 
-        <div class="form-group">
-          <label for="reportReason">Why are you reporting this post?</label>
+        <label>Additional details (optional)</label>
 
-          <select id="reportReason" class="select" required>
-            <option value="">Choose a reason</option>
-            <option value="Harassment or bullying">
-              Harassment or bullying
-            </option>
-            <option value="Hate or discrimination">
-              Hate or discrimination
-            </option>
-            <option value="Spam">
-              Spam
-            </option>
-            <option value="Inappropriate content">
-              Inappropriate content
-            </option>
-            <option value="Threat">
-              Threat
-            </option>
-            <option value="Other">
-              Other
-            </option>
-          </select>
-        </div>
+        <textarea
+          id="reportDetails"
+          maxlength="1000"
+          placeholder="Tell us more..."
+          style="min-height:90px;"
+        ></textarea>
 
-        <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;">
+      </div>
 
-          <button
-            class="btn btn-secondary"
-            type="button"
-            onclick="closeReportModal()"
-          >
-            Cancel
-          </button>
 
-          <button
-            class="btn btn-danger"
-            type="submit"
-          >
-            Submit report
-          </button>
+      <div class="modal-actions">
 
-        </div>
+        <button
+          class="cancel-btn"
+          onclick="closeModal('reportModal')"
+        >
+          Cancel
+        </button>
 
-      </form>
+        <button
+          class="confirm-btn"
+          onclick="submitReport()"
+        >
+          Send Report
+        </button>
+
+      </div>
 
     </div>
+
   </div>
+
+
+  <!-- TOAST -->
 
   <div id="toastContainer"></div>
 
+
   <script>
-    /*
-      ============================================================
-      SUPABASE
-      ============================================================
-    */
+
+    /* =========================================================
+       SUPABASE
+    ========================================================= */
 
     const SUPABASE_URL =
       "https://gtclqrxylsyvqtjipatl.supabase.co";
 
-    /*
-      Keep the SAME anon/public key from your current HearMe code here.
-      This must be the anon key from:
-      Supabase Dashboard → Project Settings → API
-    */
-
     const SUPABASE_ANON_KEY =
-      "YOUR_EXISTING_SUPABASE_ANON_KEY";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0Y2xxcnh5bHN5dnF0amlwYXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNjI5OTIsImV4cCI6MjEwNTczODk5Mn0.njwDMMpnj7e1TF4RCDn6bEZNrOG5NS-qMiPuLvs2YMA";
 
-    const supabaseClient =
-      window.supabase.createClient(
+    const { createClient } =
+      window.supabase;
+
+    const db =
+      createClient(
         SUPABASE_URL,
         SUPABASE_ANON_KEY
       );
 
 
-    /*
-      ============================================================
-      STATE
-      ============================================================
-    */
+    /* =========================================================
+       STATE
+    ========================================================= */
 
     let currentUser = null;
+
     let currentProfile = null;
-    let currentPosts = [];
-    let commentsCache = {};
-    let reactionsCache = {};
-    let authMode = "login";
+
+    let allPosts = [];
+
+    let profilesMap = {};
+
+    let reactions = [];
+
+    let openedComments = new Set();
+
+    let editingPostId = null;
+
+    let deletingPostId = null;
+
+    let reportingPostId = null;
+
+    let loadingPosts = false;
 
 
-    /*
-      ============================================================
-      HELPERS
-      ============================================================
-    */
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
 
-    function $(id) {
-      return document.getElementById(id);
-    }
+    const homePage =
+      document.getElementById("homePage");
+
+    const authPage =
+      document.getElementById("authPage");
+
+    const appPage =
+      document.getElementById("appPage");
+
+    const postsContainer =
+      document.getElementById("postsContainer");
+
+
+    /* =========================================================
+       UTILITY
+    ========================================================= */
 
     function escapeHTML(value) {
+
       if (value === null || value === undefined) {
         return "";
       }
@@ -1401,198 +1466,538 @@
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
     }
 
-    function getInitial(name) {
-      if (!name) return "?";
-
-      return String(name)
-        .trim()
-        .charAt(0)
-        .toUpperCase() || "?";
-    }
 
     function formatDate(date) {
-      if (!date) return "";
 
-      const d = new Date(date);
+      if (!date) {
+        return "";
+      }
+
+      const d =
+        new Date(date);
 
       if (Number.isNaN(d.getTime())) {
         return "";
       }
 
-      return d.toLocaleString([], {
-        dateStyle: "medium",
-        timeStyle: "short"
-      });
+      return d.toLocaleString(
+        undefined,
+        {
+          dateStyle: "medium",
+          timeStyle: "short"
+        }
+      );
+
     }
 
-    function showToast(message, type = "normal") {
-      const container = $("toastContainer");
 
-      const toast = document.createElement("div");
+    function shortName(name) {
+
+      if (!name) {
+        return "A";
+      }
+
+      return name
+        .trim()
+        .charAt(0)
+        .toUpperCase();
+
+    }
+
+
+    function showToast(
+      message,
+      type = "normal"
+    ) {
+
+      const container =
+        document.getElementById(
+          "toastContainer"
+        );
+
+      const toast =
+        document.createElement("div");
 
       toast.className =
-        "toast " +
-        (type === "success"
-          ? "success"
-          : type === "error"
-            ? "error"
-            : "");
+        "toast " + type;
 
-      toast.textContent = message;
+      toast.textContent =
+        message;
 
       container.appendChild(toast);
 
       setTimeout(() => {
+
         toast.remove();
+
       }, 3500);
+
     }
 
-    function getErrorMessage(error) {
+
+    function friendlyError(error) {
+
       if (!error) {
         return "Something went wrong.";
       }
 
-      if (typeof error === "string") {
-        return error;
+      const message =
+        error.message ||
+        String(error);
+
+      if (
+        message.includes("row-level security")
+      ) {
+        return "Supabase security policy blocked this action.";
       }
 
-      if (error.message) {
-        return error.message;
+      if (
+        message.includes("permission denied")
+      ) {
+        return "You don't have permission to perform this action.";
       }
 
-      if (error.error_description) {
-        return error.error_description;
+      if (
+        message.includes("duplicate key")
+      ) {
+        return "This item already exists.";
       }
 
-      return "Something went wrong. Please try again.";
-    }
-
-    function validateUsername(username) {
-      const value = String(username || "").trim();
-
-      if (value.length < 3) {
-        return "Username must contain at least 3 characters.";
-      }
-
-      if (value.length > 30) {
-        return "Username must contain 30 characters or less.";
-      }
-
-      if (!/^[a-zA-Z0-9_.-]+$/.test(value)) {
-        return "Username can only contain letters, numbers, dots, underscores and hyphens.";
-      }
-
-      return null;
+      return message;
     }
 
 
-    /*
-      ============================================================
-      SCREEN NAVIGATION
-      ============================================================
-    */
+    function setLoadingButton(
+      button,
+      loading,
+      normalText
+    ) {
 
-    function showHome() {
-      $("homeScreen").classList.remove("hidden");
-      $("authScreen").classList.add("hidden");
-      $("appScreen").classList.add("hidden");
+      if (!button) {
+        return;
+      }
+
+      button.disabled =
+        loading;
+
+      button.textContent =
+        loading
+          ? "Please wait..."
+          : normalText;
+
     }
 
-    function openAuth(mode) {
-      authMode = mode;
 
-      $("homeScreen").classList.add("hidden");
-      $("authScreen").classList.remove("hidden");
-      $("appScreen").classList.add("hidden");
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
 
-      updateAuthUI();
+    function openAuth() {
+
+      homePage.classList.add("hidden");
+
+      authPage.classList.remove("hidden");
+
+      appPage.classList.add("hidden");
+
     }
 
-    function updateAuthUI() {
-      const signup = authMode === "signup";
 
-      $("authTitle").textContent =
-        signup ? "Create your account" : "Welcome back";
+    function backHome() {
 
-      $("authSubtitle").textContent =
-        signup
-          ? "Join the HearMe community."
-          : "Log in to continue to HearMe.";
+      homePage.classList.remove("hidden");
 
-      $("usernameGroup").classList.toggle(
+      authPage.classList.add("hidden");
+
+      appPage.classList.add("hidden");
+
+    }
+
+
+    function showApp() {
+
+      homePage.classList.add("hidden");
+
+      authPage.classList.add("hidden");
+
+      appPage.classList.remove("hidden");
+
+    }
+
+
+    function showSection(section) {
+
+      document
+        .getElementById("communitySection")
+        .classList.toggle(
+          "hidden",
+          section !== "community"
+        );
+
+      document
+        .getElementById("shareSection")
+        .classList.toggle(
+          "hidden",
+          section !== "share"
+        );
+
+      document
+        .getElementById("profileSection")
+        .classList.toggle(
+          "hidden",
+          section !== "profile"
+        );
+
+
+      document
+        .getElementById("communityNav")
+        .classList.toggle(
+          "active",
+          section === "community"
+        );
+
+      document
+        .getElementById("shareNav")
+        .classList.toggle(
+          "active",
+          section === "share"
+        );
+
+      document
+        .getElementById("profileNav")
+        .classList.toggle(
+          "active",
+          section === "profile"
+        );
+
+
+      if (section === "community") {
+        loadPosts();
+      }
+
+    }
+
+
+    /* =========================================================
+       AUTH TABS
+    ========================================================= */
+
+    function switchAuth(type) {
+
+      const loginForm =
+        document.getElementById(
+          "loginForm"
+        );
+
+      const signupForm =
+        document.getElementById(
+          "signupForm"
+        );
+
+      const loginTab =
+        document.getElementById(
+          "loginTab"
+        );
+
+      const signupTab =
+        document.getElementById(
+          "signupTab"
+        );
+
+
+      const login =
+        type === "login";
+
+
+      loginForm.classList.toggle(
         "hidden",
-        !signup
+        !login
       );
 
-      $("authUsername").required = signup;
+      signupForm.classList.toggle(
+        "hidden",
+        login
+      );
 
-      $("authSubmit").textContent =
-        signup ? "Create account" : "Log in";
+      loginTab.classList.toggle(
+        "active",
+        login
+      );
 
-      $("authSwitchText").textContent =
-        signup
-          ? "Already have an account?"
-          : "Don't have an account?";
+      signupTab.classList.toggle(
+        "active",
+        !login
+      );
 
-      $("authSwitchBtn").textContent =
-        signup ? "Log in" : "Sign up";
     }
 
-    $("authSwitchBtn").addEventListener("click", () => {
-      authMode =
-        authMode === "login"
-          ? "signup"
-          : "login";
 
-      updateAuthUI();
-    });
+    /* =========================================================
+       PROFILE
+    ========================================================= */
 
+    async function ensureProfile() {
 
-    /*
-      ============================================================
-      AUTH
-      ============================================================
-    */
+      if (!currentUser) {
+        return null;
+      }
 
-    $("authForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      const email =
-        $("authEmail").value.trim();
-
-      const password =
-        $("authPassword").value;
-
-      const username =
-        $("authUsername").value.trim();
-
-      const submitButton =
-        $("authSubmit");
-
-      submitButton.disabled = true;
 
       try {
 
-        if (!email || !password) {
-          throw new Error("Please fill in all required fields.");
+        const {
+          data,
+          error
+        } = await db
+          .from("profiles")
+          .select(
+            "id, username, created_at"
+          )
+          .eq(
+            "id",
+            currentUser.id
+          )
+          .maybeSingle();
+
+
+        if (error) {
+          throw error;
         }
 
-        if (authMode === "signup") {
 
-          const usernameError =
-            validateUsername(username);
+        if (data) {
 
-          if (usernameError) {
-            throw new Error(usernameError);
+          currentProfile =
+            data;
+
+          return data;
+
+        }
+
+
+        const metadata =
+          currentUser.user_metadata || {};
+
+        const username =
+          metadata.username ||
+          currentUser.email
+            ?.split("@")[0] ||
+          "User";
+
+
+        const {
+          data: inserted,
+          error: insertError
+        } = await db
+          .from("profiles")
+          .insert({
+            id: currentUser.id,
+            username:
+              String(username)
+                .trim()
+                .slice(0, 30)
+          })
+          .select()
+          .single();
+
+
+        if (insertError) {
+          throw insertError;
+        }
+
+
+        currentProfile =
+          inserted;
+
+        return inserted;
+
+      } catch (error) {
+
+        console.error(
+          "ensureProfile:",
+          error
+        );
+
+        currentProfile = {
+          id: currentUser.id,
+          username:
+            currentUser.email
+              ?.split("@")[0] ||
+            "User"
+        };
+
+        return currentProfile;
+
+      }
+
+    }
+
+
+    async function saveProfile() {
+
+      if (!currentUser) {
+        return;
+      }
+
+
+      const input =
+        document.getElementById(
+          "profileUsername"
+        );
+
+      const username =
+        input.value.trim();
+
+
+      if (!username) {
+
+        showToast(
+          "Please enter a username.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      if (username.length > 30) {
+
+        showToast(
+          "Username is too long.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+        const {
+          data,
+          error
+        } = await db
+          .from("profiles")
+          .upsert(
+            {
+              id: currentUser.id,
+              username: username
+            },
+            {
+              onConflict: "id"
+            }
+          )
+          .select()
+          .single();
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        currentProfile =
+          data;
+
+        document
+          .getElementById(
+            "topUsername"
+          )
+          .textContent =
+          username;
+
+
+        showToast(
+          "Username saved successfully.",
+          "success"
+        );
+
+
+        await loadPosts();
+
+      } catch (error) {
+
+        console.error(error);
+
+        showToast(
+          friendlyError(error),
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SIGN UP
+    ========================================================= */
+
+    document
+      .getElementById("signupForm")
+      .addEventListener(
+        "submit",
+        async function(event) {
+
+          event.preventDefault();
+
+
+          const username =
+            document
+              .getElementById(
+                "signupUsername"
+              )
+              .value
+              .trim();
+
+          const email =
+            document
+              .getElementById(
+                "signupEmail"
+              )
+              .value
+              .trim();
+
+          const password =
+            document
+              .getElementById(
+                "signupPassword"
+              )
+              .value;
+
+
+          if (!username) {
+            showToast(
+              "Please choose a username.",
+              "error"
+            );
+            return;
           }
 
-          const {
-            data,
-            error
-          } =
-            await supabaseClient.auth.signUp({
+
+          try {
+
+            const button =
+              this.querySelector(
+                "button[type='submit']"
+              );
+
+            setLoadingButton(
+              button,
+              true,
+              "Create Account"
+            );
+
+
+            const {
+              data,
+              error
+            } = await db.auth.signUp({
               email,
               password,
               options: {
@@ -1602,584 +2007,417 @@
               }
             });
 
-          if (error) {
-            throw error;
-          }
 
-          if (!data.session) {
+            if (error) {
+              throw error;
+            }
+
+
+            if (data.user) {
+
+              currentUser =
+                data.user;
+
+            }
+
+
+            if (data.session) {
+
+              await ensureProfile();
+
+              showApp();
+
+              await prepareApp();
+
+              showToast(
+                "Account created successfully.",
+                "success"
+              );
+
+            } else {
+
+              showToast(
+                "Account created. Check your email to confirm your account.",
+                "success"
+              );
+
+              switchAuth("login");
+
+            }
+
+          } catch (error) {
+
+            console.error(error);
 
             showToast(
-              "Account created. Check your email if confirmation is enabled.",
-              "success"
+              friendlyError(error),
+              "error"
             );
 
-            $("authPassword").value = "";
+          } finally {
 
-            return;
+            const button =
+              this.querySelector(
+                "button[type='submit']"
+              );
+
+            setLoadingButton(
+              button,
+              false,
+              "Create Account"
+            );
+
           }
 
-          currentUser = data.user;
+        }
+      );
 
-          await ensureProfile(username);
 
-          await showDashboard();
+    /* =========================================================
+       LOGIN
+    ========================================================= */
 
-          showToast(
-            "Welcome to HearMe 💙",
-            "success"
-          );
+    document
+      .getElementById("loginForm")
+      .addEventListener(
+        "submit",
+        async function(event) {
 
-        } else {
+          event.preventDefault();
 
-          const {
-            data,
-            error
-          } =
-            await supabaseClient.auth.signInWithPassword({
+
+          const email =
+            document
+              .getElementById(
+                "loginEmail"
+              )
+              .value
+              .trim();
+
+          const password =
+            document
+              .getElementById(
+                "loginPassword"
+              )
+              .value;
+
+
+          try {
+
+            const button =
+              this.querySelector(
+                "button[type='submit']"
+              );
+
+            setLoadingButton(
+              button,
+              true,
+              "Log In"
+            );
+
+
+            const {
+              data,
+              error
+            } = await db.auth.signInWithPassword({
               email,
               password
             });
 
-          if (error) {
-            throw error;
+
+            if (error) {
+              throw error;
+            }
+
+
+            currentUser =
+              data.user;
+
+
+            await ensureProfile();
+
+            showApp();
+
+            await prepareApp();
+
+
+            showToast(
+              "Welcome back 💙",
+              "success"
+            );
+
+          } catch (error) {
+
+            console.error(error);
+
+            showToast(
+              friendlyError(error),
+              "error"
+            );
+
+          } finally {
+
+            const button =
+              this.querySelector(
+                "button[type='submit']"
+              );
+
+            setLoadingButton(
+              button,
+              false,
+              "Log In"
+            );
+
           }
 
-          currentUser = data.user;
-
-          await ensureProfile();
-
-          await showDashboard();
-
-          showToast(
-            "Welcome back 💙",
-            "success"
-          );
         }
+      );
 
-      } catch (error) {
 
-        console.error(error);
-
-        showToast(
-          getErrorMessage(error),
-          "error"
-        );
-
-      } finally {
-
-        submitButton.disabled = false;
-      }
-    });
-
+    /* =========================================================
+       LOGOUT
+    ========================================================= */
 
     async function logout() {
 
       try {
 
-        await supabaseClient.auth.signOut();
-
-        currentUser = null;
-        currentProfile = null;
-        currentPosts = [];
-
-        showHome();
+        await db.auth.signOut();
 
       } catch (error) {
 
-        showToast(
-          getErrorMessage(error),
-          "error"
-        );
+        console.error(error);
+
       }
+
+
+      currentUser = null;
+
+      currentProfile = null;
+
+      allPosts = [];
+
+      profilesMap = {};
+
+      reactions = [];
+
+      openedComments.clear();
+
+
+      appPage.classList.add("hidden");
+
+      authPage.classList.remove("hidden");
+
+      switchAuth("login");
+
+
+      document
+        .getElementById(
+          "loginPassword"
+        )
+        .value = "";
+
     }
 
 
-    /*
-      ============================================================
-      PROFILE
-      ============================================================
-    */
-
-    async function ensureProfile(preferredUsername = "") {
-
-      if (!currentUser) {
-        return null;
-      }
-
-      try {
-
-        const {
-          data,
-          error
-        } =
-          await supabaseClient
-            .from("profiles")
-            .select("id, username")
-            .eq("id", currentUser.id)
-            .maybeSingle();
-
-        if (error) {
-          throw error;
-        }
-
-        if (data) {
-
-          currentProfile = data;
-
-          return data;
-        }
-
-        let username =
-          preferredUsername ||
-          currentUser.user_metadata?.username ||
-          (
-            currentUser.email
-              ? currentUser.email.split("@")[0]
-              : "user"
-          );
-
-        username =
-          String(username)
-            .trim()
-            .slice(0, 30);
-
-        if (username.length < 3) {
-          username =
-            "user" +
-            Math.floor(Math.random() * 100000);
-        }
-
-        const {
-          data: inserted,
-          error: insertError
-        } =
-          await supabaseClient
-            .from("profiles")
-            .insert({
-              id: currentUser.id,
-              username
-            })
-            .select("id, username")
-            .single();
-
-        if (insertError) {
-
-          /*
-            If the profile was created by a database trigger
-            between our SELECT and INSERT, try reading it again.
-          */
-
-          const {
-            data: retryProfile
-          } =
-            await supabaseClient
-              .from("profiles")
-              .select("id, username")
-              .eq("id", currentUser.id)
-              .maybeSingle();
-
-          if (retryProfile) {
-            currentProfile = retryProfile;
-            return retryProfile;
-          }
-
-          throw insertError;
-        }
-
-        currentProfile = inserted;
-
-        return inserted;
-
-      } catch (error) {
-
-        console.error(
-          "Profile error:",
-          error
-        );
-
-        currentProfile = {
-          id: currentUser.id,
-          username:
-            currentUser.user_metadata?.username ||
-            "User"
-        };
-
-        return currentProfile;
-      }
-    }
-
-
-    $("profileForm").addEventListener(
-      "submit",
-      async (event) => {
-
-        event.preventDefault();
-
-        if (!currentUser) {
-          return;
-        }
-
-        const username =
-          $("profileUsername")
-            .value
-            .trim();
-
-        const validation =
-          validateUsername(username);
-
-        if (validation) {
-          showToast(validation, "error");
-          return;
-        }
-
-        try {
-
-          const {
-            data,
-            error
-          } =
-            await supabaseClient
-              .from("profiles")
-              .update({
-                username
-              })
-              .eq("id", currentUser.id)
-              .select("id, username")
-              .single();
-
-          if (error) {
-            throw error;
-          }
-
-          currentProfile = data;
-
-          updateProfileUI();
-
-          showToast(
-            "Username saved successfully.",
-            "success"
-          );
-
-          await loadPosts();
-
-        } catch (error) {
-
-          console.error(error);
-
-          showToast(
-            getErrorMessage(error),
-            "error"
-          );
-        }
-      }
-    );
-
-
-    function updateProfileUI() {
-
-      const username =
-        currentProfile?.username ||
-        currentUser?.email?.split("@")[0] ||
-        "User";
-
-      $("topUsername").textContent =
-        username;
-
-      $("topAvatar").textContent =
-        getInitial(username);
-
-      $("profileName").textContent =
-        username;
-
-      $("profileAvatar").textContent =
-        getInitial(username);
-
-      $("profileEmail").textContent =
-        currentUser?.email || "";
-
-      $("profileUsername").value =
-        currentProfile?.username || "";
-    }
-
-
-    /*
-      ============================================================
-      DASHBOARD
-      ============================================================
-    */
-
-    async function showDashboard() {
-
-      $("homeScreen").classList.add("hidden");
-      $("authScreen").classList.add("hidden");
-      $("appScreen").classList.remove("hidden");
-
-      updateProfileUI();
-
-      switchTab("community");
-
-      await loadPosts();
-    }
-
-
-    function switchTab(tab) {
-
-      $("communityTab").classList.toggle(
-        "hidden",
-        tab !== "community"
-      );
-
-      $("shareTab").classList.toggle(
-        "hidden",
-        tab !== "share"
-      );
-
-      $("profileTab").classList.toggle(
-        "hidden",
-        tab !== "profile"
-      );
-
-      $("tabCommunity").classList.toggle(
-        "active",
-        tab === "community"
-      );
-
-      $("tabShare").classList.toggle(
-        "active",
-        tab === "share"
-      );
-
-      $("tabProfile").classList.toggle(
-        "active",
-        tab === "profile"
-      );
-
-      if (tab === "profile") {
-        updateProfileUI();
-      }
-    }
-
-
-    /*
-      ============================================================
-      POSTS
-      ============================================================
-    */
-
-    async function loadPosts() {
+    /* =========================================================
+       PREPARE APP
+    ========================================================= */
+
+    async function prepareApp() {
 
       if (!currentUser) {
         return;
       }
 
-      const container =
-        $("postsContainer");
 
-      container.innerHTML = `
+      if (!currentProfile) {
+        await ensureProfile();
+      }
+
+
+      const username =
+        currentProfile?.username ||
+        "User";
+
+
+      document
+        .getElementById(
+          "topUsername"
+        )
+        .textContent =
+        username;
+
+
+      document
+        .getElementById(
+          "profileUsername"
+        )
+        .value =
+        username;
+
+
+      await loadPosts();
+
+    }
+
+
+    /* =========================================================
+       LOAD POSTS
+    ========================================================= */
+
+    async function loadPosts() {
+
+      if (loadingPosts) {
+        return;
+      }
+
+
+      loadingPosts = true;
+
+
+      postsContainer.innerHTML = `
         <div class="loading">
-          <div class="spinner"></div>
+          <span class="spinner"></span>
           Loading posts...
         </div>
       `;
 
+
       try {
-
-        const category =
-          $("categoryFilter").value;
-
-        let query =
-          supabaseClient
-            .from("posts")
-            .select(
-              "id, user_id, category, title, content, is_anonymous, created_at"
-            )
-            .order(
-              "created_at",
-              {
-                ascending: false
-              }
-            );
-
-        if (category !== "all") {
-          query =
-            query.eq(
-              "category",
-              category
-            );
-        }
 
         const {
           data: posts,
           error: postsError
-        } = await query;
+        } = await db
+          .from("posts")
+          .select(`
+            id,
+            user_id,
+            category,
+            title,
+            content,
+            is_anonymous,
+            created_at
+          `)
+          .order(
+            "created_at",
+            {
+              ascending: false
+            }
+          );
+
 
         if (postsError) {
           throw postsError;
         }
 
-        currentPosts =
+
+        allPosts =
           posts || [];
 
-        commentsCache = {};
-        reactionsCache = {};
 
-        const userIds =
-          [
+        profilesMap = {};
+
+
+        if (allPosts.length > 0) {
+
+          const ids = [
             ...new Set(
-              currentPosts
-                .map(post => post.user_id)
-                .filter(Boolean)
+              allPosts.map(
+                post => post.user_id
+              )
             )
           ];
 
-        const postIds =
-          currentPosts.map(
-            post => post.id
+
+          if (ids.length) {
+
+            const {
+              data: profiles,
+              error: profilesError
+            } = await db
+              .from("profiles")
+              .select(
+                "id, username"
+              )
+              .in(
+                "id",
+                ids
+              );
+
+
+            if (!profilesError) {
+
+              (profiles || [])
+                .forEach(profile => {
+
+                  profilesMap[
+                    profile.id
+                  ] =
+                    profile.username;
+
+                });
+
+            }
+
+          }
+
+        }
+
+
+        const {
+          data: reactionRows,
+          error: reactionsError
+        } = await db
+          .from("reactions")
+          .select(
+            "id, post_id, user_id, type, created_at"
+          )
+          .eq(
+            "type",
+            "support"
           );
 
-        let profiles = [];
-        let comments = [];
-        let reactions = [];
 
-        /*
-          PROFILES
-        */
+        if (!reactionsError) {
 
-        if (userIds.length > 0) {
+          reactions =
+            reactionRows || [];
 
-          const {
-            data,
-            error
-          } =
-            await supabaseClient
-              .from("profiles")
-              .select("id, username")
-              .in("id", userIds);
+        } else {
 
-          if (!error) {
-            profiles =
-              data || [];
-          }
+          console.warn(
+            "Reactions could not be loaded:",
+            reactionsError
+          );
+
+          reactions = [];
+
         }
 
-        /*
-          COMMENTS
-        */
 
-        if (postIds.length > 0) {
-
-          const {
-            data,
-            error
-          } =
-            await supabaseClient
-              .from("comments")
-              .select(
-                "id, post_id, user_id, content, created_at"
-              )
-              .in(
-                "post_id",
-                postIds
-              )
-              .order(
-                "created_at",
-                {
-                  ascending: true
-                }
-              );
-
-          if (!error) {
-            comments =
-              data || [];
-          }
-        }
-
-        /*
-          REACTIONS
-        */
-
-        if (postIds.length > 0) {
-
-          const {
-            data,
-            error
-          } =
-            await supabaseClient
-              .from("reactions")
-              .select(
-                "id, post_id, user_id, type"
-              )
-              .in(
-                "post_id",
-                postIds
-              )
-              .eq(
-                "type",
-                "support"
-              );
-
-          if (!error) {
-            reactions =
-              data || [];
-          }
-        }
-
-        const profileMap =
-          {};
-
-        profiles.forEach(profile => {
-          profileMap[profile.id] =
-            profile.username;
-        });
-
-        comments.forEach(comment => {
-
-          if (!commentsCache[comment.post_id]) {
-            commentsCache[comment.post_id] = [];
-          }
-
-          commentsCache[comment.post_id]
-            .push({
-              ...comment,
-              username:
-                profileMap[comment.user_id] ||
-                "User"
-            });
-        });
-
-        reactions.forEach(reaction => {
-
-          if (!reactionsCache[reaction.post_id]) {
-            reactionsCache[reaction.post_id] = [];
-          }
-
-          reactionsCache[reaction.post_id]
-            .push(reaction);
-        });
-
-        renderPosts(
-          currentPosts,
-          profileMap
-        );
+        renderPosts();
 
       } catch (error) {
 
         console.error(
-          "Load posts error:",
+          "loadPosts:",
           error
         );
 
-        container.innerHTML = `
+
+        postsContainer.innerHTML = `
           <div class="empty">
             <div class="empty-icon">⚠️</div>
-            <strong>We couldn't load the community.</strong>
+            <strong>Couldn't load the community.</strong>
             <p style="margin-top:8px;">
               ${escapeHTML(
-                getErrorMessage(error)
+                friendlyError(error)
               )}
             </p>
             <button
-              class="btn btn-primary"
+              class="secondary-btn"
               style="margin-top:15px;"
               onclick="loadPosts()"
             >
@@ -2187,83 +2425,171 @@
             </button>
           </div>
         `;
+
+      } finally {
+
+        loadingPosts = false;
+
       }
+
     }
 
 
-    function renderPosts(
-      posts,
-      profileMap
-    ) {
+    /* =========================================================
+       RENDER POSTS
+    ========================================================= */
 
-      const container =
-        $("postsContainer");
+    function renderPosts() {
 
-      if (!posts.length) {
+      const search =
+        document
+          .getElementById(
+            "searchInput"
+          )
+          .value
+          .trim()
+          .toLowerCase();
 
-        container.innerHTML = `
+
+      const category =
+        document
+          .getElementById(
+            "categoryFilter"
+          )
+          .value;
+
+
+      const filtered =
+        allPosts.filter(post => {
+
+          const matchesSearch =
+            !search ||
+            String(post.title || "")
+              .toLowerCase()
+              .includes(search) ||
+            String(post.content || "")
+              .toLowerCase()
+              .includes(search) ||
+            String(post.category || "")
+              .toLowerCase()
+              .includes(search);
+
+
+          const matchesCategory =
+            category === "all" ||
+            post.category === category;
+
+
+          return (
+            matchesSearch &&
+            matchesCategory
+          );
+
+        });
+
+
+      if (!filtered.length) {
+
+        postsContainer.innerHTML = `
           <div class="empty">
             <div class="empty-icon">💙</div>
-            <strong>No posts yet.</strong>
+            <strong>
+              ${
+                allPosts.length
+                  ? "No posts match your search."
+                  : "No posts yet."
+              }
+            </strong>
+
             <p style="margin-top:8px;">
-              Be the first person to share something with the community.
+              ${
+                allPosts.length
+                  ? "Try another search or category."
+                  : "Be the first person to share something."
+              }
             </p>
           </div>
         `;
 
         return;
+
       }
 
-      container.innerHTML =
-        `<div class="post-list">
-          ${posts.map(post =>
-            renderPost(
-              post,
-              profileMap
-            )
-          ).join("")}
-        </div>`;
+
+      postsContainer.innerHTML =
+        filtered
+          .map(renderPost)
+          .join("");
+
+
+      filtered.forEach(post => {
+
+        if (
+          openedComments.has(
+            post.id
+          )
+        ) {
+
+          loadComments(
+            post.id
+          );
+
+        }
+
+      });
+
     }
 
 
-    function renderPost(
-      post,
-      profileMap
-    ) {
+    function renderPost(post) {
 
       const isOwner =
         currentUser &&
-        post.user_id === currentUser.id;
+        post.user_id ===
+        currentUser.id;
 
-      const username =
+
+      const displayName =
         post.is_anonymous
           ? "Anonymous"
           : (
-              profileMap[post.user_id] ||
-              "User"
+              profilesMap[
+                post.user_id
+              ] ||
+              "Community member"
             );
 
-      const initial =
-        post.is_anonymous
-          ? "?"
-          : getInitial(username);
 
-      const reactions =
-        reactionsCache[post.id] ||
-        [];
-
-      const supportCount =
-        reactions.length;
-
-      const hasSupported =
-        reactions.some(
+      const supportRows =
+        reactions.filter(
           reaction =>
-            reaction.user_id === currentUser?.id
+            reaction.post_id ===
+              post.id &&
+            reaction.type ===
+              "support"
         );
 
-      const comments =
-        commentsCache[post.id] ||
-        [];
+
+      const supportCount =
+        supportRows.length;
+
+
+      const supported =
+        !!(
+          currentUser &&
+          supportRows.some(
+            reaction =>
+              reaction.user_id ===
+              currentUser.id
+          )
+        );
+
+
+      const commentOpen =
+        openedComments.has(
+          post.id
+        );
+
 
       return `
         <article
@@ -2271,23 +2597,29 @@
           id="post-${escapeHTML(post.id)}"
         >
 
-          <div class="post-header">
+          <div class="post-top">
 
-            <div class="author">
+            <div class="post-author">
 
-              <div class="author-avatar">
-                ${escapeHTML(initial)}
+              <div class="avatar">
+                ${escapeHTML(
+                  shortName(displayName)
+                )}
               </div>
 
-              <div class="author-info">
+              <div>
 
                 <div class="author-name">
-                  ${escapeHTML(username)}
+                  ${escapeHTML(
+                    displayName
+                  )}
                 </div>
 
                 <div class="post-date">
                   ${escapeHTML(
-                    formatDate(post.created_at)
+                    formatDate(
+                      post.created_at
+                    )
                   )}
                 </div>
 
@@ -2295,136 +2627,233 @@
 
             </div>
 
-            <span class="category">
-              ${escapeHTML(post.category || "Other")}
-            </span>
+
+            <div class="category-badge">
+              ${escapeHTML(
+                post.category ||
+                "Other"
+              )}
+            </div>
 
           </div>
+
 
           <h3 class="post-title">
-            ${escapeHTML(post.title)}
+            ${escapeHTML(
+              post.title ||
+              "Untitled"
+            )}
           </h3>
 
+
           <div class="post-content">
-            ${escapeHTML(post.content)}
+            ${escapeHTML(
+              post.content || ""
+            )}
           </div>
+
 
           <div class="post-actions">
 
             <button
-              class="action-btn ${hasSupported ? "supported" : ""}"
-              type="button"
-              onclick="toggleSupport('${escapeHTML(post.id)}')"
+              class="action-btn ${
+                supported
+                  ? "supported"
+                  : ""
+              }"
+              data-action="support"
+              data-post-id="${escapeHTML(post.id)}"
             >
-              ${hasSupported ? "💙" : "🤍"}
-              Support
-              ${supportCount > 0
-                ? `(${supportCount})`
-                : ""}
+              ${supported ? "💙" : "♡"}
+              Support ${supportCount}
             </button>
+
 
             <button
               class="action-btn"
-              type="button"
-              onclick="toggleComments('${escapeHTML(post.id)}')"
+              data-action="comments"
+              data-post-id="${escapeHTML(post.id)}"
             >
               💬 Comments
-              ${comments.length > 0
-                ? `(${comments.length})`
-                : ""}
             </button>
 
-            <button
-              class="action-btn report"
-              type="button"
-              onclick="openReportModal('${escapeHTML(post.id)}')"
-            >
-              🚩 Report
-            </button>
 
             ${
-              isOwner
+              !isOwner
                 ? `
-                  <div class="owner-actions">
-
-                    <button
-                      class="action-btn"
-                      type="button"
-                      onclick="openEditModal('${escapeHTML(post.id)}')"
-                    >
-                      ✏️ Edit
-                    </button>
-
-                    <button
-                      class="action-btn"
-                      style="color:#dc2626;"
-                      type="button"
-                      onclick="deletePost('${escapeHTML(post.id)}')"
-                    >
-                      🗑️ Delete
-                    </button>
-
-                  </div>
+                  <button
+                    class="action-btn"
+                    data-action="report"
+                    data-post-id="${escapeHTML(post.id)}"
+                  >
+                    ⚑ Report
+                  </button>
                 `
-                : ""
+                : `
+                  <button
+                    class="action-btn"
+                    data-action="edit"
+                    data-post-id="${escapeHTML(post.id)}"
+                  >
+                    ✏️ Edit
+                  </button>
+
+                  <button
+                    class="action-btn danger"
+                    data-action="delete"
+                    data-post-id="${escapeHTML(post.id)}"
+                  >
+                    🗑️ Delete
+                  </button>
+                `
             }
 
           </div>
 
-          <div
-            id="comments-${escapeHTML(post.id)}"
-            class="comments-box hidden"
-          >
-            ${renderComments(post.id)}
-          </div>
+
+          ${
+            commentOpen
+              ? `
+                <div
+                  class="comments-area"
+                  id="comments-${escapeHTML(post.id)}"
+                >
+
+                  <div class="loading">
+                    <span class="spinner"></span>
+                    Loading comments...
+                  </div>
+
+                </div>
+              `
+              : ""
+          }
 
         </article>
       `;
+
     }
 
 
-    /*
-      ============================================================
-      SUPPORT
-      ============================================================
-    */
+    /* =========================================================
+       POST ACTION DELEGATION
+    ========================================================= */
 
-    async function toggleSupport(postId) {
+    postsContainer.addEventListener(
+      "click",
+      async function(event) {
+
+        const button =
+          event.target.closest(
+            "[data-action]"
+          );
+
+
+        if (!button) {
+          return;
+        }
+
+
+        const action =
+          button.dataset.action;
+
+        const postId =
+          button.dataset.postId;
+
+
+        if (!postId) {
+          return;
+        }
+
+
+        if (action === "support") {
+
+          await toggleReaction(
+            postId
+          );
+
+        }
+
+
+        if (action === "comments") {
+
+          toggleComments(
+            postId
+          );
+
+        }
+
+
+        if (action === "edit") {
+
+          openEditModal(
+            postId
+          );
+
+        }
+
+
+        if (action === "delete") {
+
+          openDeleteModal(
+            postId
+          );
+
+        }
+
+
+        if (action === "report") {
+
+          openReportModal(
+            postId
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       SUPPORT
+    ========================================================= */
+
+    async function toggleReaction(
+      postId
+    ) {
 
       if (!currentUser) {
-        showToast(
-          "Please log in first.",
-          "error"
-        );
         return;
       }
+
 
       try {
 
         const {
           data: existing,
           error: findError
-        } =
-          await supabaseClient
-            .from("reactions")
-            .select("id")
-            .eq(
-              "post_id",
-              postId
-            )
-            .eq(
-              "user_id",
-              currentUser.id
-            )
-            .eq(
-              "type",
-              "support"
-            )
-            .limit(1);
+        } = await db
+          .from("reactions")
+          .select("id")
+          .eq(
+            "post_id",
+            postId
+          )
+          .eq(
+            "user_id",
+            currentUser.id
+          )
+          .eq(
+            "type",
+            "support"
+          )
+          .limit(1);
+
 
         if (findError) {
           throw findError;
         }
+
 
         if (
           existing &&
@@ -2433,163 +2862,317 @@
 
           const {
             error
-          } =
-            await supabaseClient
-              .from("reactions")
-              .delete()
-              .eq(
-                "id",
-                existing[0].id
-              );
+          } = await db
+            .from("reactions")
+            .delete()
+            .eq(
+              "id",
+              existing[0].id
+            )
+            .eq(
+              "user_id",
+              currentUser.id
+            );
+
 
           if (error) {
             throw error;
           }
+
 
         } else {
 
           const {
             error
-          } =
-            await supabaseClient
-              .from("reactions")
-              .insert({
-                post_id: postId,
-                user_id: currentUser.id,
-                type: "support"
-              });
+          } = await db
+            .from("reactions")
+            .insert({
+              post_id: postId,
+              user_id:
+                currentUser.id,
+              type: "support"
+            });
+
 
           if (error) {
             throw error;
           }
+
         }
+
 
         await loadPosts();
 
       } catch (error) {
 
-        console.error(
-          "Support error:",
-          error
-        );
+        console.error(error);
 
         showToast(
-          getErrorMessage(error),
+          friendlyError(error),
           "error"
         );
+
       }
+
     }
 
 
-    /*
-      ============================================================
-      COMMENTS
-      ============================================================
-    */
+    /* =========================================================
+       COMMENTS TOGGLE
+    ========================================================= */
 
-    function toggleComments(postId) {
+    function toggleComments(
+      postId
+    ) {
 
-      const box =
-        $(`comments-${postId}`);
+      if (
+        openedComments.has(
+          postId
+        )
+      ) {
 
-      if (!box) {
+        openedComments.delete(
+          postId
+        );
+
+      } else {
+
+        openedComments.add(
+          postId
+        );
+
+      }
+
+
+      renderPosts();
+
+    }
+
+
+    /* =========================================================
+       LOAD COMMENTS
+    ========================================================= */
+
+    async function loadComments(
+      postId
+    ) {
+
+      const container =
+        document.getElementById(
+          `comments-${postId}`
+        );
+
+
+      if (!container) {
         return;
       }
 
-      box.classList.toggle(
-        "hidden"
-      );
+
+      try {
+
+        const {
+          data: comments,
+          error
+        } = await db
+          .from("comments")
+          .select(`
+            id,
+            post_id,
+            user_id,
+            content,
+            created_at
+          `)
+          .eq(
+            "post_id",
+            postId
+          )
+          .order(
+            "created_at",
+            {
+              ascending: true
+            }
+          );
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        const rows =
+          comments || [];
+
+
+        const userIds = [
+          ...new Set(
+            rows
+              .map(
+                comment =>
+                  comment.user_id
+              )
+              .filter(Boolean)
+          )
+        ];
+
+
+        const commentProfiles = {};
+
+
+        if (userIds.length) {
+
+          const {
+            data: profiles
+          } = await db
+            .from("profiles")
+            .select(
+              "id, username"
+            )
+            .in(
+              "id",
+              userIds
+            );
+
+
+          (profiles || [])
+            .forEach(profile => {
+
+              commentProfiles[
+                profile.id
+              ] =
+                profile.username;
+
+            });
+
+        }
+
+
+        let commentsHTML = "";
+
+
+        if (!rows.length) {
+
+          commentsHTML = `
+            <p style="
+              color:#8a93a4;
+              font-size:13px;
+              margin-bottom:10px;
+            ">
+              No comments yet. Be the first to respond 💙
+            </p>
+          `;
+
+        } else {
+
+          commentsHTML =
+            rows
+              .map(comment => {
+
+                const owner =
+                  currentUser &&
+                  comment.user_id ===
+                    currentUser.id;
+
+
+                const username =
+                  commentProfiles[
+                    comment.user_id
+                  ] ||
+                  "Community member";
+
+
+                return `
+                  <div class="comment">
+
+                    <div class="comment-head">
+
+                      <span class="comment-user">
+                        ${escapeHTML(
+                          username
+                        )}
+                      </span>
+
+                      <span class="comment-date">
+                        ${escapeHTML(
+                          formatDate(
+                            comment.created_at
+                          )
+                        )}
+                      </span>
+
+                    </div>
+
+                    <div class="comment-text">
+                      ${escapeHTML(
+                        comment.content
+                      )}
+                    </div>
+
+                    ${
+                      owner
+                        ? `
+                          <button
+                            class="delete-comment"
+                            onclick="deleteComment('${escapeHTML(comment.id)}', '${escapeHTML(postId)}')"
+                          >
+                            Delete
+                          </button>
+                        `
+                        : ""
+                    }
+
+                  </div>
+                `;
+
+              })
+              .join("");
+
+        }
+
+
+        container.innerHTML = `
+
+          ${commentsHTML}
+
+          <form
+            class="comment-form"
+            onsubmit="addComment(event, '${escapeHTML(postId)}')"
+          >
+
+            <input
+              type="text"
+              maxlength="1000"
+              placeholder="Write a kind comment..."
+              required
+            >
+
+            <button type="submit">
+              Send
+            </button>
+
+          </form>
+
+        `;
+
+      } catch (error) {
+
+        console.error(error);
+
+        container.innerHTML = `
+          <p style="color:#e55353;font-size:13px;">
+            ${escapeHTML(
+              friendlyError(error)
+            )}
+          </p>
+        `;
+
+      }
+
     }
 
 
-    function renderComments(postId) {
-
-      const comments =
-        commentsCache[postId] ||
-        [];
-
-      return `
-        <div class="comments-list">
-
-          ${
-            comments.length
-              ? comments.map(comment => `
-                <div class="comment">
-
-                  <div class="comment-top">
-
-                    <span class="comment-author">
-                      ${escapeHTML(
-                        comment.username ||
-                        "User"
-                      )}
-                    </span>
-
-                    <span class="comment-time">
-                      ${escapeHTML(
-                        formatDate(
-                          comment.created_at
-                        )
-                      )}
-                    </span>
-
-                  </div>
-
-                  <div class="comment-content">
-                    ${escapeHTML(
-                      comment.content
-                    )}
-                  </div>
-
-                  ${
-                    comment.user_id === currentUser?.id
-                      ? `
-                        <button
-                          class="comment-delete"
-                          type="button"
-                          onclick="deleteComment('${escapeHTML(comment.id)}', '${escapeHTML(postId)}')"
-                        >
-                          Delete
-                        </button>
-                      `
-                      : ""
-                  }
-
-                </div>
-              `).join("")
-              : `
-                <div style="color:#9ca3af;font-size:13px;margin-bottom:10px;">
-                  No comments yet. Be the first to respond.
-                </div>
-              `
-          }
-
-        </div>
-
-        <form
-          class="comment-form"
-          onsubmit="addComment(event, '${escapeHTML(postId)}')"
-        >
-
-          <input
-            class="input"
-            id="comment-input-${escapeHTML(postId)}"
-            maxlength="1000"
-            required
-            placeholder="Write a supportive response..."
-          >
-
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
-            Send
-          </button>
-
-        </form>
-      `;
-    }
-
+    /* =========================================================
+       ADD COMMENT
+    ========================================================= */
 
     async function addComment(
       event,
@@ -2598,69 +3181,96 @@
 
       event.preventDefault();
 
+
       if (!currentUser) {
         return;
       }
 
+
+      const form =
+        event.target;
+
       const input =
-        $(`comment-input-${postId}`);
+        form.querySelector(
+          "input"
+        );
+
+      const button =
+        form.querySelector(
+          "button"
+        );
+
 
       const content =
         input.value.trim();
+
 
       if (!content) {
         return;
       }
 
+
       try {
+
+        button.disabled = true;
+
+        button.textContent =
+          "Sending...";
+
 
         const {
           error
-        } =
-          await supabaseClient
-            .from("comments")
-            .insert({
-              post_id: postId,
-              user_id: currentUser.id,
-              content
-            });
+        } = await db
+          .from("comments")
+          .insert({
+            post_id: postId,
+            user_id:
+              currentUser.id,
+            content
+          });
+
 
         if (error) {
           throw error;
         }
+
+
+        input.value = "";
+
+        await loadComments(
+          postId
+        );
+
 
         showToast(
           "Comment added 💙",
           "success"
         );
 
-        await loadPosts();
-
-        setTimeout(() => {
-          const box =
-            $(`comments-${postId}`);
-
-          if (box) {
-            box.classList.remove(
-              "hidden"
-            );
-          }
-        }, 50);
-
       } catch (error) {
 
-        console.error(
-          "Comment error:",
-          error
-        );
+        console.error(error);
 
         showToast(
-          getErrorMessage(error),
+          friendlyError(error),
           "error"
         );
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          "Send";
+
       }
+
     }
 
+
+    /* =========================================================
+       DELETE COMMENT
+    ========================================================= */
 
     async function deleteComment(
       commentId,
@@ -2671,561 +3281,675 @@
         return;
       }
 
-      const confirmed =
-        confirm(
-          "Delete this comment?"
-        );
 
-      if (!confirmed) {
+      if (
+        !confirm(
+          "Delete this comment?"
+        )
+      ) {
         return;
       }
+
 
       try {
 
         const {
           error
-        } =
-          await supabaseClient
-            .from("comments")
-            .delete()
-            .eq(
-              "id",
-              commentId
-            )
-            .eq(
-              "user_id",
-              currentUser.id
-            );
+        } = await db
+          .from("comments")
+          .delete()
+          .eq(
+            "id",
+            commentId
+          )
+          .eq(
+            "user_id",
+            currentUser.id
+          );
+
 
         if (error) {
           throw error;
         }
+
+
+        await loadComments(
+          postId
+        );
+
 
         showToast(
           "Comment deleted.",
           "success"
         );
 
-        await loadPosts();
-
-        setTimeout(() => {
-
-          const box =
-            $(`comments-${postId}`);
-
-          if (box) {
-            box.classList.remove(
-              "hidden"
-            );
-          }
-
-        }, 50);
-
       } catch (error) {
 
-        console.error(
-          "Delete comment error:",
-          error
-        );
+        console.error(error);
 
         showToast(
-          getErrorMessage(error),
+          friendlyError(error),
           "error"
         );
+
       }
+
     }
 
 
-    /*
-      ============================================================
-      CREATE POST
-      ============================================================
-    */
+    /* =========================================================
+       CREATE POST
+    ========================================================= */
 
-    $("postForm").addEventListener(
-      "submit",
-      async (event) => {
+    document
+      .getElementById("postForm")
+      .addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
+          event.preventDefault();
 
-        if (!currentUser) {
-          return;
-        }
 
-        const category =
-          $("postCategory").value;
+          if (!currentUser) {
+            return;
+          }
 
-        const title =
-          $("postTitle").value.trim();
 
-        const content =
-          $("postContent").value.trim();
+          const category =
+            document
+              .getElementById(
+                "postCategory"
+              )
+              .value;
 
-        const isAnonymous =
-          $("anonymousPost").checked;
+          const title =
+            document
+              .getElementById(
+                "postTitle"
+              )
+              .value
+              .trim();
 
-        if (!category) {
-          showToast(
-            "Please choose a category.",
-            "error"
-          );
-          return;
-        }
+          const content =
+            document
+              .getElementById(
+                "postContent"
+              )
+              .value
+              .trim();
 
-        if (!title) {
-          showToast(
-            "Please add a title.",
-            "error"
-          );
-          return;
-        }
+          const anonymous =
+            document
+              .getElementById(
+                "anonymousPost"
+              )
+              .checked;
 
-        if (!content) {
-          showToast(
-            "Please write something.",
-            "error"
-          );
-          return;
-        }
 
-        try {
+          if (
+            !category ||
+            !title ||
+            !content
+          ) {
 
-          const {
-            error
-          } =
-            await supabaseClient
+            showToast(
+              "Please complete all fields.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          try {
+
+            const button =
+              this.querySelector(
+                "button[type='submit']"
+              );
+
+            setLoadingButton(
+              button,
+              true,
+              "Publish Post 💙"
+            );
+
+
+            const {
+              error
+            } = await db
               .from("posts")
               .insert({
-                user_id: currentUser.id,
+                user_id:
+                  currentUser.id,
                 category,
                 title,
                 content,
-                is_anonymous: isAnonymous
+                is_anonymous:
+                  anonymous
               });
 
-          if (error) {
-            throw error;
+
+            if (error) {
+              throw error;
+            }
+
+
+            this.reset();
+
+
+            document
+              .getElementById(
+                "anonymousPost"
+              )
+              .checked = true;
+
+
+            showToast(
+              "Your post has been published 💙",
+              "success"
+            );
+
+
+            showSection(
+              "community"
+            );
+
+          } catch (error) {
+
+            console.error(error);
+
+            showToast(
+              friendlyError(error),
+              "error"
+            );
+
+          } finally {
+
+            const button =
+              this.querySelector(
+                "button[type='submit']"
+              );
+
+            setLoadingButton(
+              button,
+              false,
+              "Publish Post 💙"
+            );
+
           }
 
-          $("postForm").reset();
-
-          showToast(
-            "Your post was shared 💙",
-            "success"
-          );
-
-          switchTab("community");
-
-          await loadPosts();
-
-        } catch (error) {
-
-          console.error(
-            "Create post error:",
-            error
-          );
-
-          showToast(
-            getErrorMessage(error),
-            "error"
-          );
         }
-      }
-    );
+      );
 
 
-    /*
-      ============================================================
-      EDIT POST
-      ============================================================
-    */
+    /* =========================================================
+       EDIT POST
+    ========================================================= */
 
-    function openEditModal(postId) {
+    function openEditModal(
+      postId
+    ) {
 
       const post =
-        currentPosts.find(
+        allPosts.find(
           item =>
-            String(item.id) ===
-            String(postId)
+            item.id === postId
         );
 
+
       if (!post) {
-        showToast(
-          "Post not found.",
-          "error"
-        );
         return;
       }
 
+
       if (
+        !currentUser ||
         post.user_id !==
-        currentUser?.id
+          currentUser.id
       ) {
+
         showToast(
           "You can only edit your own posts.",
           "error"
         );
+
         return;
+
       }
 
-      $("editPostId").value =
-        post.id;
 
-      $("editCategory").value =
-        post.category || "Other";
+      editingPostId =
+        postId;
 
-      $("editTitle").value =
+
+      document
+        .getElementById(
+          "editTitle"
+        )
+        .value =
         post.title || "";
 
-      $("editContent").value =
+
+      document
+        .getElementById(
+          "editContent"
+        )
+        .value =
         post.content || "";
 
-      $("editModal").classList.remove(
-        "hidden"
-      );
+
+      document
+        .getElementById(
+          "editModal"
+        )
+        .classList.remove(
+          "hidden"
+        );
+
     }
 
 
-    function closeEditModal() {
-
-      $("editModal").classList.add(
-        "hidden"
-      );
-
-      $("editForm").reset();
-    }
-
-
-    $("editForm").addEventListener(
-      "submit",
-      async (event) => {
-
-        event.preventDefault();
-
-        if (!currentUser) {
-          return;
-        }
-
-        const postId =
-          $("editPostId").value;
-
-        const category =
-          $("editCategory").value;
-
-        const title =
-          $("editTitle").value.trim();
-
-        const content =
-          $("editContent").value.trim();
-
-        if (!postId || !title || !content) {
-          showToast(
-            "Please complete all fields.",
-            "error"
-          );
-          return;
-        }
-
-        try {
-
-          const {
-            error
-          } =
-            await supabaseClient
-              .from("posts")
-              .update({
-                category,
-                title,
-                content
-              })
-              .eq(
-                "id",
-                postId
-              )
-              .eq(
-                "user_id",
-                currentUser.id
-              );
-
-          if (error) {
-            throw error;
-          }
-
-          closeEditModal();
-
-          showToast(
-            "Post updated successfully.",
-            "success"
-          );
-
-          await loadPosts();
-
-        } catch (error) {
-
-          console.error(
-            "Edit post error:",
-            error
-          );
-
-          showToast(
-            getErrorMessage(error),
-            "error"
-          );
-        }
-      }
-    );
-
-
-    /*
-      ============================================================
-      DELETE POST
-      ============================================================
-    */
-
-    async function deletePost(postId) {
-
-      if (!currentUser) {
-        return;
-      }
-
-      const post =
-        currentPosts.find(
-          item =>
-            String(item.id) ===
-            String(postId)
-        );
-
-      if (!post) {
-        showToast(
-          "Post not found.",
-          "error"
-        );
-        return;
-      }
+    async function saveEditedPost() {
 
       if (
-        post.user_id !==
-        currentUser.id
+        !editingPostId ||
+        !currentUser
       ) {
+        return;
+      }
+
+
+      const title =
+        document
+          .getElementById(
+            "editTitle"
+          )
+          .value
+          .trim();
+
+      const content =
+        document
+          .getElementById(
+            "editContent"
+          )
+          .value
+          .trim();
+
+
+      if (!title || !content) {
+
         showToast(
-          "You can only delete your own posts.",
+          "Title and content cannot be empty.",
           "error"
         );
+
         return;
+
       }
 
-      const confirmed =
-        confirm(
-          "Are you sure you want to delete this post?"
-        );
-
-      if (!confirmed) {
-        return;
-      }
 
       try {
 
-        /*
-          The database should have ON DELETE CASCADE
-          on comments/reactions/reports referencing posts.
-        */
-
         const {
           error
-        } =
-          await supabaseClient
-            .from("posts")
-            .delete()
-            .eq(
-              "id",
-              postId
-            )
-            .eq(
-              "user_id",
-              currentUser.id
-            );
+        } = await db
+          .from("posts")
+          .update({
+            title,
+            content
+          })
+          .eq(
+            "id",
+            editingPostId
+          )
+          .eq(
+            "user_id",
+            currentUser.id
+          );
+
 
         if (error) {
           throw error;
         }
 
+
+        closeModal(
+          "editModal"
+        );
+
+
+        editingPostId =
+          null;
+
+
         showToast(
-          "Post deleted successfully.",
+          "Post updated successfully.",
           "success"
         );
+
 
         await loadPosts();
 
       } catch (error) {
 
-        console.error(
-          "Delete post error:",
-          error
-        );
+        console.error(error);
 
         showToast(
-          getErrorMessage(error),
+          friendlyError(error),
           "error"
         );
+
       }
+
     }
 
 
-    /*
-      ============================================================
-      REPORTS
-      ============================================================
-    */
+    /* =========================================================
+       DELETE POST
+    ========================================================= */
 
-    function openReportModal(postId) {
+    function openDeleteModal(
+      postId
+    ) {
 
-      if (!currentUser) {
+      const post =
+        allPosts.find(
+          item =>
+            item.id === postId
+        );
+
+
+      if (!post) {
         return;
       }
 
-      $("reportPostId").value =
+
+      if (
+        !currentUser ||
+        post.user_id !==
+          currentUser.id
+      ) {
+
+        showToast(
+          "You can only delete your own posts.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      deletingPostId =
         postId;
 
-      $("reportReason").value =
-        "";
 
-      $("reportModal").classList.remove(
-        "hidden"
-      );
+      document
+        .getElementById(
+          "deleteModal"
+        )
+        .classList.remove(
+          "hidden"
+        );
+
     }
 
 
-    function closeReportModal() {
+    async function confirmDeletePost() {
 
-      $("reportModal").classList.add(
-        "hidden"
-      );
+      if (
+        !deletingPostId ||
+        !currentUser
+      ) {
+        return;
+      }
 
-      $("reportForm").reset();
+
+      try {
+
+        const {
+          error
+        } = await db
+          .from("posts")
+          .delete()
+          .eq(
+            "id",
+            deletingPostId
+          )
+          .eq(
+            "user_id",
+            currentUser.id
+          );
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        openedComments.delete(
+          deletingPostId
+        );
+
+
+        closeModal(
+          "deleteModal"
+        );
+
+
+        deletingPostId =
+          null;
+
+
+        showToast(
+          "Post deleted.",
+          "success"
+        );
+
+
+        await loadPosts();
+
+      } catch (error) {
+
+        console.error(error);
+
+        showToast(
+          friendlyError(error),
+          "error"
+        );
+
+      }
+
     }
 
 
-    $("reportForm").addEventListener(
-      "submit",
-      async (event) => {
+    /* =========================================================
+       REPORT
+    ========================================================= */
 
-        event.preventDefault();
+    function openReportModal(
+      postId
+    ) {
 
-        if (!currentUser) {
-          return;
-        }
+      reportingPostId =
+        postId;
 
-        const postId =
-          $("reportPostId").value;
 
-        const reason =
-          $("reportReason").value;
+      document
+        .getElementById(
+          "reportReason"
+        )
+        .value =
+        "Spam";
 
-        if (!postId || !reason) {
-          showToast(
-            "Please choose a reason.",
-            "error"
-          );
-          return;
-        }
 
-        try {
+      document
+        .getElementById(
+          "reportDetails"
+        )
+        .value = "";
 
-          const {
-            error
-          } =
-            await supabaseClient
-              .from("reports")
-              .insert({
-                post_id: postId,
-                reporter_id: currentUser.id,
-                reason
-              });
 
-          if (error) {
-            throw error;
-          }
+      document
+        .getElementById(
+          "reportModal"
+        )
+        .classList.remove(
+          "hidden"
+        );
 
-          closeReportModal();
+    }
 
-          showToast(
-            "Thank you. Your report has been submitted.",
-            "success"
-          );
 
-        } catch (error) {
+    async function submitReport() {
 
-          console.error(
-            "Report error:",
-            error
-          );
-
-          showToast(
-            getErrorMessage(error),
-            "error"
-          );
-        }
+      if (
+        !reportingPostId ||
+        !currentUser
+      ) {
+        return;
       }
-    );
 
 
-    /*
-      ============================================================
-      MODAL CLOSE
-      ============================================================
-    */
+      const reason =
+        document
+          .getElementById(
+            "reportReason"
+          )
+          .value;
 
-    $("editModal").addEventListener(
-      "click",
-      (event) => {
+      const details =
+        document
+          .getElementById(
+            "reportDetails"
+          )
+          .value
+          .trim();
 
-        if (
-          event.target ===
-          $("editModal")
-        ) {
-          closeEditModal();
+
+      const finalReason =
+        details
+          ? `${reason}: ${details}`
+          : reason;
+
+
+      try {
+
+        const {
+          error
+        } = await db
+          .from("reports")
+          .insert({
+            post_id:
+              reportingPostId,
+            reporter_id:
+              currentUser.id,
+            reason:
+              finalReason
+          });
+
+
+        if (error) {
+          throw error;
         }
+
+
+        closeModal(
+          "reportModal"
+        );
+
+
+        reportingPostId =
+          null;
+
+
+        showToast(
+          "Report submitted. Thank you.",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        showToast(
+          friendlyError(error),
+          "error"
+        );
+
       }
-    );
 
-    $("reportModal").addEventListener(
-      "click",
-      (event) => {
+    }
 
-        if (
-          event.target ===
-          $("reportModal")
-        ) {
-          closeReportModal();
-        }
+
+    /* =========================================================
+       MODALS
+    ========================================================= */
+
+    function closeModal(
+      id
+    ) {
+
+      document
+        .getElementById(id)
+        .classList.add(
+          "hidden"
+        );
+
+    }
+
+
+    function closeModalOutside(
+      event,
+      id
+    ) {
+
+      if (
+        event.target.id === id
+      ) {
+
+        closeModal(id);
+
       }
-    );
 
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (
-          event.key === "Escape"
-        ) {
-          closeEditModal();
-          closeReportModal();
-        }
-      }
-    );
+    }
 
 
-    /*
-      ============================================================
-      AUTH STATE
-      ============================================================
-    */
+    /* =========================================================
+       SEARCH / FILTER
+    ========================================================= */
 
-    supabaseClient.auth.onAuthStateChange(
-      async (
+    document
+      .getElementById(
+        "searchInput"
+      )
+      .addEventListener(
+        "input",
+        renderPosts
+      );
+
+
+    document
+      .getElementById(
+        "categoryFilter"
+      )
+      .addEventListener(
+        "change",
+        renderPosts
+      );
+
+
+    /* =========================================================
+       AUTH SESSION
+    ========================================================= */
+
+    db.auth.onAuthStateChange(
+      async function(
         event,
         session
-      ) => {
+      ) {
 
         if (
           session &&
@@ -3235,38 +3959,34 @@
           currentUser =
             session.user;
 
-          /*
-            Do not aggressively rebuild the UI
-            during every token refresh.
-          */
 
-          if (
-            $("appScreen").classList.contains(
-              "hidden"
-            )
-          ) {
+          await ensureProfile();
 
-            await ensureProfile();
 
-            await showDashboard();
-          }
+          showApp();
+
+
+          await prepareApp();
 
         } else {
 
-          currentUser = null;
-          currentProfile = null;
+          currentUser =
+            null;
+
+          currentProfile =
+            null;
+
         }
+
       }
     );
 
 
-    /*
-      ============================================================
-      INITIAL SESSION
-      ============================================================
-    */
+    /* =========================================================
+       INITIAL SESSION CHECK
+    ========================================================= */
 
-    async function initializeApp() {
+    async function initialize() {
 
       try {
 
@@ -3274,11 +3994,13 @@
           data,
           error
         } =
-          await supabaseClient.auth.getSession();
+          await db.auth.getSession();
+
 
         if (error) {
           throw error;
         }
+
 
         if (
           data.session &&
@@ -3288,27 +4010,28 @@
           currentUser =
             data.session.user;
 
+
           await ensureProfile();
 
-          await showDashboard();
+          showApp();
 
-        } else {
+          await prepareApp();
 
-          showHome();
         }
 
       } catch (error) {
 
         console.error(
-          "Initialization error:",
+          "Initialization:",
           error
         );
 
-        showHome();
       }
+
     }
 
-    initializeApp();
+
+    initialize();
 
   </script>
 
