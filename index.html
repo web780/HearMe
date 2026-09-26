@@ -26,7 +26,7 @@
       --border: #e7eaf1;
       --danger: #ef5350;
       --success: #35a66f;
-      --shadow: 0 10px 30px rgba(32, 48, 86, 0.08);
+      --shadow: 0 10px 30px rgba(32, 45, 80, 0.08);
     }
 
     body {
@@ -51,503 +51,213 @@
       display: none !important;
     }
 
-    /* ---------- LANDING ---------- */
-
-    #landing {
+    .app {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
-    .landing-nav {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      background: white;
-      border-bottom: 1px solid var(--border);
-    }
+    /* AUTH */
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 23px;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .logo-heart {
-      width: 39px;
-      height: 39px;
-      border-radius: 13px;
-      background: var(--blue);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .nav-login {
-      border: 1px solid var(--border);
-      background: white;
-      color: var(--text);
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-    }
-
-    .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 70px 20px;
-    }
-
-    .hero-inner {
-      width: 100%;
-      max-width: 900px;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--blue-light);
-      color: var(--blue-dark);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 8vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -3px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: var(--blue);
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: 0 auto 30px;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .primary-btn {
-      border: none;
-      background: var(--blue);
-      color: white;
-      padding: 14px 24px;
-      border-radius: 14px;
-      font-weight: 800;
-      transition: .2s;
-    }
-
-    .primary-btn:hover {
-      background: var(--blue-dark);
-      transform: translateY(-1px);
-    }
-
-    .secondary-btn {
-      border: 1px solid var(--border);
-      background: white;
-      color: var(--text);
-      padding: 14px 24px;
-      border-radius: 14px;
-      font-weight: 800;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      max-width: 850px;
-      margin: 45px auto 0;
-    }
-
-    .feature {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px;
-      text-align: left;
-      box-shadow: var(--shadow);
-    }
-
-    .feature-icon {
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .feature h3 {
-      margin-bottom: 6px;
-      font-size: 16px;
-    }
-
-    .feature p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* ---------- AUTH ---------- */
-
-    .auth-screen {
+    .auth-page {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 25px;
-      background: var(--bg);
+      padding: 24px;
     }
 
     .auth-card {
       width: 100%;
-      max-width: 440px;
-      background: white;
+      max-width: 430px;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 24px;
+      padding: 30px 24px;
       box-shadow: var(--shadow);
     }
 
-    .auth-logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 22px;
+    .logo {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
     }
 
-    .auth-card h2 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 7px;
+    .logo span {
+      color: var(--blue);
     }
 
     .auth-subtitle {
       text-align: center;
       color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
+      line-height: 1.5;
     }
 
-    .tabs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: #f2f4f8;
+    .auth-tabs {
+      display: flex;
+      background: var(--blue-light);
       padding: 4px;
-      border-radius: 12px;
+      border-radius: 14px;
       margin-bottom: 22px;
     }
 
-    .tab {
+    .auth-tab {
+      flex: 1;
       border: none;
       background: transparent;
       padding: 11px;
-      border-radius: 9px;
-      font-weight: 700;
+      border-radius: 10px;
       color: var(--muted);
+      font-weight: 700;
     }
 
-    .tab.active {
+    .auth-tab.active {
       background: white;
-      color: var(--text);
-      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      color: var(--blue);
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
     }
 
-    .form-group {
+    .field {
       margin-bottom: 15px;
     }
 
-    .form-group label {
+    .field label {
       display: block;
-      font-size: 13px;
-      font-weight: 700;
       margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .form-input,
-    .form-textarea,
-    .form-select {
+    .field input,
+    .field textarea,
+    .field select {
       width: 100%;
       border: 1px solid var(--border);
       background: #fafbfe;
-      padding: 13px 14px;
       border-radius: 12px;
+      padding: 13px;
       outline: none;
       color: var(--text);
     }
 
-    .form-input:focus,
-    .form-textarea:focus,
-    .form-select:focus {
-      border-color: var(--blue);
-      background: white;
-    }
-
-    .form-textarea {
+    .field textarea {
       resize: vertical;
       min-height: 130px;
     }
 
-    .auth-submit {
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--blue);
+      background: white;
+    }
+
+    .primary-btn {
       width: 100%;
+      border: none;
+      background: var(--blue);
+      color: white;
+      padding: 14px;
+      border-radius: 13px;
+      font-weight: 800;
       margin-top: 5px;
     }
 
-    .back-btn {
-      width: 100%;
-      margin-top: 10px;
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      padding: 10px;
+    .primary-btn:hover {
+      background: var(--blue-dark);
     }
 
-    .auth-message {
-      font-size: 13px;
+    .message {
+      margin-top: 14px;
       text-align: center;
-      margin-top: 13px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .message.error {
       color: var(--danger);
-      line-height: 1.5;
     }
 
-    /* ---------- APP ---------- */
-
-    #app {
-      min-height: 100vh;
+    .message.success {
+      color: var(--success);
     }
 
-    .app-header {
-      height: 68px;
-      background: white;
-      border-bottom: 1px solid var(--border);
+    /* HEADER */
+
+    .header {
       position: sticky;
       top: 0;
       z-index: 20;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
-      max-width: 1150px;
-      height: 100%;
+      max-width: 900px;
       margin: auto;
-      padding: 0 18px;
+      padding: 17px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 15px;
     }
 
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 20px;
-      font-weight: 800;
+    .brand {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1px;
     }
 
-    .header-logo .logo-heart {
-      width: 34px;
-      height: 34px;
-      border-radius: 11px;
-      font-size: 17px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .header-btn {
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 11px;
-      padding: 9px 13px;
-      font-weight: 700;
-      color: var(--text);
+    .brand span {
+      color: var(--blue);
     }
 
     .logout-btn {
-      color: var(--danger);
-    }
-
-    .app-layout {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 25px 18px 60px;
-      display: grid;
-      grid-template-columns: 230px minmax(0, 1fr) 230px;
-      gap: 20px;
-    }
-
-    .sidebar-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 15px;
-      margin-bottom: 15px;
-    }
-
-    .sidebar-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--muted);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .side-item {
-      width: 100%;
-      border: none;
-      background: transparent;
-      text-align: left;
-      padding: 11px 10px;
-      border-radius: 10px;
-      color: var(--text);
-      font-weight: 650;
-    }
-
-    .side-item:hover,
-    .side-item.active {
-      background: var(--blue-light);
-      color: var(--blue-dark);
-    }
-
-    .profile-mini {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .avatar {
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--blue-light);
-      color: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-
-    .profile-mini strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .profile-mini span {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* ---------- FEED ---------- */
-
-    .feed-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      gap: 10px;
-    }
-
-    .feed-title h1 {
-      font-size: 25px;
-      margin-bottom: 3px;
-    }
-
-    .feed-title p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .search-box {
-      position: relative;
-      margin-bottom: 15px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 13px 15px 13px 42px;
       border: 1px solid var(--border);
       background: white;
+      color: #5e687d;
+      padding: 11px 17px;
       border-radius: 13px;
-      outline: none;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 15px;
-      top: 12px;
-      color: var(--muted);
-    }
-
-    .filters {
-      display: flex;
-      gap: 7px;
-      overflow-x: auto;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
-
-    .filter {
-      white-space: nowrap;
-      border: 1px solid var(--border);
-      background: white;
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 8px 13px;
-      font-size: 12px;
       font-weight: 700;
     }
 
-    .filter.active {
-      background: var(--blue);
-      color: white;
-      border-color: var(--blue);
+    /* MAIN */
+
+    .main {
+      max-width: 900px;
+      margin: auto;
+      padding: 28px 20px 60px;
     }
 
-    /* ---------- CREATE POST ---------- */
+    .hero {
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+    }
 
     .create-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 17px;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .create-card h2 {
+      font-size: 20px;
       margin-bottom: 16px;
-    }
-
-    .create-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 13px;
-    }
-
-    .create-head span {
-      color: var(--muted);
-      font-size: 13px;
     }
 
     .create-input {
@@ -557,4 +267,2453 @@
       border-radius: 12px;
       padding: 12px 13px;
       outline: none;
-      margin
+      margin-bottom: 12px;
+    }
+
+    .create-input:focus {
+      border-color: var(--blue);
+      background: white;
+    }
+
+    .create-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .create-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .create-row select {
+      flex: 1;
+    }
+
+    .anonymous-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .post-btn {
+      border: none;
+      background: var(--blue);
+      color: white;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 800;
+    }
+
+    .post-btn:hover {
+      background: var(--blue-dark);
+    }
+
+    /* SEARCH */
+
+    .filters {
+      margin-bottom: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    .search-input:focus {
+      border-color: var(--blue);
+    }
+
+    .category-select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 16px;
+      padding: 13px;
+      color: var(--blue);
+      font-weight: 700;
+      outline: none;
+    }
+
+    /* POSTS */
+
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .post-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .post-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .post-user {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .post-user strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .post-date {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 3px;
+    }
+
+    .category-badge {
+      background: var(--blue-light);
+      color: #65718a;
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .post-title {
+      font-size: 25px;
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
+
+    .post-content {
+      color: #5f6a80;
+      font-size: 18px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      margin-bottom: 22px;
+    }
+
+    .post-actions {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .action-btn {
+      border: 1px solid var(--border);
+      background: white;
+      color: #5e687d;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+    }
+
+    .action-btn:hover {
+      border-color: #cbd4ea;
+      background: #fafbff;
+    }
+
+    .action-btn.supported {
+      color: var(--blue);
+      background: var(--blue-light);
+      border-color: #dce5ff;
+    }
+
+    .action-btn.danger {
+      color: var(--danger);
+    }
+
+    .owner-actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 20px;
+    }
+
+    .loading {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px;
+    }
+
+    /* MODAL */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,25,40,.45);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: white;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .modal-header h3 {
+      font-size: 22px;
+    }
+
+    .close-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: #f1f3f8;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .comment {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .comment strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .comment p {
+      color: #5f6a80;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .comment-date {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 7px;
+    }
+
+    .comment-form {
+      display: flex;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .comment-form input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      outline: none;
+    }
+
+    .comment-form button {
+      border: none;
+      background: var(--blue);
+      color: white;
+      border-radius: 12px;
+      padding: 0 15px;
+      font-weight: 800;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      background: #182033;
+      color: white;
+      padding: 13px 18px;
+      border-radius: 13px;
+      z-index: 200;
+      max-width: calc(100% - 40px);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 600px) {
+      .main {
+        padding: 22px 14px 50px;
+      }
+
+      .header-inner {
+        padding: 15px 14px;
+      }
+
+      .brand {
+        font-size: 25px;
+      }
+
+      .logout-btn {
+        padding: 9px 13px;
+      }
+
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .create-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .anonymous-label {
+        margin: 4px 0;
+      }
+
+      .post-card {
+        padding: 17px;
+      }
+
+      .post-title {
+        font-size: 23px;
+      }
+
+      .post-content {
+        font-size: 17px;
+      }
+
+      .category-badge {
+        font-size: 11px;
+        padding: 7px 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- AUTH PAGE -->
+    <section id="authPage" class="auth-page">
+      <div class="auth-card">
+
+        <div class="logo">
+          Hear<span>Me</span> 💙
+        </div>
+
+        <p class="auth-subtitle">
+          A safe place to share, listen, and support each other.
+        </p>
+
+        <div class="auth-tabs">
+          <button id="loginTab" class="auth-tab active" type="button">
+            Log In
+          </button>
+
+          <button id="signupTab" class="auth-tab" type="button">
+            Sign Up
+          </button>
+        </div>
+
+        <form id="authForm">
+
+          <div id="usernameField" class="field hidden">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              maxlength="30"
+              placeholder="Choose a username"
+            >
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              minlength="6"
+              placeholder="At least 6 characters"
+              required
+            >
+          </div>
+
+          <button id="authButton" class="primary-btn" type="submit">
+            Log In
+          </button>
+
+          <div id="authMessage" class="message"></div>
+
+        </form>
+      </div>
+    </section>
+
+
+    <!-- COMMUNITY -->
+    <section id="communityPage" class="hidden">
+
+      <header class="header">
+        <div class="header-inner">
+
+          <div class="brand">
+            Hear<span>Me</span> 💙
+          </div>
+
+          <button id="logoutButton" class="logout-btn" type="button">
+            Log out
+          </button>
+
+        </div>
+      </header>
+
+
+      <main class="main">
+
+        <div class="hero">
+          <h1>Welcome to HearMe 💙</h1>
+
+          <p>
+            Read stories, support people, and leave a kind comment.
+          </p>
+        </div>
+
+
+        <!-- CREATE POST -->
+
+        <div class="create-card">
+
+          <h2>Share something</h2>
+
+          <input
+            id="postTitle"
+            class="create-input"
+            type="text"
+            maxlength="150"
+            placeholder="Title"
+          >
+
+          <textarea
+            id="postContent"
+            class="create-input create-textarea"
+            maxlength="3000"
+            placeholder="What's on your mind?"
+          ></textarea>
+
+          <div class="create-row">
+
+            <select id="postCategory" class="create-input">
+              <option value="Emotional Support">Emotional Support</option>
+              <option value="School">School</option>
+              <option value="Family">Family</option>
+              <option value="Friendship">Friendship</option>
+              <option value="Relationships">Relationships</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label class="anonymous-label">
+              <input id="anonymousPost" type="checkbox" checked>
+              Anonymous
+            </label>
+
+            <button id="createPostButton" class="post-btn" type="button">
+              Post
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="Search posts..."
+          >
+
+          <select id="categoryFilter" class="category-select">
+            <option value="">All categories</option>
+            <option value="Emotional Support">Emotional Support</option>
+            <option value="School">School</option>
+            <option value="Family">Family</option>
+            <option value="Friendship">Friendship</option>
+            <option value="Relationships">Relationships</option>
+            <option value="Other">Other</option>
+          </select>
+
+        </div>
+
+
+        <div id="postsContainer" class="posts-list">
+          <div class="loading">
+            Loading community...
+          </div>
+        </div>
+
+      </main>
+
+    </section>
+
+
+    <!-- COMMENTS MODAL -->
+
+    <div id="commentsModal" class="modal-overlay hidden">
+
+      <div class="modal">
+
+        <div class="modal-header">
+          <h3>Comments 💬</h3>
+
+          <button
+            id="closeCommentsButton"
+            class="close-btn"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+
+        <div id="commentsList"></div>
+
+        <form id="commentForm" class="comment-form">
+
+          <input
+            id="commentInput"
+            type="text"
+            maxlength="1000"
+            placeholder="Write a kind comment..."
+            required
+          >
+
+          <button type="submit">
+            Send
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+
+    <!-- REPORT MODAL -->
+
+    <div id="reportModal" class="modal-overlay hidden">
+
+      <div class="modal">
+
+        <div class="modal-header">
+          <h3>Report post</h3>
+
+          <button
+            id="closeReportButton"
+            class="close-btn"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="reportForm">
+
+          <div class="field">
+            <label for="reportReason">
+              Why are you reporting this post?
+            </label>
+
+            <select id="reportReason" required>
+              <option value="">
+                Select a reason
+              </option>
+
+              <option value="Spam">
+                Spam
+              </option>
+
+              <option value="Harassment">
+                Harassment
+              </option>
+
+              <option value="Harmful content">
+                Harmful content
+              </option>
+
+              <option value="Inappropriate content">
+                Inappropriate content
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+            </select>
+          </div>
+
+          <button class="primary-btn" type="submit">
+            Submit report
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+
+    <!-- EDIT MODAL -->
+
+    <div id="editModal" class="modal-overlay hidden">
+
+      <div class="modal">
+
+        <div class="modal-header">
+          <h3>Edit your post</h3>
+
+          <button
+            id="closeEditButton"
+            class="close-btn"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="editForm">
+
+          <div class="field">
+            <label for="editTitle">
+              Title
+            </label>
+
+            <input
+              id="editTitle"
+              type="text"
+              maxlength="150"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="editContent">
+              Content
+            </label>
+
+            <textarea
+              id="editContent"
+              maxlength="3000"
+              required
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="editCategory">
+              Category
+            </label>
+
+            <select id="editCategory">
+              <option value="Emotional Support">Emotional Support</option>
+              <option value="School">School</option>
+              <option value="Family">Family</option>
+              <option value="Friendship">Friendship</option>
+              <option value="Relationships">Relationships</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <button class="primary-btn" type="submit">
+            Save changes
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+
+    <div id="toast" class="toast hidden"></div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================================================
+       SUPABASE
+    ========================================================= */
+
+    const SUPABASE_URL =
+      "https://gtclqrxylsyvqtjipatl.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_C2gfC41ug5BwjaPAHk9eog_zqnDOAw0";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    /* =========================================================
+       STATE
+    ========================================================= */
+
+    let currentUser = null;
+
+    let currentCommentsPostId = null;
+
+    let currentReportPostId = null;
+
+    let currentEditPostId = null;
+
+    let allPosts = [];
+
+
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
+    const authPage =
+      document.getElementById("authPage");
+
+    const communityPage =
+      document.getElementById("communityPage");
+
+    const loginTab =
+      document.getElementById("loginTab");
+
+    const signupTab =
+      document.getElementById("signupTab");
+
+    const authForm =
+      document.getElementById("authForm");
+
+    const authButton =
+      document.getElementById("authButton");
+
+    const authMessage =
+      document.getElementById("authMessage");
+
+    const usernameField =
+      document.getElementById("usernameField");
+
+    const usernameInput =
+      document.getElementById("username");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const passwordInput =
+      document.getElementById("password");
+
+    const logoutButton =
+      document.getElementById("logoutButton");
+
+    const postTitle =
+      document.getElementById("postTitle");
+
+    const postContent =
+      document.getElementById("postContent");
+
+    const postCategory =
+      document.getElementById("postCategory");
+
+    const anonymousPost =
+      document.getElementById("anonymousPost");
+
+    const createPostButton =
+      document.getElementById("createPostButton");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const categoryFilter =
+      document.getElementById("categoryFilter");
+
+    const postsContainer =
+      document.getElementById("postsContainer");
+
+    const commentsModal =
+      document.getElementById("commentsModal");
+
+    const closeCommentsButton =
+      document.getElementById("closeCommentsButton");
+
+    const commentsList =
+      document.getElementById("commentsList");
+
+    const commentForm =
+      document.getElementById("commentForm");
+
+    const commentInput =
+      document.getElementById("commentInput");
+
+    const reportModal =
+      document.getElementById("reportModal");
+
+    const closeReportButton =
+      document.getElementById("closeReportButton");
+
+    const reportForm =
+      document.getElementById("reportForm");
+
+    const reportReason =
+      document.getElementById("reportReason");
+
+    const editModal =
+      document.getElementById("editModal");
+
+    const closeEditButton =
+      document.getElementById("closeEditButton");
+
+    const editForm =
+      document.getElementById("editForm");
+
+    const editTitle =
+      document.getElementById("editTitle");
+
+    const editContent =
+      document.getElementById("editContent");
+
+    const editCategory =
+      document.getElementById("editCategory");
+
+    const toast =
+      document.getElementById("toast");
+
+
+    /* =========================================================
+       AUTH MODE
+    ========================================================= */
+
+    let authMode = "login";
+
+
+    loginTab.addEventListener("click", () => {
+
+      authMode = "login";
+
+      loginTab.classList.add("active");
+
+      signupTab.classList.remove("active");
+
+      usernameField.classList.add("hidden");
+
+      authButton.textContent = "Log In";
+
+      authMessage.textContent = "";
+
+    });
+
+
+    signupTab.addEventListener("click", () => {
+
+      authMode = "signup";
+
+      signupTab.classList.add("active");
+
+      loginTab.classList.remove("active");
+
+      usernameField.classList.remove("hidden");
+
+      authButton.textContent = "Sign Up";
+
+      authMessage.textContent = "";
+
+    });
+
+
+    /* =========================================================
+       AUTH
+    ========================================================= */
+
+    authForm.addEventListener("submit", async (event) => {
+
+      event.preventDefault();
+
+      authMessage.textContent = "";
+
+      authMessage.className = "message";
+
+      const email =
+        emailInput.value.trim();
+
+      const password =
+        passwordInput.value;
+
+      if (!email || !password) {
+
+        showAuthMessage(
+          "Please enter your email and password.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      authButton.disabled = true;
+
+      authButton.textContent =
+        authMode === "login"
+          ? "Logging in..."
+          : "Creating account...";
+
+
+      try {
+
+        if (authMode === "login") {
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth.signInWithPassword({
+              email,
+              password
+            });
+
+
+          if (error) {
+            throw error;
+          }
+
+          currentUser = data.user;
+
+          await ensureProfile();
+
+          showCommunity();
+
+        } else {
+
+          const username =
+            usernameInput.value.trim();
+
+          if (!username) {
+
+            throw new Error(
+              "Please choose a username."
+            );
+          }
+
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth.signUp({
+              email,
+              password
+            });
+
+
+          if (error) {
+            throw error;
+          }
+
+
+          if (data.user) {
+
+            currentUser = data.user;
+
+            const {
+              error: profileError
+            } =
+              await supabaseClient
+                .from("profiles")
+                .upsert({
+                  id: data.user.id,
+                  username: username
+                });
+
+            if (profileError) {
+              throw profileError;
+            }
+          }
+
+
+          if (data.session) {
+
+            showCommunity();
+
+          } else {
+
+            showAuthMessage(
+              "Account created. Check your email to confirm your account, then log in.",
+              "success"
+            );
+
+            authMode = "login";
+
+            loginTab.click();
+          }
+        }
+
+      } catch (error) {
+
+        console.error(error);
+
+        showAuthMessage(
+          friendlyError(error),
+          "error"
+        );
+
+      } finally {
+
+        authButton.disabled = false;
+
+        authButton.textContent =
+          authMode === "login"
+            ? "Log In"
+            : "Sign Up";
+      }
+
+    });
+
+
+    async function ensureProfile() {
+
+      if (!currentUser) {
+        return;
+      }
+
+
+      const {
+        data: existing
+      } =
+        await supabaseClient
+          .from("profiles")
+          .select("id, username")
+          .eq("id", currentUser.id)
+          .maybeSingle();
+
+
+      if (!existing) {
+
+        const fallback =
+          "user_" +
+          currentUser.id
+            .slice(0, 8);
+
+
+        await supabaseClient
+          .from("profiles")
+          .upsert({
+            id: currentUser.id,
+            username: fallback
+          });
+      }
+    }
+
+
+    async function logout() {
+
+      await supabaseClient.auth.signOut();
+
+      currentUser = null;
+
+      communityPage.classList.add("hidden");
+
+      authPage.classList.remove("hidden");
+
+    }
+
+
+    logoutButton.addEventListener(
+      "click",
+      logout
+    );
+
+
+    supabaseClient.auth.onAuthStateChange(
+      async (_event, session) => {
+
+        currentUser =
+          session?.user || null;
+
+
+        if (currentUser) {
+
+          await ensureProfile();
+
+          showCommunity();
+
+        } else {
+
+          authPage.classList.remove("hidden");
+
+          communityPage.classList.add("hidden");
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       COMMUNITY
+    ========================================================= */
+
+    function showCommunity() {
+
+      authPage.classList.add("hidden");
+
+      communityPage.classList.remove("hidden");
+
+      loadPosts();
+
+    }
+
+
+    async function loadPosts() {
+
+      postsContainer.innerHTML =
+        '<div class="loading">Loading community...</div>';
+
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+          .from("posts")
+          .select("*")
+          .order("created_at", {
+            ascending: false
+          });
+
+
+      if (error) {
+
+        console.error(error);
+
+        postsContainer.innerHTML =
+          `
+          <div class="empty">
+            <strong>We couldn't load the community.</strong>
+            <br><br>
+            ${escapeHtml(friendlyError(error))}
+            <br><br>
+            <button
+              class="action-btn"
+              type="button"
+              onclick="loadPosts()"
+            >
+              Try again
+            </button>
+          </div>
+          `;
+
+        return;
+      }
+
+
+      allPosts = data || [];
+
+      renderPosts();
+    }
+
+
+    /* =========================================================
+       RENDER POSTS
+    ========================================================= */
+
+    function renderPosts() {
+
+      const search =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+      const category =
+        categoryFilter.value;
+
+
+      const filtered =
+        allPosts.filter(post => {
+
+          const matchesSearch =
+            !search ||
+            (post.title || "")
+              .toLowerCase()
+              .includes(search) ||
+            (post.content || "")
+              .toLowerCase()
+              .includes(search);
+
+
+          const matchesCategory =
+            !category ||
+            post.category === category;
+
+
+          return (
+            matchesSearch &&
+            matchesCategory
+          );
+
+        });
+
+
+      if (!filtered.length) {
+
+        postsContainer.innerHTML =
+          `
+          <div class="empty">
+            No posts found 💙
+          </div>
+          `;
+
+        return;
+      }
+
+
+      postsContainer.innerHTML =
+        filtered
+          .map(post => createPostHTML(post))
+          .join("");
+
+
+      loadReactionCounts();
+    }
+
+
+    function createPostHTML(post) {
+
+      const isOwner =
+        currentUser &&
+        post.user_id === currentUser.id;
+
+
+      const displayName =
+        post.is_anonymous
+          ? "Anonymous"
+          : "Community member";
+
+
+      const avatar =
+        post.is_anonymous
+          ? "A"
+          : "U";
+
+
+      const date =
+        formatDate(post.created_at);
+
+
+      return `
+        <article
+          class="post-card"
+          data-post-id="${post.id}"
+        >
+
+          <div class="post-top">
+
+            <div class="avatar">
+              ${avatar}
+            </div>
+
+            <div class="post-user">
+
+              <strong>
+                ${escapeHtml(displayName)}
+              </strong>
+
+              <div class="post-date">
+                ${escapeHtml(date)}
+              </div>
+
+            </div>
+
+            <div class="category-badge">
+              ${escapeHtml(post.category || "Other")}
+            </div>
+
+          </div>
+
+
+          <h2 class="post-title">
+            ${escapeHtml(post.title || "Untitled")}
+          </h2>
+
+
+          <div class="post-content">
+            ${escapeHtml(post.content || "")}
+          </div>
+
+
+          <div class="post-actions">
+
+            <button
+              class="action-btn support-button"
+              type="button"
+              data-action="support"
+              data-id="${post.id}"
+            >
+              ♡ Support <span id="support-count-${post.id}">0</span>
+            </button>
+
+
+            <button
+              class="action-btn"
+              type="button"
+              data-action="comments"
+              data-id="${post.id}"
+            >
+              💬 Comments
+            </button>
+
+
+            <button
+              class="action-btn"
+              type="button"
+              data-action="report"
+              data-id="${post.id}"
+            >
+              ⚑ Report
+            </button>
+
+          </div>
+
+
+          ${
+            isOwner
+              ? `
+                <div class="owner-actions">
+
+                  <button
+                    class="action-btn"
+                    type="button"
+                    data-action="edit"
+                    data-id="${post.id}"
+                  >
+                    ✏️ Edit
+                  </button>
+
+                  <button
+                    class="action-btn danger"
+                    type="button"
+                    data-action="delete"
+                    data-id="${post.id}"
+                  >
+                    🗑 Delete
+                  </button>
+
+                </div>
+              `
+              : ""
+          }
+
+        </article>
+      `;
+    }
+
+
+    postsContainer.addEventListener(
+      "click",
+      async (event) => {
+
+        const button =
+          event.target.closest(
+            "button[data-action]"
+          );
+
+
+        if (!button) {
+          return;
+        }
+
+
+        const action =
+          button.dataset.action;
+
+        const postId =
+          button.dataset.id;
+
+
+        if (action === "support") {
+
+          await toggleSupport(postId);
+
+        }
+
+
+        if (action === "comments") {
+
+          await openComments(postId);
+
+        }
+
+
+        if (action === "report") {
+
+          openReport(postId);
+
+        }
+
+
+        if (action === "edit") {
+
+          openEdit(postId);
+
+        }
+
+
+        if (action === "delete") {
+
+          await deletePost(postId);
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       CREATE POST
+    ========================================================= */
+
+    createPostButton.addEventListener(
+      "click",
+      async () => {
+
+        if (!currentUser) {
+
+          showToast(
+            "Please log in first."
+          );
+
+          return;
+        }
+
+
+        const title =
+          postTitle.value.trim();
+
+        const content =
+          postContent.value.trim();
+
+        const category =
+          postCategory.value;
+
+        const isAnonymous =
+          anonymousPost.checked;
+
+
+        if (!title || !content) {
+
+          showToast(
+            "Please add a title and some content."
+          );
+
+          return;
+        }
+
+
+        createPostButton.disabled = true;
+
+        createPostButton.textContent =
+          "Posting...";
+
+
+        const {
+          error
+        } =
+          await supabaseClient
+            .from("posts")
+            .insert({
+              user_id: currentUser.id,
+              category,
+              title,
+              content,
+              is_anonymous: isAnonymous
+            });
+
+
+        createPostButton.disabled = false;
+
+        createPostButton.textContent =
+          "Post";
+
+
+        if (error) {
+
+          console.error(error);
+
+          showToast(
+            friendlyError(error)
+          );
+
+          return;
+        }
+
+
+        postTitle.value = "";
+
+        postContent.value = "";
+
+        anonymousPost.checked = true;
+
+        showToast(
+          "Your post was shared 💙"
+        );
+
+        await loadPosts();
+
+      }
+    );
+
+
+    /* =========================================================
+       SUPPORT / REACTION
+    ========================================================= */
+
+    async function toggleSupport(postId) {
+
+      if (!currentUser) {
+        return;
+      }
+
+
+      const {
+        data: existing,
+        error: findError
+      } =
+        await supabaseClient
+          .from("reactions")
+          .select("id")
+          .eq("post_id", postId)
+          .eq("user_id", currentUser.id)
+          .eq("type", "support")
+          .maybeSingle();
+
+
+      if (findError) {
+
+        showToast(
+          friendlyError(findError)
+        );
+
+        return;
+      }
+
+
+      if (existing) {
+
+        const {
+          error
+        } =
+          await supabaseClient
+            .from("reactions")
+            .delete()
+            .eq("id", existing.id);
+
+
+        if (error) {
+
+          showToast(
+            friendlyError(error)
+          );
+
+          return;
+        }
+
+      } else {
+
+        const {
+          error
+        } =
+          await supabaseClient
+            .from("reactions")
+            .insert({
+              post_id: postId,
+              user_id: currentUser.id,
+              type: "support"
+            });
+
+
+        if (error) {
+
+          showToast(
+            friendlyError(error)
+          );
+
+          return;
+        }
+      }
+
+
+      await updateReactionCount(
+        postId
+      );
+
+    }
+
+
+    async function updateReactionCount(postId) {
+
+      const {
+        count,
+        error
+      } =
+        await supabaseClient
+          .from("reactions")
+          .select("*", {
+            count: "exact",
+            head: true
+          })
+          .eq("post_id", postId)
+          .eq("type", "support");
+
+
+      if (error) {
+        return;
+      }
+
+
+      const countElement =
+        document.getElementById(
+          `support-count-${postId}`
+        );
+
+
+      if (countElement) {
+
+        countElement.textContent =
+          count || 0;
+
+      }
+
+
+      const button =
+        document.querySelector(
+          `[data-action="support"][data-id="${postId}"]`
+        );
+
+
+      if (button && currentUser) {
+
+        const {
+          data
+        } =
+          await supabaseClient
+            .from("reactions")
+            .select("id")
+            .eq("post_id", postId)
+            .eq("user_id", currentUser.id)
+            .eq("type", "support")
+            .maybeSingle();
+
+
+        if (data) {
+
+          button.classList.add(
+            "supported"
+          );
+
+        } else {
+
+          button.classList.remove(
+            "supported"
+          );
+
+        }
+      }
+    }
+
+
+    async function loadReactionCounts() {
+
+      for (const post of allPosts) {
+
+        await updateReactionCount(
+          post.id
+        );
+
+      }
+    }
+
+
+    /* =========================================================
+       COMMENTS
+    ========================================================= */
+
+    async function openComments(postId) {
+
+      currentCommentsPostId =
+        postId;
+
+      commentsModal.classList.remove(
+        "hidden"
+      );
+
+      commentsList.innerHTML =
+        '<div class="loading">Loading comments...</div>';
+
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+          .from("comments")
+          .select("*")
+          .eq("post_id", postId)
+          .order("created_at", {
+            ascending: true
+          });
+
+
+      if (error) {
+
+        commentsList.innerHTML =
+          `
+          <div class="empty">
+            ${escapeHtml(friendlyError(error))}
+          </div>
+          `;
+
+        return;
+      }
+
+
+      if (!data || !data.length) {
+
+        commentsList.innerHTML =
+          `
+          <div class="empty">
+            No comments yet. Be the first to say something kind 💙
+          </div>
+          `;
+
+        return;
+      }
+
+
+      commentsList.innerHTML =
+        data
+          .map(comment => {
+
+            const name =
+              comment.user_id === currentUser?.id
+                ? "You"
+                : "Anonymous";
+
+
+            return `
+              <div class="comment">
+
+                <strong>
+                  ${escapeHtml(name)}
+                </strong>
+
+                <p>
+                  ${escapeHtml(comment.content || "")}
+                </p>
+
+                <div class="comment-date">
+                  ${escapeHtml(
+                    formatDate(comment.created_at)
+                  )}
+                </div>
+
+              </div>
+            `;
+
+          })
+          .join("");
+
+    }
+
+
+    closeCommentsButton.addEventListener(
+      "click",
+      () => {
+
+        commentsModal.classList.add(
+          "hidden"
+        );
+
+      }
+    );
+
+
+    commentsModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          commentsModal
+        ) {
+
+          commentsModal.classList.add(
+            "hidden"
+          );
+
+        }
+
+      }
+    );
+
+
+    commentForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        if (!currentUser) {
+          return;
+        }
+
+
+        const content =
+          commentInput.value.trim();
+
+
+        if (!content) {
+          return;
+        }
+
+
+        const {
+          error
+        } =
+          await supabaseClient
+            .from("comments")
+            .insert({
+              post_id:
+                currentCommentsPostId,
+
+              user_id:
+                currentUser.id,
+
+              content
+            });
+
+
+        if (error) {
+
+          showToast(
+            friendlyError(error)
+          );
+
+          return;
+        }
+
+
+        commentInput.value = "";
+
+        await openComments(
+          currentCommentsPostId
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       REPORT
+    ========================================================= */
+
+    function openReport(postId) {
+
+      currentReportPostId =
+        postId;
+
+      reportReason.value = "";
+
+      reportModal.classList.remove(
+        "hidden"
+      );
+
+    }
+
+
+    closeReportButton.addEventListener(
+      "click",
+      () => {
+
+        reportModal.classList.add(
+          "hidden"
+        );
+
+      }
+    );
+
+
+    reportModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          reportModal
+        ) {
+
+          reportModal.classList.add(
+            "hidden"
+          );
+
+        }
+
+      }
+    );
+
+
+    reportForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        if (!currentUser) {
+          return;
+        }
+
+
+        const reason =
+          reportReason.value;
+
+
+        if (!reason) {
+          return;
+        }
+
+
+        const {
+          error
+        } =
+          await supabaseClient
+            .from("reports")
+            .insert({
+              post_id:
+                currentReportPostId,
+
+              reporter_id:
+                currentUser.id,
+
+              reason
+            });
+
+
+        if (error) {
+
+          showToast(
+            friendlyError(error)
+          );
+
+          return;
+        }
+
+
+        reportModal.classList.add(
+          "hidden"
+        );
+
+
+        showToast(
+          "Report submitted. Thank you."
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       EDIT
+    ========================================================= */
+
+    function openEdit(postId) {
+
+      const post =
+        allPosts.find(
+          item => item.id === postId
+        );
+
+
+      if (!post) {
+        return;
+      }
+
+
+      if (
+        !currentUser ||
+        post.user_id !== currentUser.id
+      ) {
+
+        showToast(
+          "You can only edit your own posts."
+        );
+
+        return;
+      }
+
+
+      currentEditPostId =
+        postId;
+
+      editTitle.value =
+        post.title || "";
+
+      editContent.value =
+        post.content || "";
+
+      editCategory.value =
+        post.category || "Other";
+
+
+      editModal.classList.remove(
+        "hidden"
+      );
+
+    }
+
+
+    closeEditButton.addEventListener(
+      "click",
+      () => {
+
+        editModal.classList.add(
+          "hidden"
+        );
+
+      }
+    );
+
+
+    editModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          editModal
+        ) {
+
+          editModal.classList.add(
+            "hidden"
+          );
+
+        }
+
+      }
+    );
+
+
+    editForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        if (!currentUser ||
+            !currentEditPostId) {
+          return;
+        }
+
+
+        const title =
+          editTitle.value.trim();
+
+        const content =
+          editContent.value.trim();
+
+        const category =
+          editCategory.value;
+
+
+        if (!title || !content) {
+
+          showToast(
+            "Title and content are required."
+          );
+
+          return;
+        }
+
+
+        const {
+          error
+        } =
+          await supabaseClient
+            .from("posts")
+            .update({
+              title,
+              content,
+              category
+            })
+            .eq("id", currentEditPostId)
+            .eq("user_id", currentUser.id);
+
+
+        if (error) {
+
+          showToast(
+            friendlyError(error)
+          );
+
+          return;
+        }
+
+
+        editModal.classList.add(
+          "hidden"
+        );
+
+
+        showToast(
+          "Post updated 💙"
+        );
+
+
+        await loadPosts();
+
+      }
+    );
+
+
+    /* =========================================================
+       DELETE
+    ========================================================= */
+
+    async function deletePost(postId) {
+
+      if (!currentUser) {
+        return;
+      }
+
+
+      const post =
+        allPosts.find(
+          item => item.id === postId
+        );
+
+
+      if (!post) {
+        return;
+      }
+
+
+      if (
+        post.user_id !==
+        currentUser.id
+      ) {
+
+        showToast(
+          "You can only delete your own posts."
+        );
+
+        return;
+      }
+
+
+      const confirmed =
+        confirm(
+          "Are you sure you want to delete this post?"
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      const {
+        error
+      } =
+        await supabaseClient
+          .from("posts")
+          .delete()
+          .eq("id", postId)
+          .eq("user_id", currentUser.id);
+
+
+      if (error) {
+
+        showToast(
+          friendlyError(error)
+        );
+
+        return;
+      }
+
+
+      showToast(
+        "Post deleted."
+      );
+
+
+      await loadPosts();
+
+    }
+
+
+    /* =========================================================
+       SEARCH / FILTER
+    ========================================================= */
+
+    searchInput.addEventListener(
+      "input",
+      renderPosts
+    );
+
+
+    categoryFilter.addEventListener(
+      "change",
+      renderPosts
+    );
+
+
+    /* =========================================================
+       HELPERS
+    ========================================================= */
+
+    function showAuthMessage(
+      text,
+      type
+    ) {
+
+      authMessage.textContent =
+        text;
+
+      authMessage.className =
+        "message " + type;
+
+    }
+
+
+    function showToast(text) {
+
+      toast.textContent =
+        text;
+
+      toast.classList.remove(
+        "hidden"
+      );
+
+
+      setTimeout(() => {
+
+        toast.classList.add(
+          "hidden"
+        );
+
+      }, 3500);
+
+    }
+
+
+    function formatDate(value) {
+
+      if (!value) {
+        return "";
+      }
+
+
+      const date =
+        new Date(value);
+
+
+      return date.toLocaleString(
+        undefined,
+        {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        }
+      );
+
+    }
+
+
+    function escapeHtml(value) {
+
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    function friendlyError(error) {
+
+      if (!error) {
+        return "Something went wrong.";
+      }
+
+
+      const message =
+        error.message ||
+        String(error);
+
+
+      if (
+        message
+          .toLowerCase()
+          .includes("invalid api key")
+      ) {
+
+        return "Invalid API key. Please check the Supabase publishable key.";
+
+      }
+
+
+      if (
+        message
+          .toLowerCase()
+          .includes("permission")
+      ) {
+
+        return "You don't have permission to perform this action.";
+
+      }
+
+
+      if (
+        message
+          .toLowerCase()
+          .includes("row-level security")
+      ) {
+
+        return "This action is blocked by Supabase Row Level Security.";
+
+      }
+
+
+      return message;
+
+    }
+
+
+    /* =========================================================
+       INITIAL SESSION CHECK
+    ========================================================= */
+
+    async function initialize() {
+
+      try {
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient.auth.getSession();
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        if (data.session) {
+
+          currentUser =
+            data.session.user;
+
+          await ensureProfile();
+
+          showCommunity();
+
+        } else {
+
+          authPage.classList.remove(
+            "hidden"
+          );
+
+          communityPage.classList.add(
+            "hidden"
+          );
+
+        }
+
+      } catch (error) {
+
+        console.error(error);
+
+        authPage.classList.remove(
+          "hidden"
+        );
+
+        communityPage.classList.add(
+          "hidden"
+        );
+
+        showAuthMessage(
+          friendlyError(error),
+          "error"
+        );
+
+      }
+
+    }
+
+
+    initialize();
+
+  </script>
+
+</body>
+</html>
